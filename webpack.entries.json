@@ -1,0 +1,5 @@
+{
+  "digital-terrain-mc-js": {
+    "dependencies": ["./patient-kiosk-js/lib/registration.js"]
+  }
+}
