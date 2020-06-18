@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DigitalTerrainWebApp should render a default view 1`] = `
+<div
+  class="digital-terrain-web-app"
+>
+  <header
+    class="digital-terrain-web-app-header"
+  >
+    <img
+      alt="logo"
+      class="digital-terrain-web-app-logo"
+      src="test-file-stub"
+    />
+    <p>
+      Edit 
+      <code>
+        src/components/DigitalTerrainWebbApp.jsx
+      </code>
+       and save to reload yo.
+    </p>
+    <a
+      class="digital-terrain-web-app-link"
+      href="https://reactjs.org"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      Learn React
+    </a>
+  </header>
+</div>
+`;

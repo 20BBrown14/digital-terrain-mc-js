@@ -1,7 +1,9 @@
 module.exports = {
     "env": {
         "browser": true,
-        "es2020": true
+        "es2020": true,
+        "jasmine": true,
+        "jest": true
     },
     "extends": [
         "plugin:react/recommended",
@@ -18,5 +20,10 @@ module.exports = {
         "react"
     ],
     "rules": {
+    },
+    "globals": {
+        "render": "readonly",
+        "mount": "readonly",
+        "shallow": "readonly"
     }
 };

@@ -44,6 +44,19 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 Runs `npm run lint:js && npm run lint:css` which lints all files in the projects.
 
+### `npm run test`
+Runs entire test suite. See testing section for more information
+
+### `npm run test:updateSnapshots`
+Updates jest snapshots. Only use this *after* you've ensured that the updates that will be made are actually needed and intended
+
+## Testing
+This project should be unit tested. To run tests run `npm run test` which will run all tests using Jest in the `/tests/` directory. 
+
+This project is using Jest for the testing Framework, and enzyme for the react rendering framework. [jestconfig.json](jestconfig.json) and [jestsetup.js](jestsetup.js) is where config and setup are handled for jest.
+
+To view coverage after running tests open `tests/jest/reports/coverage/index.html` in a browser. At the very least try to keep coverage > 80%
+
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change. 
 Ensure tests are updated and passing. Ensure you introduced no new linting errors or warnings without reason.
