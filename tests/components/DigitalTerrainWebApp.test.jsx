@@ -8,4 +8,12 @@ describe('DigitalTerrainWebApp', () => {
     );
     expect(testApp).toMatchSnapshot();
   });
+
+  it('has a web container', () => {
+    const testApp = shallow(
+      <DigitalTerrainWebApp />,
+    );
+    const container = testApp.find('.digital-terrain-web-app');
+    expect(container).toHaveLength(1);
+  });
 });
