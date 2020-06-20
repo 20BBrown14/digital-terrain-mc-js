@@ -1,4 +1,5 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const path = require('path');
 
 module.exports = {
   resolve: {
@@ -15,8 +16,19 @@ module.exports = {
       },
       {
         test: /\.css$/i,
-        exclude: /node_modules/,
+        include: [
+          path.resolve(__dirname, 'src'),
+          path.resolve(__dirname, 'node_modules/antd'),
+        ],
         use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.less$/,
+        include: [
+          path.resolve(__dirname, 'src'),
+          path.resolve(__dirname, 'node_modules/antd'),
+        ],
+        use: ['css-loader', 'less-loader'],
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif|ico)$/,
@@ -39,7 +51,7 @@ module.exports = {
     new HtmlWebPackPlugin({
       template: './public/index.html',
       filename: './index.html',
-      favicon: './public/favicon.ico',
+      favicon: './public/bee.ico',
     }),
   ],
 };
