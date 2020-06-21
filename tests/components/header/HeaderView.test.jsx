@@ -16,6 +16,6 @@ describe('HeaderView', () => {
     const menu = view.find('Menu');
     const menuItems = view.find('MenuItem');
     expect(menu).toHaveLength(1);
-    expect(menuItems).toHaveLength(8);
+    expect(menuItems).toHaveLength(9);
   });
 });
