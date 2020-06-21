@@ -16,7 +16,7 @@ function HeaderView() {
         <Menu.Item key="Map">Map</Menu.Item>
         <Menu.Item key="Rules">Rules</Menu.Item>
         <Menu.Item key="Apply">Apply</Menu.Item>
-        <Menu.Item key="About">About</Menu.Item>
+        <Menu.Item key="About">About us</Menu.Item>
       </Menu>
     </div>
   );

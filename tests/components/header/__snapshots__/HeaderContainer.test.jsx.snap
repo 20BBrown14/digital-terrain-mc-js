@@ -210,7 +210,7 @@ exports[`HeaderContainer renders a default view 1`] = `
       class="ant-menu-item ant-menu-item-only-child"
       role="menuitem"
     >
-      About
+      About us
     </li>
     <li
       class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
