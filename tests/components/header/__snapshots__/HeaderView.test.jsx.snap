@@ -57,7 +57,7 @@ exports[`HeaderView renders a default view 1`] = `
       </div>
     </li>
     <li
-      class="ant-menu-item header-title ant-menu-item-only-child"
+      class="ant-menu-item header-title header-non-highlighted-menu-item ant-menu-item-only-child"
       role="menuitem"
     >
       Digital Terrain
@@ -82,7 +82,7 @@ exports[`HeaderView renders a default view 1`] = `
       </div>
     </li>
     <li
-      class="ant-menu-item ant-menu-item-only-child"
+      class="ant-menu-item ant-menu-item-only-child ant-menu-item-selected"
       role="menuitem"
     >
       Home

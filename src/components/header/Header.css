@@ -18,3 +18,13 @@
   font-size: 150%;
   float: left;
 }
+
+.header-non-highlighted-menu-item.ant-menu-item {
+  border-bottom: 2px solid transparent;
+  color: inherit;
+}
+
+.header-non-highlighted-menu-item.ant-menu-item:hover {
+  border-bottom: 2px solid transparent;
+  color: inherit;
+}
