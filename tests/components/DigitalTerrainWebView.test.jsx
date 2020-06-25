@@ -4,11 +4,23 @@ import DigitalTerrainWebView from '../../src/components/DigitalTerrainWebView';
 describe('DigitalTerrainWebView', () => {
   let view;
   beforeEach(() => {
-    view = shallow(<DigitalTerrainWebView selectedNavKey="home" handleNavMenuClick={() => {}} />);
+    view = shallow(
+      <DigitalTerrainWebView
+        selectedNavKey="home"
+        handleNavMenuClick={() => {}}
+        navigateToNewPage={() => {}}
+      />,
+    );
   });
 
   it('renders a default view', () => {
-    view = render(<DigitalTerrainWebView selectedNavKey="home" handleNavMenuClick={() => {}} />);
+    view = render(
+      <DigitalTerrainWebView
+        selectedNavKey="home"
+        handleNavMenuClick={() => {}}
+        navigateToNewPage={() => {}}
+      />,
+    );
     expect(view).toMatchSnapshot();
   });
 
@@ -31,7 +43,13 @@ describe('DigitalTerrainWebView', () => {
 
     it('has different content based on nav key', () => {
       const shallowRenderComponent = (navKey) => (
-        shallow(<DigitalTerrainWebView selectedNavKey={navKey} handleNavMenuClick={() => {}} />)
+        shallow(
+          <DigitalTerrainWebView
+            selectedNavKey={navKey}
+            handleNavMenuClick={() => {}}
+            navigateToNewPage={() => {}}
+          />,
+        )
       );
       expect(view.find('HomeContainer')).toHaveLength(1); // default case
       expect(shallowRenderComponent('gallery').find('GalleryContainer')).toHaveLength(1);

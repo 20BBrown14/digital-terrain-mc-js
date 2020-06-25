@@ -1,14 +1,18 @@
 import React from 'react';
+import {
+  NK_HOME,
+  NK_MAP,
+} from '../../src/constants/navKeys';
 import DigitalTerrainWebContainer from '../../src/components/DigitalTerrainWebContainer';
 
 describe('DigitalTerrainWebContainer', () => {
   let container;
   beforeEach(() => {
-    container = shallow(<DigitalTerrainWebContainer selectedNavKey="home" />);
+    container = shallow(<DigitalTerrainWebContainer selectedNavKey={NK_HOME} />);
   });
 
   it('renders a default component', () => {
-    container = render(<DigitalTerrainWebContainer selectedNavKey="home" />);
+    container = render(<DigitalTerrainWebContainer selectedNavKey={NK_HOME} />);
     expect(container).toMatchSnapshot();
   });
 
@@ -18,7 +22,7 @@ describe('DigitalTerrainWebContainer', () => {
   });
 
   it('sets default state', () => {
-    expect(container.instance().state.selectedNavKey).toEqual('home');
+    expect(container.instance().state.selectedNavKey).toEqual(NK_HOME);
   });
 
   describe('handleNavMenuClick', () => {
@@ -26,10 +30,29 @@ describe('DigitalTerrainWebContainer', () => {
     beforeEach(() => {
       instance = container.instance();
     });
-    it('sets selectedNavKey to pass key', () => {
-      expect(instance.state.selectedNavKey).toEqual('home');
-      instance.handleNavMenuClick({ key: 'map' });
-      expect(instance.state.selectedNavKey).toEqual('map');
+    it('calls navigation function', () => {
+      instance.navigateToNewPage = jest.fn();
+      instance.handleNavMenuClick(NK_MAP);
+      expect(instance.navigateToNewPage).toHaveBeenCalledTimes(1);
+      expect(instance.navigateToNewPage).toHaveBeenCalledWith(NK_MAP);
+    });
+  });
+
+  describe('navigateToNewPage', () => {
+    let instance;
+    beforeEach(() => {
+      instance = container.instance();
+    });
+    it('sets selectedNavKey to passed key', () => {
+      expect(instance.state.selectedNavKey).toEqual(NK_HOME);
+      instance.navigateToNewPage(NK_MAP);
+      expect(instance.state.selectedNavKey).toEqual(NK_MAP);
+    });
+
+    it('sets selectedNavKey to home when passed title', () => {
+      instance.state.selectedNavKey = NK_MAP;
+      instance.navigateToNewPage('title');
+      expect(instance.state.selectedNavKey).toEqual(NK_HOME);
     });
   });
 });

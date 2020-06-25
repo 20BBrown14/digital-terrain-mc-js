@@ -22,9 +22,13 @@ class DigitalTerrainWebContainer extends React.Component {
    * Handles nav menu clicks. Sets selectedNavKey state
    * @param {Object} event - Click event information. See https://ant.design/components/menu/#API
    */
-  handleNavMenuClick = (event) => {
-    this.setState({ selectedNavKey: event.key === 'title' ? NK_HOME : event.key });
+  handleNavMenuClick = (newNavKey) => {
+    this.navigateToNewPage(newNavKey);
   };
+
+  navigateToNewPage = (newNavKey) => {
+    this.setState({ selectedNavKey: newNavKey === 'title' ? NK_HOME : newNavKey });
+  }
 
   render() {
     const { selectedNavKey } = this.state;
@@ -32,6 +36,7 @@ class DigitalTerrainWebContainer extends React.Component {
       <DigitalTerrainWebView
         selectedNavKey={selectedNavKey}
         handleNavMenuClick={this.handleNavMenuClick}
+        navigateToNewPage={this.navigateToNewPage}
       />
     );
   }

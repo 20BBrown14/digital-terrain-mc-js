@@ -1,0 +1,23 @@
+.home-page-title {
+  text-align: center;
+}
+
+.home-page-subtitle {
+  text-align: center;
+  font-size: 120%;
+}
+
+.home-page-carousel {
+  padding-top: 20px; 
+}
+
+.home-page-link-button {
+  color: #1890ff;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline;
+  margin: 0;
+  padding: 0;
+}

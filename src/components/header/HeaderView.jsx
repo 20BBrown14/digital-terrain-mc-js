@@ -34,7 +34,7 @@ const HeaderView = (props) => {
         selectedKeys={[selectedNavKey]}
         mode="horizontal"
         className="header-menu"
-        onClick={handleNavMenuClick}
+        onClick={(event) => { handleNavMenuClick(event.key); }}
       >
         <Menu.Item
           disabled

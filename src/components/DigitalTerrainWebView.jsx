@@ -26,6 +26,8 @@ const propTypes = {
   selectedNavKey: selectedNavKeyPropTypes.isRequired,
   /* Function for handling menu item click */
   handleNavMenuClick: PropTypes.func.isRequired,
+  /* Function for navigating to new page */
+  navigateToNewPage: PropTypes.func.isRequired,
 };
 
 /**
@@ -34,11 +36,13 @@ const propTypes = {
  * @returns {JSX.element}
  */
 const determineBodyContent = (propsObject) => {
-  const { selectedNavKey } = propsObject;
+  const { selectedNavKey, navigateToNewPage } = propsObject;
   switch (selectedNavKey) {
     case NK_HOME:
       return (
-        <HomeContainer />
+        <HomeContainer
+          navigateToNewPage={navigateToNewPage}
+        />
       );
     case NK_GALLERY:
       return (
@@ -75,7 +79,11 @@ const determineBodyContent = (propsObject) => {
  * Top level view
  */
 const DigitalTerrainWebView = (props) => {
-  const { selectedNavKey, handleNavMenuClick } = props;
+  const {
+    selectedNavKey,
+    handleNavMenuClick,
+    navigateToNewPage,
+  } = props;
   return (
     <Layout>
       <Layout.Header className="web-view-layout-header">
@@ -85,7 +93,7 @@ const DigitalTerrainWebView = (props) => {
         />
       </Layout.Header>
       <Layout.Content className="web-view-layout-content">
-        {determineBodyContent(props)}
+        {determineBodyContent({ selectedNavKey, navigateToNewPage })}
       </Layout.Content>
       <Layout.Footer>
         © 2020 Copyright Digital Terrain
