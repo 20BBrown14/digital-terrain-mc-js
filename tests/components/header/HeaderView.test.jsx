@@ -22,7 +22,8 @@ describe('HeaderView', () => {
   it('calls nav menu click handler when menu is clicked', () => {
     const mockHandleNavMenuClick = jest.fn();
     view = shallow(<HeaderView selectedNavKey="home" handleNavMenuClick={mockHandleNavMenuClick} />);
-    view.find('Menu').at(0).simulate('click');
+    view.find('Menu').at(0).simulate('click', { key: 'map' });
     expect(mockHandleNavMenuClick).toHaveBeenCalledTimes(1);
+    expect(mockHandleNavMenuClick).toHaveBeenCalledWith('map');
   });
 });

@@ -19,7 +19,7 @@
     "src/index.jsx"
   ],
   "moduleNameMapper": {
-    "\\.(svg|gif)$": "<rootDir>/__mocks__/fileMock.js",
+    "\\.(svg|gif|png)$": "<rootDir>/__mocks__/fileMock.js",
     "\\.(css)$": "<rootDir>/__mocks__/styleMock.js"
   },
   "coverageReporters": ["html", "text-summary", "lcov"],
