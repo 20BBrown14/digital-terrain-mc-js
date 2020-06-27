@@ -1,7 +1,140 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`GalleryContainer renders a default view 1`] = `
-<div>
-  Gallery Page
+<div
+  class="ant-list ant-list-split ant-list-grid"
+>
+  <div
+    class="ant-spin-nested-loading"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="ant-row"
+      >
+        <div>
+          <div
+            class="ant-col"
+            style="flex:1 1 auto"
+          >
+            <div
+              class="ant-list-item"
+            >
+              <div
+                class="ant-card ant-card-hoverable"
+              >
+                <div
+                  class="ant-card-body"
+                >
+                  <img
+                    alt=""
+                    class="gallery-image"
+                    src="test-file-stub"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div
+            class="ant-col"
+            style="flex:1 1 auto"
+          >
+            <div
+              class="ant-list-item"
+            >
+              <div
+                class="ant-card ant-card-hoverable"
+              >
+                <div
+                  class="ant-card-body"
+                >
+                  <img
+                    alt=""
+                    class="gallery-image"
+                    src="test-file-stub"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div
+            class="ant-col"
+            style="flex:1 1 auto"
+          >
+            <div
+              class="ant-list-item"
+            >
+              <div
+                class="ant-card ant-card-hoverable"
+              >
+                <div
+                  class="ant-card-body"
+                >
+                  <img
+                    alt=""
+                    class="gallery-image"
+                    src="test-file-stub"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div
+            class="ant-col"
+            style="flex:1 1 auto"
+          >
+            <div
+              class="ant-list-item"
+            >
+              <div
+                class="ant-card ant-card-hoverable"
+              >
+                <div
+                  class="ant-card-body"
+                >
+                  <img
+                    alt=""
+                    class="gallery-image"
+                    src="test-file-stub"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div
+            class="ant-col"
+            style="flex:1 1 auto"
+          >
+            <div
+              class="ant-list-item"
+            >
+              <div
+                class="ant-card ant-card-hoverable"
+              >
+                <div
+                  class="ant-card-body"
+                >
+                  <img
+                    alt=""
+                    class="gallery-image"
+                    src="test-file-stub"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;

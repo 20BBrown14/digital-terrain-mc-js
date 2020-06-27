@@ -20,7 +20,7 @@ const defaultProps = {
 const DigitalTerrainWebApp = (props) => {
   const { selectedNavKey } = props;
   return (
-    <div className="digital-terrain-web-app">
+    <div>
       <DigitalTerrainWebContainer
         selectedNavKey={selectedNavKey}
       />

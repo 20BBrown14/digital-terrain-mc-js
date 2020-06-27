@@ -1,0 +1,13 @@
+.image-popup-modal {
+  height: auto;
+}
+
+.image-popup-previous-button {
+  float: left;
+  top: 50%;
+}
+
+.image-popup-next-button {
+  top: 50%;
+  float: right;
+}

@@ -7,8 +7,15 @@
   z-index: 1;
 }
 
-.web-view-layout-content {
+.web-view-layout-content.ant-layout-content {
   background: white;
   background-color: white;
   padding: 96px 30px 66px;
+  flex: 1;
+}
+
+.web-view-layout.ant-layout {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
