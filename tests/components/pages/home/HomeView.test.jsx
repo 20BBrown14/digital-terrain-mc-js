@@ -62,5 +62,35 @@ describe('HomeView', () => {
       expect(navigateToNewPageMock).toHaveBeenCalledTimes(1);
       expect(navigateToNewPageMock).toHaveBeenCalledWith(NK_APPLY);
     });
+
+    it('panda link navigates to correct page on key press', () => {
+      view.find('#pandaLink').simulate('keypress', { key: 'Enter' });
+      expect(navigateToNewPageMock).toHaveBeenCalledTimes(1);
+      expect(navigateToNewPageMock).toHaveBeenCalledWith(NK_ABOUT_US);
+    });
+
+    it('dm link navigates to correct page on key press', () => {
+      view.find('#dmLink').simulate('keypress', { key: 'Enter' });
+      expect(navigateToNewPageMock).toHaveBeenCalledTimes(1);
+      expect(navigateToNewPageMock).toHaveBeenCalledWith(NK_ABOUT_US);
+    });
+
+    it('gallery link navigates to correct page on key press', () => {
+      view.find('#galleryLink').simulate('keypress', { key: 'Enter' });
+      expect(navigateToNewPageMock).toHaveBeenCalledTimes(1);
+      expect(navigateToNewPageMock).toHaveBeenCalledWith(NK_GALLERY);
+    });
+
+    it('map link navigates to correct page on key press', () => {
+      view.find('#mapLink').simulate('keypress', { key: 'Enter' });
+      expect(navigateToNewPageMock).toHaveBeenCalledTimes(1);
+      expect(navigateToNewPageMock).toHaveBeenCalledWith(NK_MAP);
+    });
+
+    it('apply link navigates to correct page on key press', () => {
+      view.find('#applyLink').simulate('keypress', { key: 'Enter' });
+      expect(navigateToNewPageMock).toHaveBeenCalledTimes(1);
+      expect(navigateToNewPageMock).toHaveBeenCalledWith(NK_APPLY);
+    });
   });
 });

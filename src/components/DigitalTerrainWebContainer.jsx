@@ -16,6 +16,9 @@ class DigitalTerrainWebContainer extends React.Component {
     super(props);
     const { selectedNavKey } = props;
     this.state = { selectedNavKey };
+
+    this.handleNavMenuClick = this.handleNavMenuClick.bind(this);
+    this.navigateToNewPage = this.navigateToNewPage.bind(this);
   }
 
   /**

@@ -13,7 +13,7 @@ describe('DigitalTerrainWebApp', () => {
     const testApp = shallow(
       <DigitalTerrainWebApp />,
     );
-    const container = testApp.find('.digital-terrain-web-app');
+    const container = testApp.find('DigitalTerrainWebContainer');
     expect(container).toHaveLength(1);
   });
 });

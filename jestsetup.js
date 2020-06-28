@@ -8,6 +8,7 @@ Enzyme.configure({ adapter: new Adapter() });
 global.shallow = shallow;
 global.render = render;
 global.mount = mount;
+window.matchMedia = () => {};
 
 const htmlTag = document.getElementsByTagName('html')[0];
 htmlTag.setAttribute('dir', 'ltr');

@@ -17,7 +17,7 @@ Array [
       <span
         class="ant-typography home-page-subtitle"
       >
-        Digital Terrain is a SMP server inspired by Hermitcraft. The server is based on a great community, trust, and fun. We aspire to have a playerbase of all play styles that work together in harmony to build great things and have an awesome time. The server is owned by
+        Digital Terrain is a SMP server inspired by Hermitcraft. The server is based on a great community, trust,          and fun. We aspire to have a playerbase of all play styles that work together in harmony to build great          things and have an awesome time. The server is owned by 
         <button
           class="home-page-link-button"
           id="pandaLink"
@@ -25,7 +25,7 @@ Array [
         >
           Panda_Brah
         </button>
-        and
+         and 
         <button
           class="home-page-link-button"
           id="dmLink"
@@ -42,7 +42,7 @@ Array [
       <span
         class="ant-typography home-page-subtitle"
       >
-        Be sure to checkout our
+        Be sure to checkout our 
         <button
           class="home-page-link-button"
           id="galleryLink"
@@ -50,7 +50,7 @@ Array [
         >
           gallery
         </button>
-        and
+         and 
         <button
           class="home-page-link-button"
           id="mapLink"
@@ -58,7 +58,7 @@ Array [
         >
           map
         </button>
-        to get a feel for the server; hopefully you&aposll find it&aposs a good place for you! If you decide to, you can
+         to get a feel for the server; hopefully you'll find it's a good place for you!          If you decide to, you can 
         <button
           class="home-page-link-button"
           id="applyLink"
