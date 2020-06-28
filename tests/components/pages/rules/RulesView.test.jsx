@@ -6,4 +6,9 @@ describe('RulesView', () => {
     const view = render(<RulesView />);
     expect(view).toMatchSnapshot();
   });
+
+  it('has a collapse', () => {
+    const view = shallow(<RulesView />);
+    expect(view.find('Collapse')).toHaveLength(1);
+  });
 });
