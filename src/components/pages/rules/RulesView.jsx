@@ -5,7 +5,13 @@ import rules from '../../../constants/rules.json';
 
 const buildRulesInformation = (rulesArray) => (
   rulesArray.map((rule, index) => (
-    <p><Typography.Text className="rules-page-text">{`${index + 1}. ${rule}`}</Typography.Text></p>
+    /* eslint-disable-next-line react/no-array-index-key */
+    <p key={`rules-p-${index}`}>
+      {/* eslint-disable-next-line react/no-array-index-key */}
+      <Typography.Text className="rules-page-text" key={`rules-text-${index}`}>
+        {`${index + 1}. ${rule}`}
+      </Typography.Text>
+    </p>
   ))
 );
 
