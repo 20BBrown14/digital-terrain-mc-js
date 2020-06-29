@@ -6,4 +6,35 @@ describe('ApplyView', () => {
     const view = render(<ApplyView />);
     expect(view).toMatchSnapshot();
   });
+
+  describe('expected components', () => {
+    let view;
+    beforeEach(() => {
+      view = shallow(<ApplyView />);
+    });
+
+    it('has a title', () => {
+      expect(view.find('.apply-page-title')).toHaveLength(1);
+    });
+
+    it('has form items', () => {
+      expect(view.find('FormItem')).toHaveLength(9);
+    });
+
+    it('has inputs', () => {
+      expect(view.find('Input')).toHaveLength(3);
+    });
+
+    it('has text areas', () => {
+      expect(view.find('TextArea')).toHaveLength(4);
+    });
+
+    it('has a select', () => {
+      expect(view.find('Select')).toHaveLength(1);
+    });
+
+    it('has a button', () => {
+      expect(view.find('Button')).toHaveLength(1);
+    });
+  });
 });
