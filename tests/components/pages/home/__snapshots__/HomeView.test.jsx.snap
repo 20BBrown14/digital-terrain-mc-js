@@ -68,7 +68,7 @@ exports[`HomeView renders a default view 1`] = `
         >
           apply here
         </button>
-        to be a part of our server. Hope to play with you soon!
+         to be a part of our server. Hope to play with you soon!
       </span>
     </div>
   </div>

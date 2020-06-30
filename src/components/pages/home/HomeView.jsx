@@ -104,7 +104,7 @@ const HomeView = (props) => {
           {" to get a feel for the server; hopefully you'll find it's a good place for you!\
           If you decide to, you can "}
           {applyLink}
-          {'to be a part of our server. Hope to play with you soon!'}
+          {' to be a part of our server. Hope to play with you soon!'}
         </Typography.Text>
       </Space>
       <Carousel

@@ -1,0 +1,27 @@
+.apply-page-content {
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.apply-page-title {
+  text-align: center;
+}
+
+.apply-page-text {
+  font-size: 120%
+}
+
+.apply-page-application-form {
+  max-width: 50%;
+  margin: 0 auto;
+}
+
+.apply-page-submit-button {
+  width: 100%;
+}
+
+@media screen and (max-width: 500px) {
+  .apply-page-application-form {
+    max-width: 100%;
+  }   
+}
