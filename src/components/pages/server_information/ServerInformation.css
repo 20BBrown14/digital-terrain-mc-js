@@ -1,0 +1,12 @@
+.server-information-page-content {
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.server-information-page-text {
+  font-size: 120%;
+}
+
+.server-information-page-title {
+  text-align: center;
+}
