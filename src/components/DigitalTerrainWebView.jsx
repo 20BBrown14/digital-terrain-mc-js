@@ -85,22 +85,20 @@ const DigitalTerrainWebView = (props) => {
     navigateToNewPage,
   } = props;
   return (
-    <div>
-      <Layout className="web-view-layout">
-        <Layout.Header className="web-view-layout-header">
-          <HeaderContainer
-            selectedNavKey={selectedNavKey}
-            handleNavMenuClick={handleNavMenuClick}
-          />
-        </Layout.Header>
-        <Layout.Content className="web-view-layout-content">
-          {determineBodyContent({ selectedNavKey, navigateToNewPage })}
-        </Layout.Content>
-        <Layout.Footer>
-          © 2020 Copyright Digital Terrain
-        </Layout.Footer>
-      </Layout>
-    </div>
+    <Layout className="web-view-layout">
+      <Layout.Header className="web-view-layout-header">
+        <HeaderContainer
+          selectedNavKey={selectedNavKey}
+          handleNavMenuClick={handleNavMenuClick}
+        />
+      </Layout.Header>
+      <Layout.Content className="web-view-layout-content">
+        {determineBodyContent({ selectedNavKey, navigateToNewPage })}
+      </Layout.Content>
+      <Layout.Footer>
+        © 2020 Copyright Digital Terrain
+      </Layout.Footer>
+    </Layout>
   );
 };
 

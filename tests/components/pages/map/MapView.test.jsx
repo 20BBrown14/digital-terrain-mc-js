@@ -6,4 +6,9 @@ describe('MapView', () => {
     const view = render(<MapView />);
     expect(view).toMatchSnapshot();
   });
+
+  it('has an iframe', () => {
+    const view = shallow(<MapView />);
+    expect(view.find('iframe')).toHaveLength(1);
+  });
 });

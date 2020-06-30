@@ -2,6 +2,12 @@
 
 exports[`MapView renders a default view 1`] = `
 <div>
-  Map Page
+  <iframe
+    class="map-iframe"
+    src="http://147.135.107.178:4492/index.html"
+    title="Digital Terrain Dynmap"
+  >
+    &lt;p&gt;Your browser does not support this type of content.&lt;/p&gt;
+  </iframe>
 </div>
 `;
