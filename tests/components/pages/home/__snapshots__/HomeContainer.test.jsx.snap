@@ -1,12 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`HomeContainer renders a default view 1`] = `
-Array [
+<div
+  class="home-page-content"
+>
   <h1
     class="ant-typography home-page-title"
   >
     Welcome to Digital Terrain
-  </h1>,
+  </h1>
   <div
     class="ant-space ant-space-vertical"
   >
@@ -69,7 +71,7 @@ Array [
         to be a part of our server. Hope to play with you soon!
       </span>
     </div>
-  </div>,
+  </div>
   <div
     class="ant-carousel"
   >
@@ -303,6 +305,6 @@ Array [
         </li>
       </ul>
     </div>
-  </div>,
-]
+  </div>
+</div>
 `;

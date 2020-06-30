@@ -82,7 +82,7 @@ const HomeView = (props) => {
   );
 
   return (
-    <>
+    <div className="home-page-content">
       <Typography.Title className="home-page-title">
         Welcome to Digital Terrain
       </Typography.Title>
@@ -124,7 +124,7 @@ const HomeView = (props) => {
           ))
         }
       </Carousel>
-    </>
+    </div>
   );
 };
 
