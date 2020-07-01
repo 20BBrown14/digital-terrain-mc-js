@@ -6,4 +6,15 @@ describe('AboutUsView', () => {
     const view = render(<AboutUsView />);
     expect(view).toMatchSnapshot();
   });
+
+  describe('expected components', () => {
+    let view;
+    beforeEach(() => {
+      view = shallow(<AboutUsView />);
+    });
+
+    it('has lists', () => {
+      expect(view.find('List')).toHaveLength(2);
+    });
+  });
 });
