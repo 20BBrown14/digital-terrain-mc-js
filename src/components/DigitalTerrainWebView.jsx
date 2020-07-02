@@ -11,6 +11,7 @@ import {
   NK_SERVER_INFORMATION,
   NK_APPLY,
   NK_ABOUT_US,
+  NK_LOGIN,
 } from '../constants/navKeys';
 import HomeContainer from './pages/home/HomeContainer';
 import GalleryContainer from './pages/gallery/GalleryContainer';
@@ -68,6 +69,10 @@ const determineBodyContent = (propsObject) => {
       return (
         <AboutUsContainer />
       );
+    case NK_LOGIN:
+      return (
+        <HomeContainer />
+      )
     default:
       return (
         <HomeContainer />

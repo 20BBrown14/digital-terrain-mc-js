@@ -1,7 +1,8 @@
 import React from 'react';
 import selectedNavKeyPropTypes from '../proptypes/selectedNavKeyPropTypes';
-import { NK_HOME } from '../constants/navKeys';
+import { NK_HOME, NK_LOGIN } from '../constants/navKeys';
 import DigitalTerrainWebView from './DigitalTerrainWebView';
+import discordAuthenticate from './authentication';
 
 const propTypes = {
   /* The page to load base on the requested url from server */

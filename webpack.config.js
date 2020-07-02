@@ -1,7 +1,11 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const testHarness = require('./__mocks__/routes.mock');
 
 module.exports = {
+
+  devServer: testHarness,
+
   resolve: {
     extensions: ['.js', '.jsx'],
   },
