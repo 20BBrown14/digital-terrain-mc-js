@@ -87,7 +87,7 @@ const HeaderView = (props) => {
         <Menu.Item
           key={NK_LOGIN}
         >
-          <a href="https://discord.com/api/oauth2/authorize?client_id=693123471210709072&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2Floggedin&response_type=token&scope=identify%20guilds">Login</a>
+          <a href="https://discord.com/api/oauth2/authorize?client_id=727970691089170534&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2Floggedin&response_type=code&scope=identify%20guilds">Login</a>
         </Menu.Item>
       </Menu>
     </div>
