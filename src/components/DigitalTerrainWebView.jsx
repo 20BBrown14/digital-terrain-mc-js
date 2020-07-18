@@ -11,6 +11,7 @@ import {
   NK_SERVER_INFORMATION,
   NK_APPLY,
   NK_ABOUT_US,
+  NK_ADMIN,
 } from '../constants/navKeys';
 import HomeContainer from './pages/home/HomeContainer';
 import GalleryContainer from './pages/gallery/GalleryContainer';
@@ -20,6 +21,7 @@ import ServerInformationContainer from './pages/server_information/ServerInforma
 import ApplyContainer from './pages/apply/ApplyContainer';
 import AboutUsContainer from './pages/about_us/AboutUsContainer';
 import HeaderContainer from './header/HeaderContainer';
+import AdminContainer from './pages/admin/AdminContainer';
 
 const propTypes = {
   /* The page to load base on the requested url from server */
@@ -67,6 +69,10 @@ const determineBodyContent = (propsObject) => {
     case NK_ABOUT_US:
       return (
         <AboutUsContainer />
+      );
+    case NK_ADMIN:
+      return (
+        <AdminContainer />
       );
     default:
       return (

@@ -1,0 +1,604 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AdminView renders a default view 1`] = `
+<Fragment>
+  <Modal
+    confirmLoading={false}
+    footer={
+      Array [
+        <Button
+          block={false}
+          ghost={false}
+          htmlType="button"
+          loading={false}
+          onClick={[Function]}
+        >
+          Go Back
+        </Button>,
+        <Button
+          block={false}
+          ghost={false}
+          htmlType="button"
+          loading={false}
+          onClick={[Function]}
+        >
+          No
+        </Button>,
+        <Button
+          block={false}
+          ghost={false}
+          htmlType="button"
+          loading={false}
+          onClick={[Function]}
+          type="primary"
+        >
+          Yes
+        </Button>,
+      ]
+    }
+    maskTransitionName="fade"
+    okType="primary"
+    onCancel={[Function]}
+    title="Discard Changes?"
+    transitionName="zoom"
+    visible={false}
+    width={520}
+  >
+    You have unsaved changes. Would you like to save those changes before continuing?
+  </Modal>
+  <Button
+    block={false}
+    className="admin-page-json-edit-select-button"
+    disabled={false}
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+    type=""
+  >
+    Rules
+  </Button>
+  <Button
+    block={false}
+    className="admin-page-json-edit-select-button"
+    disabled={false}
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+    type=""
+  >
+    Server Information
+  </Button>
+  <Button
+    block={false}
+    className="admin-page-json-edit-select-button"
+    disabled={false}
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+    type=""
+  >
+    About us Mods
+  </Button>
+  <Button
+    block={false}
+    className="admin-page-json-edit-select-button"
+    disabled={false}
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+    type=""
+  >
+    Veterans
+  </Button>
+  <Button
+    block={false}
+    className="admin-page-save-button"
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+    type="primary"
+  >
+    Save
+  </Button>
+  <Editor
+    history={false}
+    mode="tree"
+    navigationBar={true}
+    onChange={[Function]}
+    search={true}
+    statusBar={true}
+    tag="div"
+    value={Object {}}
+  />
+</Fragment>
+`;
+
+exports[`AdminView renders a failed view 1`] = `
+<Fragment>
+  <Modal
+    confirmLoading={false}
+    footer={
+      Array [
+        <Button
+          block={false}
+          ghost={false}
+          htmlType="button"
+          loading={false}
+          onClick={[Function]}
+        >
+          Go Back
+        </Button>,
+        <Button
+          block={false}
+          ghost={false}
+          htmlType="button"
+          loading={false}
+          onClick={[Function]}
+        >
+          No
+        </Button>,
+        <Button
+          block={false}
+          ghost={false}
+          htmlType="button"
+          loading={false}
+          onClick={[Function]}
+          type="primary"
+        >
+          Yes
+        </Button>,
+      ]
+    }
+    maskTransitionName="fade"
+    okType="primary"
+    onCancel={[Function]}
+    title="Discard Changes?"
+    transitionName="zoom"
+    visible={false}
+    width={520}
+  >
+    You have unsaved changes. Would you like to save those changes before continuing?
+  </Modal>
+  <Button
+    block={false}
+    className="admin-page-json-edit-select-button"
+    disabled={false}
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+    type=""
+  >
+    Rules
+  </Button>
+  <Button
+    block={false}
+    className="admin-page-json-edit-select-button"
+    disabled={false}
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+    type=""
+  >
+    Server Information
+  </Button>
+  <Button
+    block={false}
+    className="admin-page-json-edit-select-button"
+    disabled={false}
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+    type=""
+  >
+    About us Mods
+  </Button>
+  <Button
+    block={false}
+    className="admin-page-json-edit-select-button"
+    disabled={false}
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+    type=""
+  >
+    Veterans
+  </Button>
+  <Button
+    block={false}
+    className="admin-page-save-button"
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+    type="primary"
+  >
+    Save
+  </Button>
+  <Alert
+    className="admin-page-alert"
+    closable={true}
+    showIcon={true}
+    type="error"
+  />
+  <Editor
+    history={false}
+    mode="tree"
+    navigationBar={true}
+    onChange={[Function]}
+    search={true}
+    statusBar={true}
+    tag="div"
+    value={Object {}}
+  />
+</Fragment>
+`;
+
+exports[`AdminView renders a json loading view 1`] = `
+<Fragment>
+  <Modal
+    confirmLoading={false}
+    footer={
+      Array [
+        <Button
+          block={false}
+          ghost={false}
+          htmlType="button"
+          loading={false}
+          onClick={[Function]}
+        >
+          Go Back
+        </Button>,
+        <Button
+          block={false}
+          ghost={false}
+          htmlType="button"
+          loading={false}
+          onClick={[Function]}
+        >
+          No
+        </Button>,
+        <Button
+          block={false}
+          ghost={false}
+          htmlType="button"
+          loading={false}
+          onClick={[Function]}
+          type="primary"
+        >
+          Yes
+        </Button>,
+      ]
+    }
+    maskTransitionName="fade"
+    okType="primary"
+    onCancel={[Function]}
+    title="Discard Changes?"
+    transitionName="zoom"
+    visible={false}
+    width={520}
+  >
+    You have unsaved changes. Would you like to save those changes before continuing?
+  </Modal>
+  <Button
+    block={false}
+    className="admin-page-json-edit-select-button"
+    disabled={false}
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+    type=""
+  >
+    Rules
+  </Button>
+  <Button
+    block={false}
+    className="admin-page-json-edit-select-button"
+    disabled={false}
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+    type=""
+  >
+    Server Information
+  </Button>
+  <Button
+    block={false}
+    className="admin-page-json-edit-select-button"
+    disabled={false}
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+    type=""
+  >
+    About us Mods
+  </Button>
+  <Button
+    block={false}
+    className="admin-page-json-edit-select-button"
+    disabled={false}
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+    type=""
+  >
+    Veterans
+  </Button>
+  <Button
+    block={false}
+    className="admin-page-save-button"
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+    type="primary"
+  >
+    Save
+  </Button>
+  <Editor
+    history={false}
+    mode="tree"
+    navigationBar={true}
+    onChange={[Function]}
+    search={true}
+    statusBar={true}
+    tag="div"
+    value={Object {}}
+  />
+</Fragment>
+`;
+
+exports[`AdminView renders a save loading view 1`] = `
+<Fragment>
+  <Modal
+    confirmLoading={false}
+    footer={
+      Array [
+        <Button
+          block={false}
+          ghost={false}
+          htmlType="button"
+          loading={false}
+          onClick={[Function]}
+        >
+          Go Back
+        </Button>,
+        <Button
+          block={false}
+          ghost={false}
+          htmlType="button"
+          loading={false}
+          onClick={[Function]}
+        >
+          No
+        </Button>,
+        <Button
+          block={false}
+          ghost={false}
+          htmlType="button"
+          loading={false}
+          onClick={[Function]}
+          type="primary"
+        >
+          Yes
+        </Button>,
+      ]
+    }
+    maskTransitionName="fade"
+    okType="primary"
+    onCancel={[Function]}
+    title="Discard Changes?"
+    transitionName="zoom"
+    visible={false}
+    width={520}
+  >
+    You have unsaved changes. Would you like to save those changes before continuing?
+  </Modal>
+  <Button
+    block={false}
+    className="admin-page-json-edit-select-button"
+    disabled={true}
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+    type=""
+  >
+    Rules
+  </Button>
+  <Button
+    block={false}
+    className="admin-page-json-edit-select-button"
+    disabled={true}
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+    type=""
+  >
+    Server Information
+  </Button>
+  <Button
+    block={false}
+    className="admin-page-json-edit-select-button"
+    disabled={true}
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+    type=""
+  >
+    About us Mods
+  </Button>
+  <Button
+    block={false}
+    className="admin-page-json-edit-select-button"
+    disabled={true}
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+    type=""
+  >
+    Veterans
+  </Button>
+  <Button
+    block={false}
+    className="admin-page-save-button"
+    ghost={false}
+    htmlType="button"
+    loading={true}
+    onClick={[Function]}
+    type="primary"
+  >
+    Save
+  </Button>
+  <Editor
+    history={false}
+    mode="tree"
+    navigationBar={true}
+    onChange={[Function]}
+    search={true}
+    statusBar={true}
+    tag="div"
+    value={Object {}}
+  />
+</Fragment>
+`;
+
+exports[`AdminView renders a save successful view 1`] = `
+<Fragment>
+  <Modal
+    confirmLoading={false}
+    footer={
+      Array [
+        <Button
+          block={false}
+          ghost={false}
+          htmlType="button"
+          loading={false}
+          onClick={[Function]}
+        >
+          Go Back
+        </Button>,
+        <Button
+          block={false}
+          ghost={false}
+          htmlType="button"
+          loading={false}
+          onClick={[Function]}
+        >
+          No
+        </Button>,
+        <Button
+          block={false}
+          ghost={false}
+          htmlType="button"
+          loading={false}
+          onClick={[Function]}
+          type="primary"
+        >
+          Yes
+        </Button>,
+      ]
+    }
+    maskTransitionName="fade"
+    okType="primary"
+    onCancel={[Function]}
+    title="Discard Changes?"
+    transitionName="zoom"
+    visible={false}
+    width={520}
+  >
+    You have unsaved changes. Would you like to save those changes before continuing?
+  </Modal>
+  <Button
+    block={false}
+    className="admin-page-json-edit-select-button"
+    disabled={false}
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+    type=""
+  >
+    Rules
+  </Button>
+  <Button
+    block={false}
+    className="admin-page-json-edit-select-button"
+    disabled={false}
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+    type=""
+  >
+    Server Information
+  </Button>
+  <Button
+    block={false}
+    className="admin-page-json-edit-select-button"
+    disabled={false}
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+    type=""
+  >
+    About us Mods
+  </Button>
+  <Button
+    block={false}
+    className="admin-page-json-edit-select-button"
+    disabled={false}
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+    type=""
+  >
+    Veterans
+  </Button>
+  <Button
+    block={false}
+    className="admin-page-save-button"
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+    type="primary"
+  >
+    Save
+  </Button>
+  <Alert
+    className="admin-page-alert"
+    closable={true}
+    message="Save successful"
+    showIcon={true}
+    type="success"
+  />
+  <Editor
+    history={false}
+    mode="tree"
+    navigationBar={true}
+    onChange={[Function]}
+    search={true}
+    statusBar={true}
+    tag="div"
+    value={Object {}}
+  />
+</Fragment>
+`;

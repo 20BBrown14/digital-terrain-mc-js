@@ -1,0 +1,15 @@
+.error-screen-container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  top: 0;
+  right: 0
+}
+
+.error-screen-element {
+  margin: 0 auto;
+  width: 75%;
+  text-align: center;
+}

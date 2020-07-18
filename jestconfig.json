@@ -24,5 +24,8 @@
   },
   "coverageReporters": ["html", "text-summary", "lcov"],
   "coverageDirectory": "./tests/jest/reports/coverage",
-  "testResultsProcessor": "./node_modules/jest-junit-reporter"
+  "testResultsProcessor": "./node_modules/jest-junit-reporter",
+  "transformIgnorePatterns": [
+    "node_modules/(?!(jsoneditor-react))"
+  ]
 }

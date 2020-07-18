@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AdminContainer renders a default view 1`] = `
+Array [
+  <button
+    class="ant-btn admin-page-json-edit-select-button"
+    type="button"
+  >
+    <span>
+      Rules
+    </span>
+  </button>,
+  <button
+    class="ant-btn admin-page-json-edit-select-button"
+    type="button"
+  >
+    <span>
+      Server Information
+    </span>
+  </button>,
+  <button
+    class="ant-btn admin-page-json-edit-select-button"
+    type="button"
+  >
+    <span>
+      About us Mods
+    </span>
+  </button>,
+  <button
+    class="ant-btn admin-page-json-edit-select-button"
+    type="button"
+  >
+    <span>
+      Veterans
+    </span>
+  </button>,
+  <button
+    class="ant-btn admin-page-save-button ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Save
+    </span>
+  </button>,
+  <div />,
+]
+`;

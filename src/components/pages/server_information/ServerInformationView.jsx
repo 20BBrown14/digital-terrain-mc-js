@@ -1,7 +1,21 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Typography, Collapse, List } from 'antd';
+import LoadingScreen from '../LoadingScreen';
+import ErrorScreen from '../ErrorScreen';
 import './ServerInformation.css';
-import serverInformation from '../../../constants/serverInformation.json';
+
+const propTypes = {
+  /* Whether view is loading */
+  isLoading: PropTypes.bool.isRequired,
+  /* Whether service has failure */
+  hasServiceFailure: PropTypes.bool.isRequired,
+  /* Server information to display */
+  serverInformation: PropTypes.objectOf(PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.object,
+  ]).isRequired),
+};
 
 const buildGeneralInformationPanel = (generalInfoObject, panelKey) => {
   const generalInfo = generalInfoObject.map((info, index) => (
@@ -197,21 +211,38 @@ const buildHelpfulLinksPanel = (helpfulLinksInfo, panelKey) => {
 /**
  * Server information page view.
  */
-const ServerInformationView = () => (
-  <div className="server-information-page-content">
-    <Typography.Title className="server-information-page-title">
-      Digital Terrain Server Information
-    </Typography.Title>
-    <Collapse defaultActiveKey={[0]}>
-      {buildGeneralInformationPanel(serverInformation['General Information'], 0)}
-      {buildServerURLInformationPanel(serverInformation['Server URLs'], 1)}
-      {buildDatapacksPluginsPanel(serverInformation.Datapacks, 'Datapacks', 2)}
-      {buildDatapacksPluginsPanel(serverInformation.Plugins, 'Plugins', 3)}
-      {buildHardwarePanel(serverInformation.Hardware, 4)}
-      {buildRolesPanel(serverInformation.Roles, 5)}
-      {buildHelpfulLinksPanel(serverInformation['Helpful Links'], 6)}
-    </Collapse>
-  </div>
-);
+const ServerInformationView = (props) => {
+  const {
+    isLoading,
+    hasServiceFailure,
+    serverInformation,
+  } = props;
+
+  if (isLoading) {
+    return <LoadingScreen />;
+  } if (hasServiceFailure) {
+    return <ErrorScreen />;
+  }
+  return (
+    <div className="server-information-page-content">
+      <Typography.Title className="server-information-page-title">
+        Digital Terrain Server Information
+      </Typography.Title>
+      {serverInformation &&
+        <Collapse defaultActiveKey={[0]}>
+          {buildGeneralInformationPanel(serverInformation['General Information'], 0)}
+          {buildServerURLInformationPanel(serverInformation['Server URLs'], 1)}
+          {buildDatapacksPluginsPanel(serverInformation.Datapacks, 'Datapacks', 2)}
+          {buildDatapacksPluginsPanel(serverInformation.Plugins, 'Plugins', 3)}
+          {buildHardwarePanel(serverInformation.Hardware, 4)}
+          {buildRolesPanel(serverInformation.Roles, 5)}
+          {buildHelpfulLinksPanel(serverInformation['Helpful Links'], 6)}
+        </Collapse>
+      }
+    </div>
+  );
+};
+
+ServerInformationView.propTypes = propTypes;
 
 export default ServerInformationView;
