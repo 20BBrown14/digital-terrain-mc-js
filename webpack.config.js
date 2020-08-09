@@ -1,7 +1,9 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const routesMock = require('./__mocks__/routesMock');
 
 module.exports = {
+  devServer: routesMock,
   resolve: {
     extensions: ['.js', '.jsx'],
   },
@@ -19,6 +21,9 @@ module.exports = {
         include: [
           path.resolve(__dirname, 'src'),
           path.resolve(__dirname, 'node_modules/antd'),
+          path.resolve(__dirname, 'node_modules/spinkit'),
+          path.resolve(__dirname, 'node_modules/jsoneditor-react'),
+          path.resolve(__dirname, 'node_modules/jsoneditor'),
         ],
         use: ['style-loader', 'css-loader'],
       },
@@ -32,7 +37,10 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif|ico)$/,
-        exclude: /node_modules/,
+        include: [
+          path.resolve(__dirname, 'src'),
+          path.resolve(__dirname, 'node_modules/jsoneditor'),
+        ],
         use: [
           'file-loader?name=[name].[ext]',
         ],

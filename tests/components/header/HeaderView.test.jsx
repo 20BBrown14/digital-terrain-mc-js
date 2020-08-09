@@ -16,7 +16,7 @@ describe('HeaderView', () => {
     const menu = view.find('Menu');
     const menuItems = view.find('MenuItem');
     expect(menu).toHaveLength(1);
-    expect(menuItems).toHaveLength(9);
+    expect(menuItems).toHaveLength(10);
   });
 
   it('calls nav menu click handler when menu is clicked', () => {

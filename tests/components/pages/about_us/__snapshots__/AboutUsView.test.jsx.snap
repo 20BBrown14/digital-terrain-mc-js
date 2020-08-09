@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AboutUsView renders a default view 1`] = `
+exports[`AboutUsView view states renders a default view 1`] = `
 <div
   class="about-us-content"
 >
@@ -19,232 +19,53 @@ exports[`AboutUsView renders a default view 1`] = `
         class="ant-spin-container"
       >
         <div
-          class="ant-row"
+          class="ant-list-empty-text"
         >
-          <div>
+          <div
+            class="ant-empty ant-empty-normal"
+          >
             <div
-              class="ant-col"
-              style="flex:1 1 auto"
+              class="ant-empty-image"
             >
-              <div
-                class="ant-list-item"
+              <svg
+                class="ant-empty-img-simple"
+                height="41"
+                viewBox="0 0 64 41"
+                width="64"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <div
-                  class="ant-card ant-card-small"
+                <g
+                  fill="none"
+                  fill-rule="evenodd"
+                  transform="translate(0 1)"
                 >
-                  <div
-                    class="ant-card-cover"
+                  <ellipse
+                    class="ant-empty-img-simple-ellipse"
+                    cx="32"
+                    cy="33"
+                    rx="32"
+                    ry="7"
+                  />
+                  <g
+                    class="ant-empty-img-simple-g"
+                    fill-rule="nonzero"
                   >
-                    <img
-                      alt="Head not found"
-                      class="about-us-card-cover"
-                      src="https://crafatar.com/renders/head/4e9c8a2a-a9a4-4370-a4f7-1f56ffd65461?overlay"
+                    <path
+                      d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
                     />
-                  </div>
-                  <div
-                    class="ant-card-body"
-                  >
-                    <div
-                      class="ant-card-meta about-us-card-subtitle"
-                    >
-                      <div
-                        class="ant-card-meta-detail"
-                      >
-                        <div
-                          class="ant-card-meta-title"
-                        >
-                          <span
-                            class="ant-typography"
-                          >
-                            Panda_Brah
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                    <path
+                      class="ant-empty-img-simple-path"
+                      d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                    />
+                  </g>
+                </g>
+              </svg>
             </div>
-          </div>
-          <div>
-            <div
-              class="ant-col"
-              style="flex:1 1 auto"
+            <p
+              class="ant-empty-description"
             >
-              <div
-                class="ant-list-item"
-              >
-                <div
-                  class="ant-card ant-card-small"
-                >
-                  <div
-                    class="ant-card-cover"
-                  >
-                    <img
-                      alt="Head not found"
-                      class="about-us-card-cover"
-                      src="https://crafatar.com/renders/head/be65c2e6-7d20-47b6-9689-2da9584a7177?overlay"
-                    />
-                  </div>
-                  <div
-                    class="ant-card-body"
-                  >
-                    <div
-                      class="ant-card-meta about-us-card-subtitle"
-                    >
-                      <div
-                        class="ant-card-meta-detail"
-                      >
-                        <div
-                          class="ant-card-meta-title"
-                        >
-                          <span
-                            class="ant-typography"
-                          >
-                            DMDF_
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div
-              class="ant-col"
-              style="flex:1 1 auto"
-            >
-              <div
-                class="ant-list-item"
-              >
-                <div
-                  class="ant-card ant-card-small"
-                >
-                  <div
-                    class="ant-card-cover"
-                  >
-                    <img
-                      alt="Head not found"
-                      class="about-us-card-cover"
-                      src="https://crafatar.com/renders/head/159a48ea-7a2f-4639-b176-f2b4f57af6d4?overlay"
-                    />
-                  </div>
-                  <div
-                    class="ant-card-body"
-                  >
-                    <div
-                      class="ant-card-meta about-us-card-subtitle"
-                    >
-                      <div
-                        class="ant-card-meta-detail"
-                      >
-                        <div
-                          class="ant-card-meta-title"
-                        >
-                          <span
-                            class="ant-typography"
-                          >
-                            Faeppuccino
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div
-              class="ant-col"
-              style="flex:1 1 auto"
-            >
-              <div
-                class="ant-list-item"
-              >
-                <div
-                  class="ant-card ant-card-small"
-                >
-                  <div
-                    class="ant-card-cover"
-                  >
-                    <img
-                      alt="Head not found"
-                      class="about-us-card-cover"
-                      src="https://crafatar.com/renders/head/027d8c7c-509c-466a-93a2-966a2af78f1a?overlay"
-                    />
-                  </div>
-                  <div
-                    class="ant-card-body"
-                  >
-                    <div
-                      class="ant-card-meta about-us-card-subtitle"
-                    >
-                      <div
-                        class="ant-card-meta-detail"
-                      >
-                        <div
-                          class="ant-card-meta-title"
-                        >
-                          <span
-                            class="ant-typography"
-                          >
-                            DadsaMuggle
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div
-              class="ant-col"
-              style="flex:1 1 auto"
-            >
-              <div
-                class="ant-list-item"
-              >
-                <div
-                  class="ant-card ant-card-small"
-                >
-                  <div
-                    class="ant-card-cover"
-                  >
-                    <img
-                      alt="Head not found"
-                      class="about-us-card-cover"
-                      src="https://crafatar.com/renders/head/94a16372-984d-463d-b416-60acd455cc75?overlay"
-                    />
-                  </div>
-                  <div
-                    class="ant-card-body"
-                  >
-                    <div
-                      class="ant-card-meta about-us-card-subtitle"
-                    >
-                      <div
-                        class="ant-card-meta-detail"
-                      >
-                        <div
-                          class="ant-card-meta-title"
-                        >
-                          <span
-                            class="ant-typography"
-                          >
-                            Kattatonic
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+              No Data
+            </p>
           </div>
         </div>
       </div>
@@ -265,231 +86,53 @@ exports[`AboutUsView renders a default view 1`] = `
         class="ant-spin-container"
       >
         <div
-          class="ant-row"
+          class="ant-list-empty-text"
         >
-          <div>
+          <div
+            class="ant-empty ant-empty-normal"
+          >
             <div
-              class="ant-col"
-              style="flex:1 1 auto"
+              class="ant-empty-image"
             >
-              <div
-                class="ant-list-item"
+              <svg
+                class="ant-empty-img-simple"
+                height="41"
+                viewBox="0 0 64 41"
+                width="64"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <span
-                  class="ant-typography"
+                <g
+                  fill="none"
+                  fill-rule="evenodd"
+                  transform="translate(0 1)"
                 >
-                  Animvz
-                </span>
-              </div>
+                  <ellipse
+                    class="ant-empty-img-simple-ellipse"
+                    cx="32"
+                    cy="33"
+                    rx="32"
+                    ry="7"
+                  />
+                  <g
+                    class="ant-empty-img-simple-g"
+                    fill-rule="nonzero"
+                  >
+                    <path
+                      d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                    />
+                    <path
+                      class="ant-empty-img-simple-path"
+                      d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                    />
+                  </g>
+                </g>
+              </svg>
             </div>
-          </div>
-          <div>
-            <div
-              class="ant-col"
-              style="flex:1 1 auto"
+            <p
+              class="ant-empty-description"
             >
-              <div
-                class="ant-list-item"
-              >
-                <span
-                  class="ant-typography"
-                >
-                  Barbosa1
-                </span>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div
-              class="ant-col"
-              style="flex:1 1 auto"
-            >
-              <div
-                class="ant-list-item"
-              >
-                <span
-                  class="ant-typography"
-                >
-                  CallMeAces
-                </span>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div
-              class="ant-col"
-              style="flex:1 1 auto"
-            >
-              <div
-                class="ant-list-item"
-              >
-                <span
-                  class="ant-typography"
-                >
-                  Deynum
-                </span>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div
-              class="ant-col"
-              style="flex:1 1 auto"
-            >
-              <div
-                class="ant-list-item"
-              >
-                <span
-                  class="ant-typography"
-                >
-                  FalconRx
-                </span>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div
-              class="ant-col"
-              style="flex:1 1 auto"
-            >
-              <div
-                class="ant-list-item"
-              >
-                <span
-                  class="ant-typography"
-                >
-                  Jupiterbeans
-                </span>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div
-              class="ant-col"
-              style="flex:1 1 auto"
-            >
-              <div
-                class="ant-list-item"
-              >
-                <span
-                  class="ant-typography"
-                >
-                  Llarry_Llama
-                </span>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div
-              class="ant-col"
-              style="flex:1 1 auto"
-            >
-              <div
-                class="ant-list-item"
-              >
-                <span
-                  class="ant-typography"
-                >
-                  Malsiv
-                </span>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div
-              class="ant-col"
-              style="flex:1 1 auto"
-            >
-              <div
-                class="ant-list-item"
-              >
-                <span
-                  class="ant-typography"
-                >
-                  Sasefelt
-                </span>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div
-              class="ant-col"
-              style="flex:1 1 auto"
-            >
-              <div
-                class="ant-list-item"
-              >
-                <span
-                  class="ant-typography"
-                >
-                  SaytotheRah
-                </span>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div
-              class="ant-col"
-              style="flex:1 1 auto"
-            >
-              <div
-                class="ant-list-item"
-              >
-                <span
-                  class="ant-typography"
-                >
-                  TheAltius
-                </span>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div
-              class="ant-col"
-              style="flex:1 1 auto"
-            >
-              <div
-                class="ant-list-item"
-              >
-                <span
-                  class="ant-typography"
-                >
-                  TheRealCutlass
-                </span>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div
-              class="ant-col"
-              style="flex:1 1 auto"
-            >
-              <div
-                class="ant-list-item"
-              >
-                <span
-                  class="ant-typography"
-                >
-                  yGlobalista
-                </span>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div
-              class="ant-col"
-              style="flex:1 1 auto"
-            >
-              <div
-                class="ant-list-item"
-              >
-                <span
-                  class="ant-typography"
-                >
-                  Yoshkeen
-                </span>
-              </div>
-            </div>
+              No Data
+            </p>
           </div>
         </div>
       </div>
@@ -505,6 +148,55 @@ exports[`AboutUsView renders a default view 1`] = `
       Crafatar
     </a>
      for providing avatars.
+  </div>
+</div>
+`;
+
+exports[`AboutUsView view states renders a loading view 1`] = `
+<div
+  class="loading-screen-container"
+>
+  <div
+    class="sk-chase loading-screen-element"
+  >
+    <div
+      class="sk-chase-dot"
+    />
+    <div
+      class="sk-chase-dot"
+    />
+    <div
+      class="sk-chase-dot"
+    />
+    <div
+      class="sk-chase-dot"
+    />
+    <div
+      class="sk-chase-dot"
+    />
+    <div
+      class="sk-chase-dot"
+    />
+  </div>
+</div>
+`;
+
+exports[`AboutUsView view states renders an error view 1`] = `
+<div
+  class="error-screen-container"
+>
+  <div
+    class="error-screen-element"
+  >
+    <img
+      alt=""
+      src="test-file-stub"
+    />
+    <h1
+      class="ant-typography"
+    >
+      Something happened trying to load this page. Please try again later.
+    </h1>
   </div>
 </div>
 `;

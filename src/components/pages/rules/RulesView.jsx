@@ -1,7 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Collapse, Typography } from 'antd';
 import './Rules.css';
-import rules from '../../../constants/rules.json';
+import LoadingScreen from '../LoadingScreen';
+import ErrorScreen from '../ErrorScreen';
+
+const propTypes = {
+  rulesInformation: PropTypes.objectOf(PropTypes.array.isRequired).isRequired,
+  hasServiceFailure: PropTypes.bool.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+};
 
 const buildRulesInformation = (rulesArray) => (
   rulesArray.map((rule, index) => (
@@ -33,8 +41,14 @@ const buildCollapsePanels = (rulesObject) => {
 /**
  * Rules page view.
  */
-const RulesView = () => {
-  const panelInformation = buildCollapsePanels(rules);
+const RulesView = (props) => {
+  const { rulesInformation, hasServiceFailure, isLoading } = props;
+  if (isLoading) {
+    return (<LoadingScreen />);
+  } if (hasServiceFailure) {
+    return (<ErrorScreen />);
+  }
+  const panelInformation = buildCollapsePanels(rulesInformation);
   return (
     <div className="rules-page-content">
       <Typography.Title className="rules-page-title">
@@ -46,5 +60,7 @@ const RulesView = () => {
     </div>
   );
 };
+
+RulesView.propTypes = propTypes;
 
 export default RulesView;

@@ -10,6 +10,7 @@ import {
   NK_SERVER_INFORMATION,
   NK_APPLY,
   NK_ABOUT_US,
+  NK_ADMIN,
 } from '../../constants/navKeys';
 import selectedNavKeyPropTypes from '../../proptypes/selectedNavKeyPropTypes';
 import animatedBee from '../../assets/animated_bee.gif';
@@ -82,6 +83,11 @@ const HeaderView = (props) => {
           key={NK_ABOUT_US}
         >
           About us
+        </Menu.Item>
+        <Menu.Item
+          key={NK_ADMIN}
+        >
+          Admin
         </Menu.Item>
       </Menu>
     </div>

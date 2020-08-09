@@ -2,19 +2,43 @@ import React from 'react';
 import AboutUsView from '../../../../src/components/pages/about_us/AboutUsView';
 
 describe('AboutUsView', () => {
-  it('renders a default view', () => {
-    const view = render(<AboutUsView />);
-    expect(view).toMatchSnapshot();
-  });
+  describe('view states', () => {
+    it('renders a default view', () => {
+      const view = render(
+        <AboutUsView
+          isLoading={false}
+          hasServiceFailure={false}
+          aboutUsInformation={{}}
+          veteransInformation={[]}
+        />,
+      );
+      expect(view).toMatchSnapshot();
+    });
+  
+    it('renders a loading view', () => {
+      const view = render(
+        <AboutUsView
+          isLoading={true}
+          hasServiceFailure={false}
+          aboutUsInformation={{}}
+          veteransInformation={[]}
+        />,
+      );
 
-  describe('expected components', () => {
-    let view;
-    beforeEach(() => {
-      view = shallow(<AboutUsView />);
+      expect(view).toMatchSnapshot();
     });
 
-    it('has lists', () => {
-      expect(view.find('List')).toHaveLength(2);
+    it('renders an error view', () => {
+      const view = render(
+        <AboutUsView
+          isLoading={false}
+          hasServiceFailure={true}
+          aboutUsInformation={{}}
+          veteransInformation={[]}
+        />,
+      );
+
+      expect(view).toMatchSnapshot();
     });
   });
 });

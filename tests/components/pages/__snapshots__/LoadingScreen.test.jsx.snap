@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoadingScreen renders a default view 1`] = `
+<div
+  className="loading-screen-container"
+>
+  <div
+    className="sk-chase loading-screen-element"
+  >
+    <div
+      className="sk-chase-dot"
+    />
+    <div
+      className="sk-chase-dot"
+    />
+    <div
+      className="sk-chase-dot"
+    />
+    <div
+      className="sk-chase-dot"
+    />
+    <div
+      className="sk-chase-dot"
+    />
+    <div
+      className="sk-chase-dot"
+    />
+  </div>
+</div>
+`;

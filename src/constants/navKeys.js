@@ -21,6 +21,9 @@ export const NK_APPLY = 'apply';
 /* About us page nav key */
 export const NK_ABOUT_US = 'about';
 
+/* admin page nav key */
+export const NK_ADMIN = 'admin';
+
 /* All nav keys in an array */
 export default [
   NK_HOME,
@@ -30,4 +33,5 @@ export default [
   NK_SERVER_INFORMATION,
   NK_APPLY,
   NK_ABOUT_US,
+  NK_ADMIN,
 ];

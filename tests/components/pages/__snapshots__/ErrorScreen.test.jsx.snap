@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ErrorScreen renders a default view 1`] = `
+<div
+  className="error-screen-container"
+>
+  <div
+    className="error-screen-element"
+  >
+    <img
+      alt=""
+      src="test-file-stub"
+    />
+    <Title>
+      Something happened trying to load this page. Please try again later.
+    </Title>
+  </div>
+</div>
+`;

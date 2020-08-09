@@ -58,6 +58,7 @@ describe('DigitalTerrainWebView', () => {
       expect(shallowRenderComponent('info').find('ServerInformationContainer')).toHaveLength(1);
       expect(shallowRenderComponent('apply').find('ApplyContainer')).toHaveLength(1);
       expect(shallowRenderComponent('about').find('AboutUsContainer')).toHaveLength(1);
+      expect(shallowRenderComponent('admin').find('AdminContainer')).toHaveLength(1);
     });
   });
 });
