@@ -20,6 +20,9 @@ const propTypes = {
   selectedNavKey: selectedNavKeyPropTypes.isRequired,
   /* Function for handling menu item click */
   handleNavMenuClick: PropTypes.func.isRequired,
+  /* Whether to show the title in the nav bar */
+  showTitle: PropTypes.bool.isRequired,
+  
 };
 
 const beeIcon = <img src={animatedBee} alt="loading..." className="header-icon" />;
@@ -28,7 +31,7 @@ const beeIcon = <img src={animatedBee} alt="loading..." className="header-icon" 
  * Header view. Renders menu items.
  */
 const HeaderView = (props) => {
-  const { selectedNavKey, handleNavMenuClick } = props;
+  const { selectedNavKey, handleNavMenuClick, showTitle } = props;
   return (
     <div>
       <Menu
@@ -43,12 +46,14 @@ const HeaderView = (props) => {
           icon={beeIcon}
           className="header-icon-menu-item"
         />
-        <Menu.Item
-          key="title"
-          className="header-title header-non-highlighted-menu-item"
-        >
-          Digital Terrain
-        </Menu.Item>
+        { showTitle &&
+          <Menu.Item
+            key="title"
+            className="header-title header-non-highlighted-menu-item"
+          >
+            Digital Terrain
+          </Menu.Item>
+        }
         <Menu.Item
           key={NK_HOME}
         >
