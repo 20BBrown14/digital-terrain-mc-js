@@ -33,7 +33,7 @@ describe('AdminView', () => {
         handleEditJSONButton={() => {}}
         handleJSONEditorChange={() => {}}
         getJSONEditorRef={() => {}}
-        isJSONLoading={true}
+        isJSONLoading
         handleSaveButtonClick={() => {}}
         isDiscardChangesModalOpen={false}
         handleYesSaveButtonClick={() => {}}
@@ -63,7 +63,7 @@ describe('AdminView', () => {
         handleYesSaveButtonClick={() => {}}
         handleNoSaveButtonClick={() => {}}
         handleGoBackSaveButtonClick={() => {}}
-        isSaveLoading={true}
+        isSaveLoading
         isFailed={false}
         error={{}}
         isSaveSuccessful={false}
@@ -88,7 +88,7 @@ describe('AdminView', () => {
         handleNoSaveButtonClick={() => {}}
         handleGoBackSaveButtonClick={() => {}}
         isSaveLoading={false}
-        isFailed={true}
+        isFailed
         error={{}}
         isSaveSuccessful={false}
         tentativeSelectedJSON=""
@@ -115,7 +115,7 @@ describe('AdminView', () => {
         isSaveLoading={false}
         isFailed={false}
         error={{}}
-        isSaveSuccessful={true}
+        isSaveSuccessful
         tentativeSelectedJSON=""
       />,
     );
@@ -149,7 +149,7 @@ describe('AdminView', () => {
           isSaveSuccessful={false}
           tentativeSelectedJSON=""
         />,
-      )
+      );
 
       buttons = view.find('.admin-page-json-edit-select-button');
     });

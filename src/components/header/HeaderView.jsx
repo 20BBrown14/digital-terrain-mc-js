@@ -22,7 +22,7 @@ const propTypes = {
   handleNavMenuClick: PropTypes.func.isRequired,
   /* Whether to show the title in the nav bar */
   showTitle: PropTypes.bool.isRequired,
-  
+
 };
 
 const beeIcon = <img src={animatedBee} alt="loading..." className="header-icon" />;
@@ -46,14 +46,15 @@ const HeaderView = (props) => {
           icon={beeIcon}
           className="header-icon-menu-item"
         />
-        { showTitle &&
+        { showTitle
+          && (
           <Menu.Item
             key="title"
             className="header-title header-non-highlighted-menu-item"
           >
             Digital Terrain
           </Menu.Item>
-        }
+          )}
         <Menu.Item
           key={NK_HOME}
         >

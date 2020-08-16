@@ -22,7 +22,16 @@
   padding: 0;
 }
 
-.home-page-content {
-  max-width: 80%;
-  margin: 0 auto;
+@media (max-width: 525px) {
+  .home-page-content {
+    max-width: 95%;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 526px) {
+  .home-page-content {
+    max-width: 80%;
+    margin: 0 auto;
+  }
 }

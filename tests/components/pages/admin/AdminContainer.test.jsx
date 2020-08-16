@@ -22,7 +22,6 @@ describe('AdminContainer', () => {
     serverInformationService.mockClear();
     aboutUsInformationService.retrieveAboutUsInformation.mockClear();
     aboutUsInformationService.retrieveVeteransInformation.mockClear();
-
   });
 
   it('renders a default view', () => {
@@ -46,7 +45,7 @@ describe('AdminContainer', () => {
 
     const container = shallow(<AdminContainer />).instance();
     expect(container.state).toEqual(expectedState);
-  })
+  });
 
   it('has empty cached json', () => {
     const expectedCachedJSON = {
@@ -67,7 +66,7 @@ describe('AdminContainer', () => {
     });
 
     it('sets jsonEditor ref if instance provided', () => {
-      container.getJSONEditorRef({jsonEditor: 'jsonEditor ref'});
+      container.getJSONEditorRef({ jsonEditor: 'jsonEditor ref' });
 
       expect(container.jsonEditor).toEqual('jsonEditor ref');
     });
@@ -76,7 +75,7 @@ describe('AdminContainer', () => {
       container.getJSONEditorRef();
 
       expect(container.jsonEditor).toBeUndefined();
-    })
+    });
   });
 
   describe('saveJSON', () => {
@@ -92,7 +91,7 @@ describe('AdminContainer', () => {
 
     describe('selectedJSON is set', () => {
       beforeEach(() => {
-        container.state.selectedJSON = 'rules'
+        container.state.selectedJSON = 'rules';
       });
 
       it('sets jsonEditor mode', () => {
@@ -110,7 +109,7 @@ describe('AdminContainer', () => {
           container.saveJSON();
 
           expect(saveService).toHaveBeenCalledTimes(1);
-          expect(saveService).toHaveBeenCalledWith(expect.any(Function), expect.any(Function), 'rules', {})
+          expect(saveService).toHaveBeenCalledWith(expect.any(Function), expect.any(Function), 'rules', {});
         });
 
         describe('successful service call', () => {
@@ -129,7 +128,7 @@ describe('AdminContainer', () => {
               isSaveLoading: false,
               isFailed: false,
               isSaveSuccessful: true,
-            }
+            };
 
             container.state.isDirty = true;
             container.state.selectedJSON = 'non-empty string';
@@ -140,13 +139,13 @@ describe('AdminContainer', () => {
 
             container.saveJSON();
 
-            expect(container.state.isDirty).toEqual(expectedState.isDirty)
-            expect(container.state.selectedJSON).toEqual(expectedState.selectedJSON)
-            expect(container.state.tentativeSelectedJSON).toEqual(expectedState.tentativeSelectedJSON)
-            expect(container.state.EdittedJSON).toEqual(expectedState.EdittedJSON)
-            expect(container.state.isSaveLoading).toEqual(expectedState.isSaveLoading)
-            expect(container.state.isFailed).toEqual(expectedState.isFailed)
-            expect(container.state.isSaveSuccessful).toEqual(expectedState.isSaveSuccessful)
+            expect(container.state.isDirty).toEqual(expectedState.isDirty);
+            expect(container.state.selectedJSON).toEqual(expectedState.selectedJSON);
+            expect(container.state.tentativeSelectedJSON).toEqual(expectedState.tentativeSelectedJSON);
+            expect(container.state.EdittedJSON).toEqual(expectedState.EdittedJSON);
+            expect(container.state.isSaveLoading).toEqual(expectedState.isSaveLoading);
+            expect(container.state.isFailed).toEqual(expectedState.isFailed);
+            expect(container.state.isSaveSuccessful).toEqual(expectedState.isSaveSuccessful);
           });
 
           it('sets cachedJSON as expected', () => {
@@ -155,7 +154,7 @@ describe('AdminContainer', () => {
             container.saveJSON();
 
             expect(container.cachedJSON.rules).toEqual({ success: 'success' });
-          })
+          });
 
           it('calls jsonEditor setters', () => {
             container.jsonEditor.set = jest.fn();
@@ -166,7 +165,7 @@ describe('AdminContainer', () => {
             expect(container.jsonEditor.set).toHaveBeenCalledTimes(1);
             expect(container.jsonEditor.set).toHaveBeenCalledWith({});
             expect(container.jsonEditor.setMode).toHaveBeenCalledTimes(2);
-            expect(container.jsonEditor.setMode.mock.calls[1][0]).toEqual('tree')
+            expect(container.jsonEditor.setMode.mock.calls[1][0]).toEqual('tree');
           });
         });
 
@@ -227,7 +226,7 @@ describe('AdminContainer', () => {
 
   describe('loadNewJSON', () => {
     let container;
-    
+
     beforeEach(() => {
       container = shallow(<AdminContainer />).instance();
       container.jsonEditor = {
@@ -235,7 +234,7 @@ describe('AdminContainer', () => {
         set: () => {},
       };
     });
-    
+
     it('sets jsonEditor mode', () => {
       container.jsonEditor.setMode = jest.fn();
       container.loadNewJSON();
@@ -315,7 +314,7 @@ describe('AdminContainer', () => {
               isJSONLoading: false,
               isFailed: true,
               isSaveSuccessful: false,
-            }
+            };
 
             container.state.isJSONLoading = true;
             container.state.isSaveSuccessful = true;
@@ -334,7 +333,7 @@ describe('AdminContainer', () => {
             container.loadNewJSON();
 
             expect(container.jsonEditor.setMode).toHaveBeenCalledTimes(2);
-            expect(container.jsonEditor.setMode.mock.calls[1][0]).toEqual('tree')
+            expect(container.jsonEditor.setMode.mock.calls[1][0]).toEqual('tree');
           });
         });
       });
@@ -452,7 +451,7 @@ describe('AdminContainer', () => {
               isJSONLoading: false,
               isFailed: true,
               isSaveSuccessful: false,
-            }
+            };
 
             container.state.isJSONLoading = true;
             container.state.isSaveSuccessful = true;
@@ -471,7 +470,7 @@ describe('AdminContainer', () => {
             container.loadNewJSON();
 
             expect(container.jsonEditor.setMode).toHaveBeenCalledTimes(2);
-            expect(container.jsonEditor.setMode.mock.calls[1][0]).toEqual('tree')
+            expect(container.jsonEditor.setMode.mock.calls[1][0]).toEqual('tree');
           });
         });
       });
@@ -589,7 +588,7 @@ describe('AdminContainer', () => {
               isJSONLoading: false,
               isFailed: true,
               isSaveSuccessful: false,
-            }
+            };
 
             container.state.isJSONLoading = true;
             container.state.isSaveSuccessful = true;
@@ -608,7 +607,7 @@ describe('AdminContainer', () => {
             container.loadNewJSON();
 
             expect(container.jsonEditor.setMode).toHaveBeenCalledTimes(2);
-            expect(container.jsonEditor.setMode.mock.calls[1][0]).toEqual('tree')
+            expect(container.jsonEditor.setMode.mock.calls[1][0]).toEqual('tree');
           });
         });
       });
@@ -726,7 +725,7 @@ describe('AdminContainer', () => {
               isJSONLoading: false,
               isFailed: true,
               isSaveSuccessful: false,
-            }
+            };
 
             container.state.isJSONLoading = true;
             container.state.isSaveSuccessful = true;
@@ -745,7 +744,7 @@ describe('AdminContainer', () => {
             container.loadNewJSON();
 
             expect(container.jsonEditor.setMode).toHaveBeenCalledTimes(2);
-            expect(container.jsonEditor.setMode.mock.calls[1][0]).toEqual('tree')
+            expect(container.jsonEditor.setMode.mock.calls[1][0]).toEqual('tree');
           });
         });
       });
@@ -799,7 +798,7 @@ describe('AdminContainer', () => {
         expect(container.state.isJSONLoading).toEqual(false);
         expect(container.state.isFailed).toEqual(true);
         expect(container.state.error).toEqual({ message: 'Unexpected value for json to edit' });
-      });  
+      });
     });
   });
 
@@ -820,7 +819,7 @@ describe('AdminContainer', () => {
 
         expect(container.state.isDiscardChangesModalOpen).toEqual(true);
         expect(container.state.tentativeSelectedJSON).toEqual('rules');
-      })
+      });
     });
 
     describe('JSON is not dirty', () => {
@@ -840,10 +839,10 @@ describe('AdminContainer', () => {
 
   describe('handleEditJSONButton', () => {
     let container;
-    
+
     beforeEach(() => {
       container = shallow(<AdminContainer />).instance();
-      container.saveJSON = () => {}
+      container.saveJSON = () => {};
     });
 
     describe('JSON is dirty', () => {

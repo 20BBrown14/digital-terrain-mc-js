@@ -17,6 +17,10 @@ const propTypes = {
   ]).isRequired),
 };
 
+const defaultProps = {
+  serverInformation: null,
+};
+
 const buildGeneralInformationPanel = (generalInfoObject, panelKey) => {
   const generalInfo = generalInfoObject.map((info, index) => (
     /* eslint-disable-next-line react/no-array-index-key */
@@ -228,7 +232,8 @@ const ServerInformationView = (props) => {
       <Typography.Title className="server-information-page-title">
         Digital Terrain Server Information
       </Typography.Title>
-      {serverInformation &&
+      {serverInformation
+        && (
         <Collapse defaultActiveKey={[0]}>
           {buildGeneralInformationPanel(serverInformation['General Information'], 0)}
           {buildServerURLInformationPanel(serverInformation['Server URLs'], 1)}
@@ -238,11 +243,12 @@ const ServerInformationView = (props) => {
           {buildRolesPanel(serverInformation.Roles, 5)}
           {buildHelpfulLinksPanel(serverInformation['Helpful Links'], 6)}
         </Collapse>
-      }
+        )}
     </div>
   );
 };
 
 ServerInformationView.propTypes = propTypes;
+ServerInformationView.defaultProps = defaultProps;
 
 export default ServerInformationView;

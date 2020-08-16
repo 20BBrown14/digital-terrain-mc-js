@@ -31,6 +31,7 @@ const propTypes = {
   /* Whether there was a service failure */
   isFailed: PropTypes.bool.isRequired,
   /* Error information */
+  /* eslint-disable-next-line react/forbid-prop-types */
   error: PropTypes.object,
   /* Whether the save was successful */
   isSaveSuccessful: PropTypes.bool.isRequired,
@@ -40,6 +41,7 @@ const propTypes = {
 
 const defaultProps = {
   selectedJSON: '',
+  error: {},
 };
 
 // edit json

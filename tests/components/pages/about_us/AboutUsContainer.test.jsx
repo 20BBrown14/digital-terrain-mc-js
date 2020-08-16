@@ -27,12 +27,12 @@ describe('AboutUsContainer', () => {
       container = shallow(<AboutUsContainer />).instance();
       aboutUsService.retrieveAboutUsInformation.mockClear();
       aboutUsService.retrieveVeteransInformation.mockClear();
-    })
+    });
 
     afterEach(() => {
       aboutUsService.retrieveAboutUsInformation.mockClear();
       aboutUsService.retrieveVeteransInformation.mockClear();
-    })
+    });
 
     it('calls service', () => {
       container.componentDidMount();
@@ -55,7 +55,7 @@ describe('AboutUsContainer', () => {
           expect(aboutUsService.retrieveAboutUsInformation).toHaveBeenCalledTimes(1);
           expect(container.state.isLoading).toBe(false);
           expect(container.state.aboutUsInformation).toEqual({ success: 'success' });
-        })
+        });
 
         it('sets isLoading to true if veterans is not complete', () => {
           container.state.isLoading = false;

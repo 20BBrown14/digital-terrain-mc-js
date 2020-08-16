@@ -6,7 +6,16 @@
   font-size: 120%
 }
 
-.rules-page-content {
-  max-width: 80%;
-  margin: 0 auto;
+@media (max-width: 525px) {
+  .rules-page-content {
+    max-width: 95%;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 526px) {
+  .rules-page-content {
+    max-width: 80%;
+    margin: 0 auto;
+  }
 }
