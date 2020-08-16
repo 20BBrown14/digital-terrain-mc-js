@@ -3,14 +3,32 @@ import ApplyView from '../../../../src/components/pages/apply/ApplyView';
 
 describe('ApplyView', () => {
   it('Renders a default view', () => {
-    const view = render(<ApplyView />);
+    const view = render(
+      <ApplyView
+        isLoading={false}
+        handleFormSubmit={() => {}}
+        failedSubmission={false}
+        successfulSubmission={false}
+        handleSourceOptionChange={() => {}}
+        handleSourceTextChange={() => {}}
+      />
+    );
     expect(view).toMatchSnapshot();
   });
 
   describe('expected components', () => {
     let view;
     beforeEach(() => {
-      view = shallow(<ApplyView />);
+      view = shallow(
+        <ApplyView
+          isLoading={false}
+          handleFormSubmit={() => {}}
+          failedSubmission={false}
+          successfulSubmission={false}
+          handleSourceOptionChange={() => {}}
+          handleSourceTextChange={() => {}}
+        />
+      );
     });
 
     it('has a title', () => {

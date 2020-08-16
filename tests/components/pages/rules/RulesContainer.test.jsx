@@ -37,7 +37,7 @@ describe('RulesContainer', () => {
         });
         container.state.isLoading = true;
         container.componentDidMount();
-        
+
         expect(container.state.rulesInformation).toEqual({ rules: [] });
         expect(container.state.isLoading).toEqual(false);
       });

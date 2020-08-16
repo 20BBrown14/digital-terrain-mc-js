@@ -14,11 +14,11 @@ describe('AboutUsView', () => {
       );
       expect(view).toMatchSnapshot();
     });
-  
+
     it('renders a loading view', () => {
       const view = render(
         <AboutUsView
-          isLoading={true}
+          isLoading
           hasServiceFailure={false}
           aboutUsInformation={{}}
           veteransInformation={[]}
@@ -32,7 +32,7 @@ describe('AboutUsView', () => {
       const view = render(
         <AboutUsView
           isLoading={false}
-          hasServiceFailure={true}
+          hasServiceFailure
           aboutUsInformation={{}}
           veteransInformation={[]}
         />,

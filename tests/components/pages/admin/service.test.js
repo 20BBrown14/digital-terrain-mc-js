@@ -50,7 +50,7 @@ describe('save service', () => {
             },
           },
         );
-  
+
         reject(new Error('error'));
       }));
     });

@@ -19,17 +19,17 @@ describe('about us page services', () => {
             resolve({ data: 'success' });
           }));
         });
-  
+
         it('calls success callback', async () => {
           const success = jest.fn();
-          aboutUsServices.retrieveAboutUsInformation (success, () => {});
+          aboutUsServices.retrieveAboutUsInformation(success, () => {});
           await flushPromises();
           expect(success).toHaveBeenCalledTimes(1);
           expect(success).toHaveBeenCalledWith('success');
         });
       });
     });
-  
+
     describe('responds without data', () => {
       beforeEach(() => {
         axios.get.mockImplementation((path) => new Promise((resolve) => {
@@ -37,7 +37,7 @@ describe('about us page services', () => {
           resolve({});
         }));
       });
-  
+
       it('calls failure callback', async () => {
         const failure = jest.fn();
         aboutUsServices.retrieveAboutUsInformation(() => {}, failure);
@@ -45,7 +45,7 @@ describe('about us page services', () => {
         expect(failure).toHaveBeenCalledTimes(1);
       });
     });
-  
+
     describe('call fails', () => {
       beforeEach(() => {
         axios.get.mockImplementation((path) => new Promise((resolve, reject) => {
@@ -54,7 +54,7 @@ describe('about us page services', () => {
           reject('failure');
         }));
       });
-  
+
       it('calls failure callback', async () => {
         const failure = jest.fn();
         aboutUsServices.retrieveAboutUsInformation(() => {}, failure);
@@ -73,17 +73,17 @@ describe('about us page services', () => {
             resolve({ data: 'success' });
           }));
         });
-  
+
         it('calls success callback', async () => {
           const success = jest.fn();
-          aboutUsServices.retrieveVeteransInformation  (success, () => {});
+          aboutUsServices.retrieveVeteransInformation(success, () => {});
           await flushPromises();
           expect(success).toHaveBeenCalledTimes(1);
           expect(success).toHaveBeenCalledWith('success');
         });
       });
     });
-  
+
     describe('responds without data', () => {
       beforeEach(() => {
         axios.get.mockImplementation((path) => new Promise((resolve) => {
@@ -91,15 +91,15 @@ describe('about us page services', () => {
           resolve({});
         }));
       });
-  
+
       it('calls failure callback', async () => {
         const failure = jest.fn();
-        aboutUsServices.retrieveVeteransInformation (() => {}, failure);
+        aboutUsServices.retrieveVeteransInformation(() => {}, failure);
         await flushPromises();
         expect(failure).toHaveBeenCalledTimes(1);
       });
     });
-  
+
     describe('call fails', () => {
       beforeEach(() => {
         axios.get.mockImplementation((path) => new Promise((resolve, reject) => {
@@ -108,10 +108,10 @@ describe('about us page services', () => {
           reject('failure');
         }));
       });
-  
+
       it('calls failure callback', async () => {
         const failure = jest.fn();
-        aboutUsServices.retrieveVeteransInformation (() => {}, failure);
+        aboutUsServices.retrieveVeteransInformation(() => {}, failure);
         await flushPromises();
         expect(failure).toHaveBeenCalledTimes(1);
       });

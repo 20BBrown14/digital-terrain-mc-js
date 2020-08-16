@@ -13,9 +13,18 @@
   background: whitesmoke;
 }
 
-.about-us-content {
-  width: 80%;
-  margin: 0 auto;
+@media (max-width: 525px) {
+  .about-us-content {
+    width: 95%;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 526px) {
+  .about-us-content {
+    width: 80%;
+    margin: 0 auto;
+  }
 }
 
 .about-us-title {
@@ -25,6 +34,7 @@
 .about-us-veterans-list {
   max-width: 65%;
   margin: 0 auto;
+  text-align: center
 }
 
 .about-us-crafatar {

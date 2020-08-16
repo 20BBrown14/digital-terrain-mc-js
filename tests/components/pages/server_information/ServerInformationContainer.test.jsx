@@ -2,7 +2,7 @@ import React from 'react';
 import ServerInformationContainer from '../../../../src/components/pages/server_information/ServerInformationContainer';
 import serverInformationService from '../../../../src/components/pages/server_information/service';
 
-jest.mock('../../../../src/components/pages/server_information/service')
+jest.mock('../../../../src/components/pages/server_information/service');
 
 describe('ServerInformationContainer', () => {
   it('renders a default view', () => {

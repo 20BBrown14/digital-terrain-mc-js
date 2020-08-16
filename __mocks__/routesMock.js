@@ -28,6 +28,10 @@ const testHarness = {
     app.post('/save', (req, res) => {
       res.json(req.body.JSON);
     });
+
+    app.post('/applicationsubmit', (req, res) => {
+      res.sendStatus(204);
+    });
   },
 };
 

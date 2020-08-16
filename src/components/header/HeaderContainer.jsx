@@ -15,10 +15,10 @@ const propTypes = {
  */
 class HeaderContainer extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
 
-    this.state = { showTitle: true }
-    
+    this.state = { showTitle: true };
+
     this.updateShowTitle = this.updateShowTitle.bind(this);
   }
 
@@ -32,7 +32,7 @@ class HeaderContainer extends React.Component {
   }
 
   updateShowTitle() {
-    this.setState({ showTitle: (window.innerWidth > 442 || window.innerWidth < 388)})
+    this.setState({ showTitle: (window.innerWidth > 442 || window.innerWidth < 388) });
   }
 
   render() {
@@ -46,7 +46,7 @@ class HeaderContainer extends React.Component {
       />
     );
   }
-};
+}
 
 HeaderContainer.propTypes = propTypes;
 

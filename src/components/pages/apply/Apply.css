@@ -1,10 +1,20 @@
-.apply-page-content {
-  max-width: 80%;
-  margin: 0 auto;
+@media (max-width: 525px) {
+  .apply-page-content {
+    max-width: 95%;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 526px) {
+  .apply-page-content {
+    max-width: 80%;
+    margin: 0 auto;
+  }
 }
 
 .apply-page-title {
   text-align: center;
+  font-size: 180%
 }
 
 .apply-page-text {

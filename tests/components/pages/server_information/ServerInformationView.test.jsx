@@ -7,7 +7,7 @@ describe('ServerInformationView', () => {
       <ServerInformationView
         isLoading={false}
         hasServiceFailure={false}
-      />
+      />,
     );
     expect(view).toMatchSnapshot();
   });
