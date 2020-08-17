@@ -10,3 +10,25 @@
 .admin-page-alert {
   margin-bottom: 5px;
 }
+
+.admin-page-applications-title {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.admin-page-load-apps-button {
+  float: right;
+}
+
+.admin-page-app-type-select-button {
+  margin: 5px
+}
+
+.admin-page-app-view-modal {
+  max-height: 50vh;
+  overflow-y: auto;
+}
+
+.admin-page-applications-list {
+  margin-top: 30px
+}

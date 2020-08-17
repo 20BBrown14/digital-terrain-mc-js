@@ -1,0 +1,77 @@
+[
+  {
+    "appID": 0,
+    "inGameName": "Panda_Brah",
+    "discordUsername": "Nibikk",
+    "age": 24,
+    "location": "US, Kansas",
+    "joinReason": "To moderate To moderate To moderate To moderate To moderate To moderate To moderate To moderate To moderate To moderate To moderate To moderate To moderate To moderate ",
+    "playStyle": "To play To play To play To play To play To play To play To play To play To play To play To play To play To play To play To play To play To play To play To play To play To play To play To play To play To play ",
+    "freeTime": "Work work work Work work work Work work work Work work work Work work work Work work work Work work work Work work work Work work work Work work work Work work work Work work work Work work work Work work work Work work work Work work work Work work work Work work work Work work work Work work work Work work work Work work work Work work work Work work work Work work work Work work work ",
+    "source": {
+      "option": "Discord",
+      "text": "some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text "
+    },
+    "status": "submitted"
+  },
+  {
+    "appID": 1,
+    "inGameName": "DMDF_",
+    "discordUsername": "DMDF",
+    "age": 24,
+    "location": "US",
+    "joinReason": "To admin",
+    "playStyle": "To not play",
+    "freeTime": "doot doot",
+    "source": {
+      "option": "Youtube",
+      "text": "some youtube text"
+    },
+    "status": "submitted"
+  },
+  {
+    "appID": 2,
+    "inGameName": "Fae",
+    "discordUsername": "Fae",
+    "age": 24,
+    "location": "Phil",
+    "joinReason": "To moderate",
+    "playStyle": "farms farms farms",
+    "freeTime": "who knows",
+    "source": {
+      "option": "Reddit",
+      "text": "some reddit text"
+    },
+    "status": "approved"
+  },
+  {
+    "appID": 3,
+    "inGameName": "Muggle",
+    "discordUsername": "Muggle",
+    "age": 24,
+    "location": "Phil",
+    "joinReason": "To be a muggle",
+    "playStyle": "Shops shops shops",
+    "freeTime": "work probably",
+    "source": {
+      "option": "Other",
+      "text": "some other text"
+    },
+    "status": "approved"
+  },
+  {
+    "appID": 4,
+    "inGameName": "Falcon",
+    "discordUsername": "Falcon",
+    "age": 24,
+    "location": "US I think",
+    "joinReason": "To be a RX",
+    "playStyle": "Sell drugs",
+    "freeTime": "Drug Deal",
+    "source": {
+      "option": "Friend",
+      "text": "some Friend text"
+    },
+    "status": "denied"
+  }
+]

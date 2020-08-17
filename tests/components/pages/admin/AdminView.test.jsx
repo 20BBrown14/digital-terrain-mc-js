@@ -16,10 +16,27 @@ describe('AdminView', () => {
         handleNoSaveButtonClick={() => {}}
         handleGoBackSaveButtonClick={() => {}}
         isSaveLoading={false}
-        isFailed={false}
+        isSaveFailed={false}
         error={{}}
         isSaveSuccessful={false}
         tentativeSelectedJSON=""
+        handleAppsLoadClick={() => {}}
+        isAppsLoading={false}
+        appData={[{}]}
+        handleAppViewClick={() => {}}
+        isViewModalOpen={false}
+        selectedAppToView={{}}
+        handleAppViewGoBackClick={() => {}}
+        handleAppViewDenyClick={() => {}}
+        handleAppViewApproveClick={() => {}}
+        handleUnreviewedAppsButtonClick={() => {}}
+        handleApprovedAppsButtonClick={() => {}}
+        handleDeniedAppsButtonClick={() => {}}
+        isAppStatusUpdateSuccessful={false}
+        isAppStatusUpdateFailed={false}
+        isAppDeleteSuccessful={false}
+        isAppDeleteFailed={false}
+        handleAppDeleteButtonClick={() => {}}
       />,
     );
 
@@ -40,10 +57,27 @@ describe('AdminView', () => {
         handleNoSaveButtonClick={() => {}}
         handleGoBackSaveButtonClick={() => {}}
         isSaveLoading={false}
-        isFailed={false}
+        isSaveFailed={false}
         error={{}}
         isSaveSuccessful={false}
         tentativeSelectedJSON=""
+        handleAppsLoadClick={() => {}}
+        isAppsLoading={false}
+        appData={[{}]}
+        handleAppViewClick={() => {}}
+        isViewModalOpen={false}
+        selectedAppToView={{}}
+        handleAppViewGoBackClick={() => {}}
+        handleAppViewDenyClick={() => {}}
+        handleAppViewApproveClick={() => {}}
+        handleUnreviewedAppsButtonClick={() => {}}
+        handleApprovedAppsButtonClick={() => {}}
+        handleDeniedAppsButtonClick={() => {}}
+        isAppStatusUpdateSuccessful={false}
+        isAppStatusUpdateFailed={false}
+        isAppDeleteSuccessful={false}
+        isAppDeleteFailed={false}
+        handleAppDeleteButtonClick={() => {}}
       />,
     );
 
@@ -64,10 +98,27 @@ describe('AdminView', () => {
         handleNoSaveButtonClick={() => {}}
         handleGoBackSaveButtonClick={() => {}}
         isSaveLoading
-        isFailed={false}
+        isSaveFailed={false}
         error={{}}
         isSaveSuccessful={false}
         tentativeSelectedJSON=""
+        handleAppsLoadClick={() => {}}
+        isAppsLoading={false}
+        appData={[{}]}
+        handleAppViewClick={() => {}}
+        isViewModalOpen={false}
+        selectedAppToView={{}}
+        handleAppViewGoBackClick={() => {}}
+        handleAppViewDenyClick={() => {}}
+        handleAppViewApproveClick={() => {}}
+        handleUnreviewedAppsButtonClick={() => {}}
+        handleApprovedAppsButtonClick={() => {}}
+        handleDeniedAppsButtonClick={() => {}}
+        isAppStatusUpdateSuccessful={false}
+        isAppStatusUpdateFailed={false}
+        isAppDeleteSuccessful={false}
+        isAppDeleteFailed={false}
+        handleAppDeleteButtonClick={() => {}}
       />,
     );
 
@@ -88,10 +139,27 @@ describe('AdminView', () => {
         handleNoSaveButtonClick={() => {}}
         handleGoBackSaveButtonClick={() => {}}
         isSaveLoading={false}
-        isFailed
+        isSaveFailed
         error={{}}
         isSaveSuccessful={false}
         tentativeSelectedJSON=""
+        handleAppsLoadClick={() => {}}
+        isAppsLoading={false}
+        appData={[{}]}
+        handleAppViewClick={() => {}}
+        isViewModalOpen={false}
+        selectedAppToView={{}}
+        handleAppViewGoBackClick={() => {}}
+        handleAppViewDenyClick={() => {}}
+        handleAppViewApproveClick={() => {}}
+        handleUnreviewedAppsButtonClick={() => {}}
+        handleApprovedAppsButtonClick={() => {}}
+        handleDeniedAppsButtonClick={() => {}}
+        isAppStatusUpdateSuccessful={false}
+        isAppStatusUpdateFailed={false}
+        isAppDeleteSuccessful={false}
+        isAppDeleteFailed={false}
+        handleAppDeleteButtonClick={() => {}}
       />,
     );
 
@@ -113,10 +181,27 @@ describe('AdminView', () => {
         handleNoSaveButtonClick={() => {}}
         handleGoBackSaveButtonClick={() => {}}
         isSaveLoading={false}
-        isFailed={false}
+        isSaveFailed={false}
         error={{}}
         isSaveSuccessful
         tentativeSelectedJSON=""
+        handleAppsLoadClick={() => {}}
+        isAppsLoading={false}
+        appData={[{}]}
+        handleAppViewClick={() => {}}
+        isViewModalOpen={false}
+        selectedAppToView={{}}
+        handleAppViewGoBackClick={() => {}}
+        handleAppViewDenyClick={() => {}}
+        handleAppViewApproveClick={() => {}}
+        handleUnreviewedAppsButtonClick={() => {}}
+        handleApprovedAppsButtonClick={() => {}}
+        handleDeniedAppsButtonClick={() => {}}
+        isAppStatusUpdateSuccessful={false}
+        isAppStatusUpdateFailed={false}
+        isAppDeleteSuccessful={false}
+        isAppDeleteFailed={false}
+        handleAppDeleteButtonClick={() => {}}
       />,
     );
 
@@ -144,10 +229,27 @@ describe('AdminView', () => {
           handleNoSaveButtonClick={() => {}}
           handleGoBackSaveButtonClick={() => {}}
           isSaveLoading={false}
-          isFailed={false}
+          isSaveFailed={false}
           error={{}}
           isSaveSuccessful={false}
           tentativeSelectedJSON=""
+          handleAppsLoadClick={() => {}}
+          isAppsLoading={false}
+          appData={[{}]}
+          handleAppViewClick={() => {}}
+          isViewModalOpen={false}
+          selectedAppToView={{}}
+          handleAppViewGoBackClick={() => {}}
+          handleAppViewDenyClick={() => {}}
+          handleAppViewApproveClick={() => {}}
+          handleUnreviewedAppsButtonClick={() => {}}
+          handleApprovedAppsButtonClick={() => {}}
+          handleDeniedAppsButtonClick={() => {}}
+          isAppStatusUpdateSuccessful={false}
+          isAppStatusUpdateFailed={false}
+          isAppDeleteSuccessful={false}
+          isAppDeleteFailed={false}
+          handleAppDeleteButtonClick={() => {}}
         />,
       );
 

@@ -11,7 +11,7 @@ describe('ApplyView', () => {
         successfulSubmission={false}
         handleSourceOptionChange={() => {}}
         handleSourceTextChange={() => {}}
-      />
+      />,
     );
     expect(view).toMatchSnapshot();
   });
@@ -27,7 +27,7 @@ describe('ApplyView', () => {
           successfulSubmission={false}
           handleSourceOptionChange={() => {}}
           handleSourceTextChange={() => {}}
-        />
+        />,
       );
     });
 

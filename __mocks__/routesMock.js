@@ -32,6 +32,22 @@ const testHarness = {
     app.post('/applicationsubmit', (req, res) => {
       res.sendStatus(204);
     });
+
+    app.get('/loadApps', (req, res) => {
+      const appsJson = require('./appsMock.json');
+      const filteredApps = appsJson.filter((application) => (
+        application.status === req.query.applicationFilter
+      ));
+      res.json(filteredApps);
+    });
+
+    app.post('/updateappstatus', (req, res) => {
+      res.sendStatus(204);
+    });
+
+    app.post('/deleteapp', (req, res) => {
+      res.sendStatus(204);
+    });
   },
 };
 

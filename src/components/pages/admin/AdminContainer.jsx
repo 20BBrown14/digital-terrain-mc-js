@@ -3,7 +3,12 @@ import AdminView from './AdminView';
 import rulesService from '../rules/service';
 import serverInformationService from '../server_information/service';
 import aboutUsInformationService from '../about_us/service';
-import saveService from './service';
+import {
+  saveJSONInformationService,
+  loadAppsService,
+  updateAppStatusService,
+  deleteAppService,
+} from './service';
 
 class AdminContainer extends React.Component {
   constructor(props) {
@@ -12,13 +17,22 @@ class AdminContainer extends React.Component {
       selectedJSON: '',
       EdittedJSON: {},
       isJSONLoading: false,
-      isFailed: false,
+      isSaveFailed: false,
       isDirty: false,
       isDiscardChangesModalOpen: false,
       tentativeSelectedJSON: '',
-      error: undefined,
+      jsonEditError: undefined,
       isSaveLoading: false,
       isSaveSuccessful: false,
+      isAppsLoading: false,
+      appData: [],
+      appsLoadError: undefined,
+      isViewModalOpen: false,
+      selectedAppToView: {},
+      isAppStatusUpdateSuccessful: false,
+      isAppStatusUpdateFailed: false,
+      isAppDeleteSuccessful: false,
+      isAppDeleteFailed: false,
     };
 
     this.cachedJSON = {
@@ -37,6 +51,17 @@ class AdminContainer extends React.Component {
     this.handleGoBackSaveButtonClick = this.handleGoBackSaveButtonClick.bind(this);
     this.saveJSON = this.saveJSON.bind(this);
     this.loadNewJSON = this.loadNewJSON.bind(this);
+    this.handleAppsLoadClick = this.handleAppsLoadClick.bind(this);
+    this.handleAppViewClick = this.handleAppViewClick.bind(this);
+    this.handleAppViewGoBackClick = this.handleAppViewGoBackClick.bind(this);
+    this.handleAppViewDenyClick = this.handleAppViewDenyClick.bind(this);
+    this.handleAppViewApproveClick = this.handleAppViewApproveClick.bind(this);
+    this.handleApprovedAppsButtonClick = this.handleApprovedAppsButtonClick.bind(this);
+    this.handleDeniedAppsButtonClick = this.handleDeniedAppsButtonClick.bind(this);
+    this.handleUnreviewedAppsButtonClick = this.handleUnreviewedAppsButtonClick.bind(this);
+    this.loadApps = this.loadApps.bind(this);
+    this.updateAppStatus = this.updateAppStatus.bind(this);
+    this.handleAppDeleteButtonClick = this.handleAppDeleteButtonClick.bind(this);
   }
 
   getJSONEditorRef = (instance) => {
@@ -56,22 +81,22 @@ class AdminContainer extends React.Component {
         tentativeSelectedJSON: '',
         EdittedJSON: {},
         isSaveLoading: false,
-        isFailed: false,
+        isSaveFailed: false,
         isSaveSuccessful: true,
       }, () => { this.jsonEditor.set({}); this.jsonEditor.setMode('tree'); });
     };
 
-    const failedCall = (error) => {
+    const failedCall = (jsonEditError) => {
       this.setState({
-        isFailed: true,
-        error,
+        isSaveFailed: true,
+        jsonEditError,
         isSaveLoading: false,
       });
       this.jsonEditor.setMode('tree');
     };
     if (selectedJSON) {
       this.jsonEditor.setMode('view');
-      saveService(successfulCall, failedCall, selectedJSON, EdittedJSON);
+      saveJSONInformationService(successfulCall, failedCall, selectedJSON, EdittedJSON);
     }
   }
 
@@ -92,7 +117,7 @@ class AdminContainer extends React.Component {
         this.cachedJSON[prevState.tentativeSelectedJSON] = responseJSON;
         return {
           isJSONLoading: false,
-          isFailed: false,
+          isSaveFailed: false,
           selectedJSON: prevState.tentativeSelectedJSON,
           tentativeSelectedJSON: '',
           isSaveSuccessful: false,
@@ -102,11 +127,11 @@ class AdminContainer extends React.Component {
       this.jsonEditor.setMode('tree');
     };
 
-    const failedCall = (error) => {
+    const failedCall = (jsonEditError) => {
       this.setState({
-        error,
+        jsonEditError,
         isJSONLoading: false,
-        isFailed: true,
+        isSaveFailed: true,
         isSaveSuccessful: false,
       });
       this.jsonEditor.setMode('tree');
@@ -115,7 +140,7 @@ class AdminContainer extends React.Component {
     const loadCachedJSON = (cachedJSON) => {
       this.setState((prevState) => ({
         isJSONLoading: false,
-        isFailed: false,
+        isSaveFailed: false,
         selectedJSON: prevState.tentativeSelectedJSON,
         tentativeSelectedJSON: '',
         isSaveSuccessful: false,
@@ -176,8 +201,8 @@ class AdminContainer extends React.Component {
       default:
         this.setState({
           isJSONLoading: false,
-          isFailed: true,
-          error: { message: 'Unexpected value for json to edit' },
+          isSaveFailed: true,
+          jsonEditError: { message: 'Unexpected value for json to edit' },
         });
     }
   }
@@ -225,16 +250,159 @@ class AdminContainer extends React.Component {
     });
   }
 
+  loadApps = (filter) => {
+    const successfulCall = (data) => {
+      this.setState({
+        appData: data,
+        isAppsLoading: false,
+        appsLoadError: undefined,
+      });
+    };
+
+    const failedCall = (error) => {
+      this.setState({
+        isAppsLoading: false,
+        appsLoadError: error,
+      });
+    };
+
+    this.setState({
+      isAppsLoading: true,
+    }, loadAppsService(successfulCall, failedCall, filter));
+  }
+
+  handleUnreviewedAppsButtonClick = () => {
+    this.loadApps('submitted');
+  }
+
+  handleApprovedAppsButtonClick = () => {
+    this.loadApps('approved');
+  }
+
+  handleDeniedAppsButtonClick = () => {
+    this.loadApps('denied');
+  }
+
+  handleAppsLoadClick = () => {
+    this.loadApps('submitted');
+  }
+
+  handleAppViewClick = (id) => {
+    this.setState((prevState) => {
+      const selectedAppData = prevState.appData.find((app) => (
+        app.appID === id
+      ));
+      return {
+        isViewModalOpen: true,
+        selectedAppToView: selectedAppData,
+      };
+    });
+  }
+
+  handleAppViewGoBackClick = () => {
+    this.setState({
+      isViewModalOpen: false,
+    });
+  }
+
+  updateAppStatus = (appID, newStatus) => {
+    const successfulCall = () => {
+      this.setState((prevState) => {
+        let newAppData = [...prevState.appData];
+        newAppData = newAppData.map((app) => {
+          const newApp = { ...app };
+          if (newApp.appID === appID) {
+            newApp.status = newStatus;
+          }
+          return newApp;
+        });
+        return {
+          isAppsLoading: false,
+          isAppStatusUpdateSuccessful: true,
+          isAppStatusUpdateFailed: false,
+          selectedAppToView: {},
+          appData: newAppData,
+        };
+      });
+    };
+
+    const failedCall = (error) => {
+      this.setState({
+        isAppsLoading: false,
+        isAppStatusUpdateSuccessful: false,
+        isAppStatusUpdateFailed: true,
+        appUpdateStatusError: error,
+      });
+    };
+
+    this.setState({
+      isAppsLoading: true,
+      isViewModalOpen: false,
+      isAppDeleteSuccessful: false,
+      isAppDeleteFailed: false,
+    }, updateAppStatusService(successfulCall, failedCall, appID, newStatus));
+  }
+
+  handleAppViewApproveClick = (appID) => {
+    this.updateAppStatus(appID, 'approved');
+  }
+
+  handleAppViewDenyClick = (appID) => {
+    this.updateAppStatus(appID, 'denied');
+  }
+
+  handleAppDeleteButtonClick = (appID) => {
+    const successfulCall = () => {
+      this.setState((prevState) => {
+        const newAppData = prevState.appData.filter((app) => !(app.appID === appID));
+        return {
+          isAppsLoading: false,
+          isAppDeleteSuccessful: true,
+          isAppDeleteFailed: false,
+          selectedAppToView: {},
+          appData: newAppData,
+        };
+      });
+    };
+
+    const failedCall = (error) => {
+      this.setState({
+        isAppsLoading: false,
+        isAppDeleteSuccessful: false,
+        isAppDeleteFailed: true,
+        appDeleteError: error,
+      });
+    };
+
+    this.setState({
+      isAppsLoading: true,
+      isViewModalOpen: false,
+      isAppStatusUpdateSuccessful: false,
+      isAppStatusUpdateFailed: false,
+    }, deleteAppService(successfulCall, failedCall, appID));
+  }
+
   render() {
     const {
       selectedJSON,
       isJSONLoading,
       isDiscardChangesModalOpen,
       isSaveLoading,
-      isFailed,
-      error,
+      isSaveFailed,
+      jsonEditError,
       isSaveSuccessful,
       tentativeSelectedJSON,
+      isAppsLoading,
+      appData,
+      appsLoadError,
+      isViewModalOpen,
+      selectedAppToView,
+      isAppStatusUpdateSuccessful,
+      isAppStatusUpdateFailed,
+      appUpdateStatusError,
+      isAppDeleteSuccessful,
+      isAppDeleteFailed,
+      appDeleteError,
     } = this.state;
     return (
       <AdminView
@@ -249,10 +417,30 @@ class AdminContainer extends React.Component {
         handleNoSaveButtonClick={this.handleNoSaveButtonClick}
         handleGoBackSaveButtonClick={this.handleGoBackSaveButtonClick}
         isSaveLoading={isSaveLoading}
-        isFailed={isFailed}
-        error={error}
+        isSaveFailed={isSaveFailed}
+        jsonEditError={jsonEditError}
         isSaveSuccessful={isSaveSuccessful}
         tentativeSelectedJSON={tentativeSelectedJSON}
+        handleAppsLoadClick={this.handleAppsLoadClick}
+        isAppsLoading={isAppsLoading}
+        appData={appData}
+        appsLoadError={appsLoadError}
+        isViewModalOpen={isViewModalOpen}
+        selectedAppToView={selectedAppToView}
+        handleAppViewClick={this.handleAppViewClick}
+        handleAppViewGoBackClick={this.handleAppViewGoBackClick}
+        handleAppViewDenyClick={this.handleAppViewDenyClick}
+        handleAppViewApproveClick={this.handleAppViewApproveClick}
+        handleApprovedAppsButtonClick={this.handleApprovedAppsButtonClick}
+        handleDeniedAppsButtonClick={this.handleDeniedAppsButtonClick}
+        handleUnreviewedAppsButtonClick={this.handleUnreviewedAppsButtonClick}
+        isAppStatusUpdateSuccessful={isAppStatusUpdateSuccessful}
+        isAppStatusUpdateFailed={isAppStatusUpdateFailed}
+        appUpdateStatusError={appUpdateStatusError}
+        isAppDeleteSuccessful={isAppDeleteSuccessful}
+        isAppDeleteFailed={isAppDeleteFailed}
+        appDeleteError={appDeleteError}
+        handleAppDeleteButtonClick={this.handleAppDeleteButtonClick}
       />
     );
   }
