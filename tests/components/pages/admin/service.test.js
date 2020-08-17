@@ -1,5 +1,10 @@
 import axios from 'axios';
-import saveService from '../../../../src/components/pages/admin/service';
+import {
+  saveJSONInformationService,
+  loadAppsService,
+  updateAppStatusService,
+  deleteAppService,
+} from '../../../../src/components/pages/admin/service';
 
 jest.mock('axios');
 
@@ -30,7 +35,7 @@ describe('save service', () => {
 
     it('calls success handler', async () => {
       const successHandler = jest.fn();
-      saveService(successHandler, () => {}, 'rules', { json: 'json' });
+      saveJSONInformationService(successHandler, () => {}, 'rules', { json: 'json' });
       await flushPromises();
       expect(successHandler).toHaveBeenCalledTimes(1);
       expect(successHandler).toHaveBeenCalledWith({ json: 'json' });
@@ -57,9 +62,140 @@ describe('save service', () => {
 
     it('calls failure callback', async () => {
       const failureCallback = jest.fn();
-      saveService(() => {}, failureCallback, 'rules', { json: 'json' });
+      saveJSONInformationService(() => {}, failureCallback, 'rules', { json: 'json' });
       await flushPromises();
       expect(failureCallback).toHaveBeenCalledTimes(1);
+    });
+  });
+});
+
+describe('loadAppsService', () => {
+  beforeEach(() => {
+    axios.mockClear();
+  });
+
+  describe('successful call', () => {
+    beforeEach(() => {
+      axios.get.mockImplementation((path) => new Promise((resolve) => {
+        expect(path).toEqual('/loadApps?applicationFilter=newStatus');
+        resolve({
+          data: [
+            { appID: 0, name: 'aName' },
+            { appID: 1, name: 'bName' },
+          ],
+        });
+      }));
+    });
+
+    it('calls success callback', async () => {
+      const success = jest.fn();
+      loadAppsService(success, () => {}, 'newStatus');
+      await flushPromises();
+      expect(success).toHaveBeenCalledTimes(1);
+      expect(success).toHaveBeenCalledWith([
+        { appID: 0, name: 'aName' },
+        { appID: 1, name: 'bName' },
+      ]);
+    });
+  });
+
+  describe('failed call', () => {
+    beforeEach(() => {
+      axios.get.mockImplementation((path, body) => new Promise((resolve, reject) => {
+        expect(path).toEqual('/loadApps?applicationFilter=newStatus');
+        expect(body).toEqual([
+          { appID: 0, name: 'aName' },
+          { appID: 1, name: 'bName' },
+        ]);
+        reject(new Error('error'));
+      }));
+    });
+
+    it('calls failure callback', async () => {
+      const failure = jest.fn();
+      loadAppsService(() => {}, failure, 'newStatus');
+      await flushPromises();
+      expect(failure).toHaveBeenCalledTimes(1);
+    });
+  });
+});
+
+describe('updateAppStatusService', () => {
+  beforeEach(() => {
+    axios.mockClear();
+  });
+
+  describe('successful call', () => {
+    beforeEach(() => {
+      axios.post.mockImplementation((path, body) => new Promise((resolve) => {
+        expect(path).toEqual('/updateappstatus');
+        expect(body).toEqual({ appID: 0, newStatus: 'newStatus' });
+        resolve();
+      }));
+    });
+
+    it('calls success callback', async () => {
+      const success = jest.fn();
+      updateAppStatusService(success, () => {}, 0, 'newStatus');
+      await flushPromises();
+      expect(success).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  describe('failed call', () => {
+    beforeEach(() => {
+      axios.post.mockImplementation((path, body) => new Promise((resolve, reject) => {
+        expect(path).toEqual('/updateappstatus');
+        expect(body).toEqual({ appID: 0, newStatus: 'newStatus' });
+        reject(new Error('error'));
+      }));
+    });
+
+    it('calls failure callback', async () => {
+      const failure = jest.fn();
+      updateAppStatusService(() => {}, failure, 0, 'newStatus');
+      await flushPromises();
+      expect(failure).toHaveBeenCalledTimes(1);
+    });
+  });
+});
+
+describe('deleteAppService', () => {
+  beforeEach(() => {
+    axios.mockClear();
+  });
+
+  describe('successful call', () => {
+    beforeEach(() => {
+      axios.post.mockImplementation((path, body) => new Promise((resolve) => {
+        expect(path).toEqual('/deleteapp');
+        expect(body).toEqual({ appID: 0 });
+        resolve();
+      }));
+    });
+
+    it('calls success callback', async () => {
+      const success = jest.fn();
+      deleteAppService(success, () => {}, 0);
+      await flushPromises();
+      expect(success).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  describe('failed call', () => {
+    beforeEach(() => {
+      axios.post.mockImplementation((path, body) => new Promise((resolve, reject) => {
+        expect(path).toEqual('/deleteapp');
+        expect(body).toEqual({ appID: 0 });
+        reject();
+      }));
+    });
+
+    it('calls failure callback', async () => {
+      const failure = jest.fn();
+      deleteAppService(() => {}, failure, 0);
+      await flushPromises();
+      expect(failure).toHaveBeenCalledTimes(1);
     });
   });
 });

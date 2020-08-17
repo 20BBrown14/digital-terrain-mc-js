@@ -1,6 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, Alert, Modal } from 'antd';
+import {
+  Button,
+  Alert,
+  Modal,
+  Typography,
+  List,
+  Space,
+} from 'antd';
 import { JsonEditor } from 'jsoneditor-react';
 import 'jsoneditor-react/es/editor.min.css';
 import './Admin.css';
@@ -29,19 +36,67 @@ const propTypes = {
   /* Whether a save is in progress or not */
   isSaveLoading: PropTypes.bool.isRequired,
   /* Whether there was a service failure */
-  isFailed: PropTypes.bool.isRequired,
-  /* Error information */
+  isSaveFailed: PropTypes.bool.isRequired,
+  /* jsonEditError information */
   /* eslint-disable-next-line react/forbid-prop-types */
-  error: PropTypes.object,
+  jsonEditError: PropTypes.object,
   /* Whether the save was successful */
   isSaveSuccessful: PropTypes.bool.isRequired,
   /* The tentatively selected button */
   tentativeSelectedJSON: PropTypes.string.isRequired,
+  /* Function to trigger app loads */
+  handleAppsLoadClick: PropTypes.func.isRequired,
+  /* Whether apps are loading */
+  isAppsLoading: PropTypes.bool.isRequired,
+  /* Application data */
+  appData: PropTypes.arrayOf(PropTypes.object).isRequired,
+  /* apps load error information */
+  /* eslint-disable-next-line react/forbid-prop-types */
+  appsLoadError: PropTypes.object,
+  /* Function to handle app view button click */
+  handleAppViewClick: PropTypes.func.isRequired,
+  /* Whether view app modal is open */
+  isViewModalOpen: PropTypes.bool.isRequired,
+  /* Selected app to view */
+  /* eslint-disable-next-line react/forbid-prop-types */
+  selectedAppToView: PropTypes.object.isRequired,
+  /* Function to handle app view modal go back click */
+  handleAppViewGoBackClick: PropTypes.func.isRequired,
+  /* Function to handle app view modal deny click */
+  handleAppViewDenyClick: PropTypes.func.isRequired,
+  /* Function to handle app view modal approve click */
+  handleAppViewApproveClick: PropTypes.func.isRequired,
+  /* Function to handle unreviewed apps load button click */
+  handleUnreviewedAppsButtonClick: PropTypes.func.isRequired,
+  /* Function to handle approved apps load button click */
+  handleApprovedAppsButtonClick: PropTypes.func.isRequired,
+  /* Function to handle denied apps load button click */
+  handleDeniedAppsButtonClick: PropTypes.func.isRequired,
+  /* Whether the app status update was successful */
+  isAppStatusUpdateSuccessful: PropTypes.bool.isRequired,
+  /* Whether the app status update failed */
+  isAppStatusUpdateFailed: PropTypes.bool.isRequired,
+  /* Error information for failed app status update */
+  /* eslint-disable-next-line react/forbid-prop-types */
+  appUpdateStatusError: PropTypes.object,
+  /* Whether deleteing app was successful */
+  isAppDeleteSuccessful: PropTypes.bool.isRequired,
+  /* Whether deleteing app failed */
+  isAppDeleteFailed: PropTypes.bool.isRequired,
+  /* App delete error */
+  /* eslint-disable-next-line react/forbid-prop-types */
+  appDeleteError: PropTypes.object,
+  /* Function to handle delete button click */
+  handleAppDeleteButtonClick: PropTypes.func.isRequired,
+
 };
 
 const defaultProps = {
   selectedJSON: '',
-  error: {},
+  jsonEditError: {},
+  appsLoadError: null,
+  appUpdateStatusError: null,
+  appDeleteError: null,
 };
 
 // edit json
@@ -60,11 +115,32 @@ const AdminView = (props) => {
     handleGoBackSaveButtonClick,
     isDiscardChangesModalOpen,
     isSaveLoading,
-    isFailed,
-    error,
+    isSaveFailed,
+    jsonEditError,
     isSaveSuccessful,
+    handleAppsLoadClick,
+    isAppsLoading,
+    appData,
+    handleAppViewClick,
+    isViewModalOpen,
+    selectedAppToView,
+    handleAppViewGoBackClick,
+    handleAppViewDenyClick,
+    handleAppViewApproveClick,
+    handleUnreviewedAppsButtonClick,
+    handleApprovedAppsButtonClick,
+    handleDeniedAppsButtonClick,
+    appsLoadError,
+    isAppStatusUpdateSuccessful,
+    isAppStatusUpdateFailed,
+    appUpdateStatusError,
+    handleAppDeleteButtonClick,
+    isAppDeleteSuccessful,
+    isAppDeleteFailed,
+    appDeleteError,
   } = props;
-  return (
+
+  const buildJSONEditor = () => (
     <>
       <>
         <Modal
@@ -124,10 +200,190 @@ const AdminView = (props) => {
           Save
         </Button>
         {isSaveSuccessful
-          && <Alert className="admin-page-alert" message="Save successful" type="success" showIcon closable />}
-        {isFailed && <Alert className="admin-page-alert" message={error.message} type="error" showIcon closable /> }
+            && <Alert className="admin-page-alert" message="Save successful" type="success" showIcon closable />}
+        {isSaveFailed
+          && <Alert className="admin-page-alert" message={jsonEditError.message} type="error" showIcon closable /> }
       </>
       <JsonEditor value={{}} onChange={handleJSONEditorChange} ref={getJSONEditorRef} />
+    </>
+  );
+
+  const buildAppModalContent = () => (
+    <div className="admin-page-app-view-modal">
+      <Space direction="vertical">
+        <Typography.Text strong underline>
+          In-Game-Name:
+        </Typography.Text>
+        <Typography.Text>
+          {selectedAppToView.inGameName}
+        </Typography.Text>
+        <Typography.Text strong underline>
+          Discord Username:
+        </Typography.Text>
+        <Typography.Text>
+          {selectedAppToView.discordUsername}
+        </Typography.Text>
+        <Typography.Text strong underline>
+          Age:
+        </Typography.Text>
+        <Typography.Text>
+          {selectedAppToView.age}
+        </Typography.Text>
+        <Typography.Text strong underline>
+          Location:
+        </Typography.Text>
+        <Typography.Text>
+          {selectedAppToView.location}
+        </Typography.Text>
+        <Typography.Text strong underline>
+          Why would you like to join?:
+        </Typography.Text>
+        <Typography.Text>
+          {selectedAppToView.joinReason}
+        </Typography.Text>
+        <Typography.Text strong underline>
+          Preferred Play Style:
+        </Typography.Text>
+        <Typography.Text>
+          {selectedAppToView.playStyle}
+        </Typography.Text>
+        <Typography.Text strong underline>
+          What do you do in your free time?:
+        </Typography.Text>
+        <Typography.Text>
+          {selectedAppToView.freeTime}
+        </Typography.Text>
+        <Typography.Text strong underline>
+          How did you hear about us?:
+        </Typography.Text>
+        <Typography.Text>
+          {selectedAppToView.source.option}
+        </Typography.Text>
+        <Typography.Text>
+          {selectedAppToView.source.text}
+        </Typography.Text>
+      </Space>
+    </div>
+  );
+
+  const buildAppsList = () => (
+    <>
+      {!!Object.keys(selectedAppToView).length
+          && (
+          <Modal
+            visible={isViewModalOpen}
+            title={
+              `Application: ${selectedAppToView.inGameName} - 
+              ${selectedAppToView.discordUsername} - 
+              ${selectedAppToView.age}yo - 
+              ${selectedAppToView.status.toUpperCase()}`
+            }
+            onCancel={handleAppViewGoBackClick}
+            footer={[
+              <Button key="go-back" onClick={handleAppViewGoBackClick}>Go Back</Button>,
+              <Button
+                key="delete"
+                onClick={() => { handleAppDeleteButtonClick(selectedAppToView.appID); }}
+              >
+                Delete
+              </Button>,
+              <Button key="Deny" onClick={() => { handleAppViewDenyClick(selectedAppToView.appID); }}>Deny</Button>,
+              <Button
+                key="Approve"
+                onClick={() => { handleAppViewApproveClick(selectedAppToView.appID); }}
+                type="primary"
+              >
+                Approve
+              </Button>,
+            ]}
+          >
+            {!!Object.keys(selectedAppToView).length && buildAppModalContent()}
+          </Modal>
+          )}
+      <Typography.Title className="admin-page-applications-title">
+        Applications
+      </Typography.Title>
+      {isAppStatusUpdateSuccessful
+        && (
+        <Alert
+          className="admin-page-alert"
+          message="App status update successful"
+          type="success"
+          showIcon
+          closable
+        />
+        )}
+      {isAppStatusUpdateFailed
+        && (
+        <Alert
+          className="admin-page-alert"
+          message={appUpdateStatusError.message}
+          type="error"
+          showIcon
+          closable
+        />
+        )}
+      {appsLoadError
+        && <Alert className="admin-page-alert" message={appsLoadError.message} type="error" showIcon closable />}
+      {isAppDeleteSuccessful
+        && <Alert className="admin-page-alert" message="App deleted succesfully" type="success" showIcon closable />}
+      {(appDeleteError || isAppDeleteFailed)
+        && <Alert className="admin-page-alert" message={appDeleteError.message} type="error" showIcon closable />}
+      <Button
+        className="admin-page-app-type-select-button"
+        onClick={handleUnreviewedAppsButtonClick}
+        loading={isAppsLoading}
+      >
+        Unreviewed
+      </Button>
+      <Button
+        className="admin-page-app-type-select-button"
+        onClick={handleApprovedAppsButtonClick}
+        loading={isAppsLoading}
+      >
+        Approved
+      </Button>
+      <Button
+        className="admin-page-app-type-select-button"
+        onClick={handleDeniedAppsButtonClick}
+        loading={isAppsLoading}
+      >
+        Denied
+      </Button>
+      <Button
+        className="admin-page-load-apps-button"
+        onClick={handleAppsLoadClick}
+        type="primary"
+        loading={isAppsLoading}
+      >
+        Load Applications
+      </Button>
+      <List
+        className="admin-page-applications-list"
+        loading={isAppsLoading}
+        itemLayout="horizontal"
+        dataSource={appData}
+        renderItem={(app) => (
+          <List.Item>
+            <Typography.Text>
+              {`${app.appID}: ${app.inGameName} - ${app.discordUsername} - ${app.age}yo - ${app.status.toUpperCase()}`}
+            </Typography.Text>
+            <Button
+              disabled={isAppsLoading}
+              onClick={() => { handleAppViewClick(app.appID); }}
+            >
+              View
+            </Button>
+          </List.Item>
+        )}
+      />
+    </>
+  );
+
+  return (
+    <>
+      {buildJSONEditor()}
+      {buildAppsList()}
     </>
   );
 };

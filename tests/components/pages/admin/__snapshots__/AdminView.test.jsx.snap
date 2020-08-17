@@ -115,6 +115,63 @@ exports[`AdminView renders a default view 1`] = `
     tag="div"
     value={Object {}}
   />
+  <Title
+    className="admin-page-applications-title"
+  >
+    Applications
+  </Title>
+  <Button
+    block={false}
+    className="admin-page-app-type-select-button"
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+  >
+    Unreviewed
+  </Button>
+  <Button
+    block={false}
+    className="admin-page-app-type-select-button"
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+  >
+    Approved
+  </Button>
+  <Button
+    block={false}
+    className="admin-page-app-type-select-button"
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+  >
+    Denied
+  </Button>
+  <Button
+    block={false}
+    className="admin-page-load-apps-button"
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+    type="primary"
+  >
+    Load Applications
+  </Button>
+  <List
+    className="admin-page-applications-list"
+    dataSource={
+      Array [
+        Object {},
+      ]
+    }
+    itemLayout="horizontal"
+    loading={false}
+    renderItem={[Function]}
+  />
 </Fragment>
 `;
 
@@ -239,6 +296,63 @@ exports[`AdminView renders a failed view 1`] = `
     tag="div"
     value={Object {}}
   />
+  <Title
+    className="admin-page-applications-title"
+  >
+    Applications
+  </Title>
+  <Button
+    block={false}
+    className="admin-page-app-type-select-button"
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+  >
+    Unreviewed
+  </Button>
+  <Button
+    block={false}
+    className="admin-page-app-type-select-button"
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+  >
+    Approved
+  </Button>
+  <Button
+    block={false}
+    className="admin-page-app-type-select-button"
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+  >
+    Denied
+  </Button>
+  <Button
+    block={false}
+    className="admin-page-load-apps-button"
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+    type="primary"
+  >
+    Load Applications
+  </Button>
+  <List
+    className="admin-page-applications-list"
+    dataSource={
+      Array [
+        Object {},
+      ]
+    }
+    itemLayout="horizontal"
+    loading={false}
+    renderItem={[Function]}
+  />
 </Fragment>
 `;
 
@@ -357,6 +471,63 @@ exports[`AdminView renders a json loading view 1`] = `
     tag="div"
     value={Object {}}
   />
+  <Title
+    className="admin-page-applications-title"
+  >
+    Applications
+  </Title>
+  <Button
+    block={false}
+    className="admin-page-app-type-select-button"
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+  >
+    Unreviewed
+  </Button>
+  <Button
+    block={false}
+    className="admin-page-app-type-select-button"
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+  >
+    Approved
+  </Button>
+  <Button
+    block={false}
+    className="admin-page-app-type-select-button"
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+  >
+    Denied
+  </Button>
+  <Button
+    block={false}
+    className="admin-page-load-apps-button"
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+    type="primary"
+  >
+    Load Applications
+  </Button>
+  <List
+    className="admin-page-applications-list"
+    dataSource={
+      Array [
+        Object {},
+      ]
+    }
+    itemLayout="horizontal"
+    loading={false}
+    renderItem={[Function]}
+  />
 </Fragment>
 `;
 
@@ -474,6 +645,63 @@ exports[`AdminView renders a save loading view 1`] = `
     statusBar={true}
     tag="div"
     value={Object {}}
+  />
+  <Title
+    className="admin-page-applications-title"
+  >
+    Applications
+  </Title>
+  <Button
+    block={false}
+    className="admin-page-app-type-select-button"
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+  >
+    Unreviewed
+  </Button>
+  <Button
+    block={false}
+    className="admin-page-app-type-select-button"
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+  >
+    Approved
+  </Button>
+  <Button
+    block={false}
+    className="admin-page-app-type-select-button"
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+  >
+    Denied
+  </Button>
+  <Button
+    block={false}
+    className="admin-page-load-apps-button"
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+    type="primary"
+  >
+    Load Applications
+  </Button>
+  <List
+    className="admin-page-applications-list"
+    dataSource={
+      Array [
+        Object {},
+      ]
+    }
+    itemLayout="horizontal"
+    loading={false}
+    renderItem={[Function]}
   />
 </Fragment>
 `;
@@ -599,6 +827,63 @@ exports[`AdminView renders a save successful view 1`] = `
     statusBar={true}
     tag="div"
     value={Object {}}
+  />
+  <Title
+    className="admin-page-applications-title"
+  >
+    Applications
+  </Title>
+  <Button
+    block={false}
+    className="admin-page-app-type-select-button"
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+  >
+    Unreviewed
+  </Button>
+  <Button
+    block={false}
+    className="admin-page-app-type-select-button"
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+  >
+    Approved
+  </Button>
+  <Button
+    block={false}
+    className="admin-page-app-type-select-button"
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+  >
+    Denied
+  </Button>
+  <Button
+    block={false}
+    className="admin-page-load-apps-button"
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+    type="primary"
+  >
+    Load Applications
+  </Button>
+  <List
+    className="admin-page-applications-list"
+    dataSource={
+      Array [
+        Object {},
+      ]
+    }
+    itemLayout="horizontal"
+    loading={false}
+    renderItem={[Function]}
   />
 </Fragment>
 `;

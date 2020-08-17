@@ -8,8 +8,8 @@ describe('HeaderView', () => {
       <HeaderView
         selectedNavKey="home"
         handleNavMenuClick={() => {}}
-        showTitle={true}
-      />
+        showTitle
+      />,
     );
   });
 
@@ -18,8 +18,8 @@ describe('HeaderView', () => {
       <HeaderView
         selectedNavKey="home"
         handleNavMenuClick={() => {}}
-        showTitle={true}
-      />
+        showTitle
+      />,
     );
     expect(view).toMatchSnapshot();
   });
@@ -37,8 +37,8 @@ describe('HeaderView', () => {
       <HeaderView
         selectedNavKey="home"
         handleNavMenuClick={mockHandleNavMenuClick}
-        showTitle={true}
-      />
+        showTitle
+      />,
     );
     view.find('Menu').at(0).simulate('click', { key: 'map' });
     expect(mockHandleNavMenuClick).toHaveBeenCalledTimes(1);

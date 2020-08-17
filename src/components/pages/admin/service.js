@@ -3,8 +3,11 @@ import DataSaveError from '../../../modules/DataSaveError';
 import UnexpectedDataError from '../../../modules/UnexpectedDataError';
 
 const SAVE_JSON_PATH = '/save';
+const LOAD_APPS_PATH = '/loadApps';
+const UPDATE_APP_STATUS_PATH = '/updateappstatus';
+const DELETE_APP_PATH = '/deleteapp';
 
-const saveJSONInformation = (successCallback, failureCallback, JSONTypeToSave, JSONToSave) => {
+export const saveJSONInformationService = (successCallback, failureCallback, JSONTypeToSave, JSONToSave) => {
   axios.post(
     `${SAVE_JSON_PATH}?JSONTypeToSave=${JSONTypeToSave}`,
     {
@@ -32,4 +35,50 @@ const saveJSONInformation = (successCallback, failureCallback, JSONTypeToSave, J
     .catch(failureCallback);
 };
 
-export default saveJSONInformation;
+export const loadAppsService = (successCallback, failureCallback, applicationFilter) => {
+  axios.get(
+    `${LOAD_APPS_PATH}?applicationFilter=${applicationFilter}`,
+  )
+    .then((response) => {
+      const responseData = response.data;
+      if (responseData) {
+        successCallback(responseData);
+      }
+    })
+    .catch(failureCallback);
+};
+
+export const updateAppStatusService = (successCallback, failureCallback, appID, newStatus) => {
+  axios.post(
+    UPDATE_APP_STATUS_PATH,
+    {
+      appID,
+      newStatus,
+    },
+    {
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+    },
+  )
+    .then(successCallback)
+    .catch(failureCallback);
+};
+
+export const deleteAppService = (successCallback, failureCallback, appID) => {
+  axios.post(
+    DELETE_APP_PATH,
+    {
+      appID,
+    },
+    {
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+    },
+  )
+    .then(successCallback)
+    .catch(failureCallback);
+};
