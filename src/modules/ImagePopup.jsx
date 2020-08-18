@@ -19,7 +19,7 @@ const propTypes = {
   /* Function to close the modal */
   closeModal: PropTypes.func.isRequired,
   /* Images to show in modal */
-  images: PropTypes.arrayOf(PropTypes.string),
+  images: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string.isRequired, PropTypes.string.isRequired)),
   /* Index to start image carousel on */
   carouselIndexStart: PropTypes.number,
 };
@@ -57,15 +57,13 @@ class ImagePopup extends React.Component {
       carouselIndexStart,
     } = this.props;
     const buildImageComponents = () => (
-      images.map((image, index) => (
-        /* eslint-disable-next-line react/no-array-index-key */
-        <img src={image} alt="" key={`image-${index}`} />
+      images.map((image) => (
+        <img src={image.address} alt="loading..." key={`image-${image.id}`} />
       ))
     );
 
     return (
       <Modal
-        title="Image Popup"
         centered
         visible={isModalVisible && !!images}
         onCancel={closeModal}

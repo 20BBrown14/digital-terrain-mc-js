@@ -23,6 +23,8 @@ describe('DigitalTerrainWebContainer', () => {
 
   it('sets default state', () => {
     expect(container.instance().state.selectedNavKey).toEqual(NK_HOME);
+    expect(container.instance().state.homeCachedImages).toEqual([]);
+    expect(container.instance().state.galleryCachedImages).toEqual([]);
   });
 
   describe('handleNavMenuClick', () => {
@@ -30,6 +32,7 @@ describe('DigitalTerrainWebContainer', () => {
     beforeEach(() => {
       instance = container.instance();
     });
+
     it('calls navigation function', () => {
       instance.navigateToNewPage = jest.fn();
       instance.handleNavMenuClick(NK_MAP);
@@ -43,6 +46,7 @@ describe('DigitalTerrainWebContainer', () => {
     beforeEach(() => {
       instance = container.instance();
     });
+
     it('sets selectedNavKey to passed key', () => {
       expect(instance.state.selectedNavKey).toEqual(NK_HOME);
       instance.navigateToNewPage(NK_MAP);
@@ -53,6 +57,30 @@ describe('DigitalTerrainWebContainer', () => {
       instance.state.selectedNavKey = NK_MAP;
       instance.navigateToNewPage('title');
       expect(instance.state.selectedNavKey).toEqual(NK_HOME);
+    });
+  });
+
+  describe('setCachedHomeImages', () => {
+    let instance;
+    beforeEach(() => {
+      instance = container.instance();
+    });
+
+    it('sets state as expected', () => {
+      instance.setCachedHomeImages([{}, {}, {}, {}]);
+      expect(instance.state.homeCachedImages).toEqual([{}, {}, {}, {}]);
+    });
+  });
+
+  describe('setCachedGalleryImages', () => {
+    let instance;
+    beforeEach(() => {
+      instance = container.instance();
+    });
+
+    it('sets state as expected', () => {
+      instance.setCachedGalleryImages([{}, {}, {}, {}]);
+      expect(instance.state.galleryCachedImages).toEqual([{}, {}, {}, {}]);
     });
   });
 });

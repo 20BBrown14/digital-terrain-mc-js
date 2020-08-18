@@ -48,6 +48,17 @@ const testHarness = {
     app.post('/deleteapp', (req, res) => {
       res.sendStatus(204);
     });
+
+    app.get('/galleryImages', (req, res) => {
+      const { isFeatured } = req.query;
+      let images = require('./imagesMock.json');
+      if (isFeatured === 'true') {
+        images = images.filter((image) => (
+          image.isFeatured
+        ));
+      }
+      res.json(images);
+    });
   },
 };
 

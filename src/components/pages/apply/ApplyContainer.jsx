@@ -22,7 +22,7 @@ class ApplyContainer extends React.Component {
     this.handleSourceOptionChange = this.handleSourceOptionChange.bind(this);
   }
 
-  handleFormSubmit(application) {
+  handleFormSubmit = (application) => {
     const { sourceOption, sourceText } = this.state;
 
     const successfulCall = () => {
@@ -55,13 +55,13 @@ class ApplyContainer extends React.Component {
     );
   }
 
-  handleSourceOptionChange(option) {
+  handleSourceOptionChange = (option) => {
     this.setState({
       sourceOption: option,
     });
   }
 
-  handleSourceTextChange(changeEvent) {
+  handleSourceTextChange = (changeEvent) => {
     this.setState({
       sourceText: changeEvent.target.value,
     });

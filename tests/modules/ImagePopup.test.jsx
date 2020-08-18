@@ -14,7 +14,7 @@ describe('ImagePopup', () => {
         <ImagePopup
           isModalVisible
           closeModal={() => {}}
-          images={['a', 'b', 'c', 'd']}
+          images={[{}, {}, {}, {}]}
         />,
       );
     });
@@ -48,7 +48,7 @@ describe('ImagePopup', () => {
         <ImagePopup
           isModalVisible
           closeModal={() => {}}
-          images={['a', 'b', 'c', 'd']}
+          images={[{}, {}, {}, {}]}
           carouselIndexStart={3}
         />,
       );
@@ -65,7 +65,7 @@ describe('ImagePopup', () => {
 
   describe('createCarouselRef', () => {
     it('sets carousel ref', () => {
-      const wrapper = shallow(<ImagePopup isModalVisible closeModal={() => {}} images={['a', 'b', 'c', 'd']} />);
+      const wrapper = shallow(<ImagePopup isModalVisible closeModal={() => {}} images={[{}, {}, {}, {}]} />);
       wrapper.instance().createCarouselRef('someRef');
       expect(wrapper.instance().carousel).toEqual('someRef');
     });
@@ -79,7 +79,7 @@ describe('ImagePopup', () => {
         <ImagePopup
           isModalVisible
           closeModal={() => {}}
-          images={['a', 'b', 'c', 'd']}
+          images={[{}, {}, {}, {}]}
           carouselIndexStart={3}
         />,
       );

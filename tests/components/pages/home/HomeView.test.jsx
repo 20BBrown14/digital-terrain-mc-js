@@ -9,16 +9,27 @@ import {
 
 describe('HomeView', () => {
   it('renders a default view', () => {
-    const view = render(<HomeView navigateToNewPage={() => {}} />);
+    const view = render(
+      <HomeView
+        navigateToNewPage={() => {}}
+        carouselImages={[]}
+        isCarouselLoadingFailed={false}
+      />,
+    );
     expect(view).toMatchSnapshot();
   });
 
   it('has expected components', () => {
-    const view = shallow(<HomeView navigateToNewPage={() => {}} />);
+    const view = shallow(
+      <HomeView
+        navigateToNewPage={() => {}}
+        carouselImages={[]}
+        isCarouselLoadingFailed={false}
+      />,
+    );
     expect(view.find('Title')).toHaveLength(1);
     expect(view.find('Text')).toHaveLength(2);
     expect(view.find('Carousel')).toHaveLength(1);
-    expect(view.find('img')).toHaveLength(5);
   });
 
   describe('in-text links', () => {
@@ -26,7 +37,13 @@ describe('HomeView', () => {
     let navigateToNewPageMock;
     beforeEach(() => {
       navigateToNewPageMock = jest.fn();
-      view = shallow(<HomeView navigateToNewPage={navigateToNewPageMock} />);
+      view = shallow(
+        <HomeView
+          navigateToNewPage={navigateToNewPageMock}
+          carouselImages={[]}
+          isCarouselLoadingFailed={false}
+        />,
+      );
     });
 
     afterEach(() => {

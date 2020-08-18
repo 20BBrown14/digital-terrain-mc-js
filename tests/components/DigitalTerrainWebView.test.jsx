@@ -9,6 +9,10 @@ describe('DigitalTerrainWebView', () => {
         selectedNavKey="home"
         handleNavMenuClick={() => {}}
         navigateToNewPage={() => {}}
+        homeCachedImages={[]}
+        setCachedHomeImages={() => {}}
+        galleryCachedImages={[]}
+        setCachedGalleryImages={() => {}}
       />,
     );
   });
@@ -19,6 +23,10 @@ describe('DigitalTerrainWebView', () => {
         selectedNavKey="home"
         handleNavMenuClick={() => {}}
         navigateToNewPage={() => {}}
+        homeCachedImages={[]}
+        setCachedHomeImages={() => {}}
+        galleryCachedImages={[]}
+        setCachedGalleryImages={() => {}}
       />,
     );
     expect(view).toMatchSnapshot();
@@ -48,6 +56,10 @@ describe('DigitalTerrainWebView', () => {
             selectedNavKey={navKey}
             handleNavMenuClick={() => {}}
             navigateToNewPage={() => {}}
+            homeCachedImages={[]}
+            setCachedHomeImages={() => {}}
+            galleryCachedImages={[]}
+            setCachedGalleryImages={() => {}}
           />,
         )
       );
@@ -59,6 +71,7 @@ describe('DigitalTerrainWebView', () => {
       expect(shallowRenderComponent('apply').find('ApplyContainer')).toHaveLength(1);
       expect(shallowRenderComponent('about').find('AboutUsContainer')).toHaveLength(1);
       expect(shallowRenderComponent('admin').find('AdminContainer')).toHaveLength(1);
+      expect(shallowRenderComponent('default').find('HomeContainer')).toHaveLength(1);
     });
   });
 });

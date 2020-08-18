@@ -3,7 +3,16 @@ import GalleryView from '../../../../src/components/pages/gallery/GalleryView';
 
 describe('GalleryView', () => {
   it('renders a default view', () => {
-    const view = render(<GalleryView isModalOpen={false} handleGalleryImageClick={() => {}} />);
+    const view = render(
+      <GalleryView
+        isModalOpen={false}
+        handleGalleryImageClick={() => {}}
+        images={[{}, {}, {}, {}]}
+        isLoading={false}
+        isLoadingImagesFailed={false}
+        popupDisabled={false}
+      />,
+    );
     expect(view).toMatchSnapshot();
   });
 
@@ -14,13 +23,12 @@ describe('GalleryView', () => {
         <GalleryView
           isModalOpen={false}
           handleGalleryImageClick={() => {}}
-          images={['a', 'b', 'c', 'd']}
+          images={[{}, {}, {}, {}]}
+          isLoading={false}
+          isLoadingImagesFailed={false}
+          popupDisabled={false}
         />,
       );
-    });
-
-    afterEach(() => {
-      view = undefined;
     });
 
     it('has a list', () => {
