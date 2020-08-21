@@ -172,6 +172,148 @@ exports[`AdminView renders a default view 1`] = `
     loading={false}
     renderItem={[Function]}
   />
+  <Modal
+    confirmLoading={false}
+    footer={
+      Array [
+        <Button
+          block={false}
+          ghost={false}
+          htmlType="button"
+          loading={false}
+          onClick={[Function]}
+        >
+          Go Back
+        </Button>,
+        <Button
+          block={false}
+          ghost={false}
+          htmlType="button"
+          loading={false}
+          onClick={[Function]}
+        >
+          Delete
+        </Button>,
+        <Button
+          block={false}
+          ghost={false}
+          htmlType="button"
+          loading={false}
+          onClick={[Function]}
+        >
+          Toggle Featured
+        </Button>,
+      ]
+    }
+    maskTransitionName="fade"
+    okType="primary"
+    onCancel={[Function]}
+    title="Image: undefined - Not Featured"
+    transitionName="zoom"
+    visible={false}
+    width={520}
+  />
+  <Modal
+    confirmLoading={false}
+    footer={
+      Array [
+        <Button
+          block={false}
+          ghost={false}
+          htmlType="button"
+          loading={false}
+          onClick={[Function]}
+        >
+          Go Back
+        </Button>,
+      ]
+    }
+    maskTransitionName="fade"
+    okType="primary"
+    onCancel={[Function]}
+    title="Upload new image"
+    transitionName="zoom"
+    visible={false}
+    width={520}
+  >
+    <Upload
+      accept=".png,.jpg,.jpeg"
+      action="/imageUpload"
+      beforeUpload={[Function]}
+      className=""
+      data={Object {}}
+      disabled={false}
+      listType="text"
+      multiple={false}
+      showUploadList={true}
+      supportServerRender={true}
+      type="select"
+    >
+      <Button
+        block={false}
+        ghost={false}
+        htmlType="button"
+        loading={false}
+      >
+        <ForwardRef(UploadOutlined) />
+         
+        Click to Upload
+      </Button>
+    </Upload>
+  </Modal>
+  <Title
+    className="admin-page-applications-title"
+  >
+    Gallery
+  </Title>
+  <Button
+    block={false}
+    className="admin-page-app-type-select-button"
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+  >
+    Featured
+  </Button>
+  <Button
+    block={false}
+    className="admin-page-app-type-select-button"
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+  >
+    All
+  </Button>
+  <Button
+    block={false}
+    className="admin-page-app-type-select-button"
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+  >
+    Upload New
+  </Button>
+  <Button
+    block={false}
+    className="admin-page-load-apps-button"
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+    type="primary"
+  >
+    Load Image Info
+  </Button>
+  <List
+    className="admin-page-applications-list"
+    dataSource={Array []}
+    itemLayout="horizontal"
+    loading={false}
+    renderItem={[Function]}
+  />
 </Fragment>
 `;
 
@@ -353,6 +495,148 @@ exports[`AdminView renders a failed view 1`] = `
     loading={false}
     renderItem={[Function]}
   />
+  <Modal
+    confirmLoading={false}
+    footer={
+      Array [
+        <Button
+          block={false}
+          ghost={false}
+          htmlType="button"
+          loading={false}
+          onClick={[Function]}
+        >
+          Go Back
+        </Button>,
+        <Button
+          block={false}
+          ghost={false}
+          htmlType="button"
+          loading={false}
+          onClick={[Function]}
+        >
+          Delete
+        </Button>,
+        <Button
+          block={false}
+          ghost={false}
+          htmlType="button"
+          loading={false}
+          onClick={[Function]}
+        >
+          Toggle Featured
+        </Button>,
+      ]
+    }
+    maskTransitionName="fade"
+    okType="primary"
+    onCancel={[Function]}
+    title="Image: undefined - Not Featured"
+    transitionName="zoom"
+    visible={false}
+    width={520}
+  />
+  <Modal
+    confirmLoading={false}
+    footer={
+      Array [
+        <Button
+          block={false}
+          ghost={false}
+          htmlType="button"
+          loading={false}
+          onClick={[Function]}
+        >
+          Go Back
+        </Button>,
+      ]
+    }
+    maskTransitionName="fade"
+    okType="primary"
+    onCancel={[Function]}
+    title="Upload new image"
+    transitionName="zoom"
+    visible={false}
+    width={520}
+  >
+    <Upload
+      accept=".png,.jpg,.jpeg"
+      action="/imageUpload"
+      beforeUpload={[Function]}
+      className=""
+      data={Object {}}
+      disabled={false}
+      listType="text"
+      multiple={false}
+      showUploadList={true}
+      supportServerRender={true}
+      type="select"
+    >
+      <Button
+        block={false}
+        ghost={false}
+        htmlType="button"
+        loading={false}
+      >
+        <ForwardRef(UploadOutlined) />
+         
+        Click to Upload
+      </Button>
+    </Upload>
+  </Modal>
+  <Title
+    className="admin-page-applications-title"
+  >
+    Gallery
+  </Title>
+  <Button
+    block={false}
+    className="admin-page-app-type-select-button"
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+  >
+    Featured
+  </Button>
+  <Button
+    block={false}
+    className="admin-page-app-type-select-button"
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+  >
+    All
+  </Button>
+  <Button
+    block={false}
+    className="admin-page-app-type-select-button"
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+  >
+    Upload New
+  </Button>
+  <Button
+    block={false}
+    className="admin-page-load-apps-button"
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+    type="primary"
+  >
+    Load Image Info
+  </Button>
+  <List
+    className="admin-page-applications-list"
+    dataSource={Array []}
+    itemLayout="horizontal"
+    loading={false}
+    renderItem={[Function]}
+  />
 </Fragment>
 `;
 
@@ -528,6 +812,148 @@ exports[`AdminView renders a json loading view 1`] = `
     loading={false}
     renderItem={[Function]}
   />
+  <Modal
+    confirmLoading={false}
+    footer={
+      Array [
+        <Button
+          block={false}
+          ghost={false}
+          htmlType="button"
+          loading={false}
+          onClick={[Function]}
+        >
+          Go Back
+        </Button>,
+        <Button
+          block={false}
+          ghost={false}
+          htmlType="button"
+          loading={false}
+          onClick={[Function]}
+        >
+          Delete
+        </Button>,
+        <Button
+          block={false}
+          ghost={false}
+          htmlType="button"
+          loading={false}
+          onClick={[Function]}
+        >
+          Toggle Featured
+        </Button>,
+      ]
+    }
+    maskTransitionName="fade"
+    okType="primary"
+    onCancel={[Function]}
+    title="Image: undefined - Not Featured"
+    transitionName="zoom"
+    visible={false}
+    width={520}
+  />
+  <Modal
+    confirmLoading={false}
+    footer={
+      Array [
+        <Button
+          block={false}
+          ghost={false}
+          htmlType="button"
+          loading={false}
+          onClick={[Function]}
+        >
+          Go Back
+        </Button>,
+      ]
+    }
+    maskTransitionName="fade"
+    okType="primary"
+    onCancel={[Function]}
+    title="Upload new image"
+    transitionName="zoom"
+    visible={false}
+    width={520}
+  >
+    <Upload
+      accept=".png,.jpg,.jpeg"
+      action="/imageUpload"
+      beforeUpload={[Function]}
+      className=""
+      data={Object {}}
+      disabled={false}
+      listType="text"
+      multiple={false}
+      showUploadList={true}
+      supportServerRender={true}
+      type="select"
+    >
+      <Button
+        block={false}
+        ghost={false}
+        htmlType="button"
+        loading={false}
+      >
+        <ForwardRef(UploadOutlined) />
+         
+        Click to Upload
+      </Button>
+    </Upload>
+  </Modal>
+  <Title
+    className="admin-page-applications-title"
+  >
+    Gallery
+  </Title>
+  <Button
+    block={false}
+    className="admin-page-app-type-select-button"
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+  >
+    Featured
+  </Button>
+  <Button
+    block={false}
+    className="admin-page-app-type-select-button"
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+  >
+    All
+  </Button>
+  <Button
+    block={false}
+    className="admin-page-app-type-select-button"
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+  >
+    Upload New
+  </Button>
+  <Button
+    block={false}
+    className="admin-page-load-apps-button"
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+    type="primary"
+  >
+    Load Image Info
+  </Button>
+  <List
+    className="admin-page-applications-list"
+    dataSource={Array []}
+    itemLayout="horizontal"
+    loading={false}
+    renderItem={[Function]}
+  />
 </Fragment>
 `;
 
@@ -699,6 +1125,148 @@ exports[`AdminView renders a save loading view 1`] = `
         Object {},
       ]
     }
+    itemLayout="horizontal"
+    loading={false}
+    renderItem={[Function]}
+  />
+  <Modal
+    confirmLoading={false}
+    footer={
+      Array [
+        <Button
+          block={false}
+          ghost={false}
+          htmlType="button"
+          loading={false}
+          onClick={[Function]}
+        >
+          Go Back
+        </Button>,
+        <Button
+          block={false}
+          ghost={false}
+          htmlType="button"
+          loading={false}
+          onClick={[Function]}
+        >
+          Delete
+        </Button>,
+        <Button
+          block={false}
+          ghost={false}
+          htmlType="button"
+          loading={false}
+          onClick={[Function]}
+        >
+          Toggle Featured
+        </Button>,
+      ]
+    }
+    maskTransitionName="fade"
+    okType="primary"
+    onCancel={[Function]}
+    title="Image: undefined - Not Featured"
+    transitionName="zoom"
+    visible={false}
+    width={520}
+  />
+  <Modal
+    confirmLoading={false}
+    footer={
+      Array [
+        <Button
+          block={false}
+          ghost={false}
+          htmlType="button"
+          loading={false}
+          onClick={[Function]}
+        >
+          Go Back
+        </Button>,
+      ]
+    }
+    maskTransitionName="fade"
+    okType="primary"
+    onCancel={[Function]}
+    title="Upload new image"
+    transitionName="zoom"
+    visible={false}
+    width={520}
+  >
+    <Upload
+      accept=".png,.jpg,.jpeg"
+      action="/imageUpload"
+      beforeUpload={[Function]}
+      className=""
+      data={Object {}}
+      disabled={false}
+      listType="text"
+      multiple={false}
+      showUploadList={true}
+      supportServerRender={true}
+      type="select"
+    >
+      <Button
+        block={false}
+        ghost={false}
+        htmlType="button"
+        loading={false}
+      >
+        <ForwardRef(UploadOutlined) />
+         
+        Click to Upload
+      </Button>
+    </Upload>
+  </Modal>
+  <Title
+    className="admin-page-applications-title"
+  >
+    Gallery
+  </Title>
+  <Button
+    block={false}
+    className="admin-page-app-type-select-button"
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+  >
+    Featured
+  </Button>
+  <Button
+    block={false}
+    className="admin-page-app-type-select-button"
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+  >
+    All
+  </Button>
+  <Button
+    block={false}
+    className="admin-page-app-type-select-button"
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+  >
+    Upload New
+  </Button>
+  <Button
+    block={false}
+    className="admin-page-load-apps-button"
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+    type="primary"
+  >
+    Load Image Info
+  </Button>
+  <List
+    className="admin-page-applications-list"
+    dataSource={Array []}
     itemLayout="horizontal"
     loading={false}
     renderItem={[Function]}
@@ -881,6 +1449,148 @@ exports[`AdminView renders a save successful view 1`] = `
         Object {},
       ]
     }
+    itemLayout="horizontal"
+    loading={false}
+    renderItem={[Function]}
+  />
+  <Modal
+    confirmLoading={false}
+    footer={
+      Array [
+        <Button
+          block={false}
+          ghost={false}
+          htmlType="button"
+          loading={false}
+          onClick={[Function]}
+        >
+          Go Back
+        </Button>,
+        <Button
+          block={false}
+          ghost={false}
+          htmlType="button"
+          loading={false}
+          onClick={[Function]}
+        >
+          Delete
+        </Button>,
+        <Button
+          block={false}
+          ghost={false}
+          htmlType="button"
+          loading={false}
+          onClick={[Function]}
+        >
+          Toggle Featured
+        </Button>,
+      ]
+    }
+    maskTransitionName="fade"
+    okType="primary"
+    onCancel={[Function]}
+    title="Image: undefined - Not Featured"
+    transitionName="zoom"
+    visible={false}
+    width={520}
+  />
+  <Modal
+    confirmLoading={false}
+    footer={
+      Array [
+        <Button
+          block={false}
+          ghost={false}
+          htmlType="button"
+          loading={false}
+          onClick={[Function]}
+        >
+          Go Back
+        </Button>,
+      ]
+    }
+    maskTransitionName="fade"
+    okType="primary"
+    onCancel={[Function]}
+    title="Upload new image"
+    transitionName="zoom"
+    visible={false}
+    width={520}
+  >
+    <Upload
+      accept=".png,.jpg,.jpeg"
+      action="/imageUpload"
+      beforeUpload={[Function]}
+      className=""
+      data={Object {}}
+      disabled={false}
+      listType="text"
+      multiple={false}
+      showUploadList={true}
+      supportServerRender={true}
+      type="select"
+    >
+      <Button
+        block={false}
+        ghost={false}
+        htmlType="button"
+        loading={false}
+      >
+        <ForwardRef(UploadOutlined) />
+         
+        Click to Upload
+      </Button>
+    </Upload>
+  </Modal>
+  <Title
+    className="admin-page-applications-title"
+  >
+    Gallery
+  </Title>
+  <Button
+    block={false}
+    className="admin-page-app-type-select-button"
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+  >
+    Featured
+  </Button>
+  <Button
+    block={false}
+    className="admin-page-app-type-select-button"
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+  >
+    All
+  </Button>
+  <Button
+    block={false}
+    className="admin-page-app-type-select-button"
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+  >
+    Upload New
+  </Button>
+  <Button
+    block={false}
+    className="admin-page-load-apps-button"
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+    type="primary"
+  >
+    Load Image Info
+  </Button>
+  <List
+    className="admin-page-applications-list"
+    dataSource={Array []}
     itemLayout="horizontal"
     loading={false}
     renderItem={[Function]}

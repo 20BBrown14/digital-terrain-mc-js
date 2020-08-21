@@ -37,6 +37,24 @@ describe('AdminView', () => {
         isAppDeleteSuccessful={false}
         isAppDeleteFailed={false}
         handleAppDeleteButtonClick={() => {}}
+        isImagesLoading={false}
+        isImagesLoadingFailed={false}
+        imageInformation={[]}
+        handleLoadAllImagesClick={() => {}}
+        handleLoadFeaturedImagesClick={() => {}}
+        handleViewImageClick={() => {}}
+        isImageViewModalOpen={false}
+        selectedImageInfoToView={{}}
+        handleViewImageGoBackClick={() => {}}
+        handleViewImageDeleteButtonClick={() => {}}
+        handleViewImageMakeFeaturedButtonClick={() => {}}
+        isImageDeleteSuccessful={false}
+        isImageToggleUpdateSuccessful={false}
+        isUploadModalOpen={false}
+        handleUploadNewButtonClick={() => {}}
+        handleUploadModalGoBackClick={() => {}}
+        handleUploadModalUploadClick={() => {}}
+        handleViewImageToggleFeaturedButtonClick={() => {}}
       />,
     );
 
@@ -78,6 +96,24 @@ describe('AdminView', () => {
         isAppDeleteSuccessful={false}
         isAppDeleteFailed={false}
         handleAppDeleteButtonClick={() => {}}
+        isImagesLoading={false}
+        isImagesLoadingFailed={false}
+        imageInformation={[]}
+        handleLoadAllImagesClick={() => {}}
+        handleLoadFeaturedImagesClick={() => {}}
+        handleViewImageClick={() => {}}
+        isImageViewModalOpen={false}
+        selectedImageInfoToView={{}}
+        handleViewImageGoBackClick={() => {}}
+        handleViewImageDeleteButtonClick={() => {}}
+        handleViewImageMakeFeaturedButtonClick={() => {}}
+        isImageDeleteSuccessful={false}
+        isImageToggleUpdateSuccessful={false}
+        isUploadModalOpen={false}
+        handleUploadNewButtonClick={() => {}}
+        handleUploadModalGoBackClick={() => {}}
+        handleUploadModalUploadClick={() => {}}
+        handleViewImageToggleFeaturedButtonClick={() => {}}
       />,
     );
 
@@ -119,6 +155,24 @@ describe('AdminView', () => {
         isAppDeleteSuccessful={false}
         isAppDeleteFailed={false}
         handleAppDeleteButtonClick={() => {}}
+        isImagesLoading={false}
+        isImagesLoadingFailed={false}
+        imageInformation={[]}
+        handleLoadAllImagesClick={() => {}}
+        handleLoadFeaturedImagesClick={() => {}}
+        handleViewImageClick={() => {}}
+        isImageViewModalOpen={false}
+        selectedImageInfoToView={{}}
+        handleViewImageGoBackClick={() => {}}
+        handleViewImageDeleteButtonClick={() => {}}
+        handleViewImageMakeFeaturedButtonClick={() => {}}
+        isImageDeleteSuccessful={false}
+        isImageToggleUpdateSuccessful={false}
+        isUploadModalOpen={false}
+        handleUploadNewButtonClick={() => {}}
+        handleUploadModalGoBackClick={() => {}}
+        handleUploadModalUploadClick={() => {}}
+        handleViewImageToggleFeaturedButtonClick={() => {}}
       />,
     );
 
@@ -160,6 +214,24 @@ describe('AdminView', () => {
         isAppDeleteSuccessful={false}
         isAppDeleteFailed={false}
         handleAppDeleteButtonClick={() => {}}
+        isImagesLoading={false}
+        isImagesLoadingFailed={false}
+        imageInformation={[]}
+        handleLoadAllImagesClick={() => {}}
+        handleLoadFeaturedImagesClick={() => {}}
+        handleViewImageClick={() => {}}
+        isImageViewModalOpen={false}
+        selectedImageInfoToView={{}}
+        handleViewImageGoBackClick={() => {}}
+        handleViewImageDeleteButtonClick={() => {}}
+        handleViewImageMakeFeaturedButtonClick={() => {}}
+        isImageDeleteSuccessful={false}
+        isImageToggleUpdateSuccessful={false}
+        isUploadModalOpen={false}
+        handleUploadNewButtonClick={() => {}}
+        handleUploadModalGoBackClick={() => {}}
+        handleUploadModalUploadClick={() => {}}
+        handleViewImageToggleFeaturedButtonClick={() => {}}
       />,
     );
 
@@ -202,6 +274,24 @@ describe('AdminView', () => {
         isAppDeleteSuccessful={false}
         isAppDeleteFailed={false}
         handleAppDeleteButtonClick={() => {}}
+        isImagesLoading={false}
+        isImagesLoadingFailed={false}
+        imageInformation={[]}
+        handleLoadAllImagesClick={() => {}}
+        handleLoadFeaturedImagesClick={() => {}}
+        handleViewImageClick={() => {}}
+        isImageViewModalOpen={false}
+        selectedImageInfoToView={{}}
+        handleViewImageGoBackClick={() => {}}
+        handleViewImageDeleteButtonClick={() => {}}
+        handleViewImageMakeFeaturedButtonClick={() => {}}
+        isImageDeleteSuccessful={false}
+        isImageToggleUpdateSuccessful={false}
+        isUploadModalOpen={false}
+        handleUploadNewButtonClick={() => {}}
+        handleUploadModalGoBackClick={() => {}}
+        handleUploadModalUploadClick={() => {}}
+        handleViewImageToggleFeaturedButtonClick={() => {}}
       />,
     );
 
@@ -250,6 +340,24 @@ describe('AdminView', () => {
           isAppDeleteSuccessful={false}
           isAppDeleteFailed={false}
           handleAppDeleteButtonClick={() => {}}
+          isImagesLoading={false}
+          isImagesLoadingFailed={false}
+          imageInformation={[]}
+          handleLoadAllImagesClick={() => {}}
+          handleLoadFeaturedImagesClick={() => {}}
+          handleViewImageClick={() => {}}
+          isImageViewModalOpen={false}
+          selectedImageInfoToView={{}}
+          handleViewImageGoBackClick={() => {}}
+          handleViewImageDeleteButtonClick={() => {}}
+          handleViewImageMakeFeaturedButtonClick={() => {}}
+          isImageDeleteSuccessful={false}
+          isImageToggleUpdateSuccessful={false}
+          isUploadModalOpen={false}
+          handleUploadNewButtonClick={() => {}}
+          handleUploadModalGoBackClick={() => {}}
+          handleUploadModalUploadClick={() => {}}
+          handleViewImageToggleFeaturedButtonClick={() => {}}
         />,
       );
 

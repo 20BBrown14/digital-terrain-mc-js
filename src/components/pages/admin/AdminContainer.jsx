@@ -8,7 +8,10 @@ import {
   loadAppsService,
   updateAppStatusService,
   deleteAppService,
+  deleteImageService,
+  toggleFeaturedImageService,
 } from './service';
+import retrieveGalleryImages from '../gallery/service';
 
 class AdminContainer extends React.Component {
   constructor(props) {
@@ -33,6 +36,14 @@ class AdminContainer extends React.Component {
       isAppStatusUpdateFailed: false,
       isAppDeleteSuccessful: false,
       isAppDeleteFailed: false,
+      isImagesLoading: false,
+      imageLoadingError: undefined,
+      imageInformation: [],
+      isImageViewModalOpen: false,
+      selectedImageInfoToView: {},
+      isImageDeleteSuccessful: false,
+      isImageToggleUpdateSuccessful: false,
+      isUploadModalOpen: false,
     };
 
     this.cachedJSON = {
@@ -62,6 +73,15 @@ class AdminContainer extends React.Component {
     this.loadApps = this.loadApps.bind(this);
     this.updateAppStatus = this.updateAppStatus.bind(this);
     this.handleAppDeleteButtonClick = this.handleAppDeleteButtonClick.bind(this);
+    this.handleLoadAllImagesClick = this.handleLoadAllImagesClick.bind(this);
+    this.loadImageInformation = this.loadImageInformation.bind(this);
+    this.handleLoadFeaturedImagesClick = this.handleLoadFeaturedImagesClick.bind(this);
+    this.handleViewImageClick = this.handleViewImageClick.bind(this);
+    this.handleViewImageGoBackClick = this.handleViewImageGoBackClick.bind(this);
+    this.handleViewImageDeleteButtonClick = this.handleViewImageDeleteButtonClick.bind(this);
+    this.handleViewImageToggleFeaturedButtonClick = this.handleViewImageToggleFeaturedButtonClick.bind(this);
+    this.handleUploadNewButtonClick = this.handleUploadNewButtonClick.bind(this);
+    this.handleUploadModalGoBackClick = this.handleUploadModalGoBackClick.bind(this);
   }
 
   getJSONEditorRef = (instance) => {
@@ -268,7 +288,7 @@ class AdminContainer extends React.Component {
 
     this.setState({
       isAppsLoading: true,
-    }, loadAppsService(successfulCall, failedCall, filter));
+    }, () => { loadAppsService(successfulCall, failedCall, filter); });
   }
 
   handleUnreviewedAppsButtonClick = () => {
@@ -340,7 +360,7 @@ class AdminContainer extends React.Component {
       isViewModalOpen: false,
       isAppDeleteSuccessful: false,
       isAppDeleteFailed: false,
-    }, updateAppStatusService(successfulCall, failedCall, appID, newStatus));
+    }, () => { updateAppStatusService(successfulCall, failedCall, appID, newStatus); });
   }
 
   handleAppViewApproveClick = (appID) => {
@@ -379,7 +399,136 @@ class AdminContainer extends React.Component {
       isViewModalOpen: false,
       isAppStatusUpdateSuccessful: false,
       isAppStatusUpdateFailed: false,
-    }, deleteAppService(successfulCall, failedCall, appID));
+    }, () => { deleteAppService(successfulCall, failedCall, appID); });
+  }
+
+  loadImageInformation = (isFeatured) => {
+    const successfulCall = (imageData) => {
+      this.setState({
+        isImagesLoading: false,
+        imageInformation: imageData,
+      });
+    };
+
+    const failedCall = (error) => {
+      this.setState({
+        isImagesLoading: false,
+        imageLoadingError: error,
+      });
+    };
+
+    this.setState({
+      isImagesLoading: true,
+      imageLoadingError: undefined,
+    }, () => { retrieveGalleryImages(successfulCall, failedCall, isFeatured); });
+  }
+
+  handleLoadAllImagesClick = () => {
+    this.loadImageInformation(false);
+  }
+
+  handleLoadFeaturedImagesClick = () => {
+    this.loadImageInformation(true);
+  }
+
+  handleViewImageClick = (id) => {
+    this.setState((prevState) => {
+      const selectedImage = prevState.imageInformation.find((image) => (
+        image.id === id
+      ));
+      return {
+        isImageViewModalOpen: true,
+        selectedImageInfoToView: selectedImage,
+      };
+    });
+  }
+
+  handleViewImageGoBackClick = () => {
+    this.setState({
+      isImageViewModalOpen: false,
+      selectedImageInfoToView: {},
+    });
+  }
+
+  handleViewImageDeleteButtonClick = (id) => {
+    const successfulCall = () => {
+      this.setState((prevState) => {
+        const newImageInformation = [...prevState.imageInformation];
+        const imageInfoToUpdateIndex = newImageInformation.findIndex((image) => (
+          image.id === id
+        ));
+        newImageInformation.splice(imageInfoToUpdateIndex, 1);
+        return {
+          isImagesLoading: false,
+          isImageDeleteSuccessful: true,
+          imageInformation: newImageInformation,
+          imageLoadingError: undefined,
+        };
+      });
+    };
+
+    const failedCall = (error) => {
+      this.setState({
+        isImagesLoading: false,
+        imageLoadingError: error,
+      });
+    };
+
+    this.setState({
+      isImageViewModalOpen: false,
+      isImagesLoading: true,
+      isImageToggleUpdateSuccessful: false,
+      isImageDeleteSuccessful: false,
+      selectedImageInfoToView: {},
+    }, () => { deleteImageService(successfulCall, failedCall, id); });
+  }
+
+  handleViewImageToggleFeaturedButtonClick = (id) => {
+    const successfulCall = () => {
+      this.setState((prevState) => {
+        const newImageInformation = [...prevState.imageInformation];
+        const imageInfoToUpdateIndex = newImageInformation.findIndex((image) => (
+          image.id === id
+        ));
+        newImageInformation[imageInfoToUpdateIndex] = {
+          ...newImageInformation[imageInfoToUpdateIndex],
+          isFeatured: !newImageInformation[imageInfoToUpdateIndex].isFeatured,
+        };
+        return {
+          isImagesLoading: false,
+          isImageToggleUpdateSuccessful: true,
+          imageInformation: newImageInformation,
+          imageLoadingError: undefined,
+        };
+      });
+    };
+
+    const failedCall = (error) => {
+      this.setState({
+        isImagesLoading: false,
+        imageLoadingError: error,
+      });
+    };
+
+    this.setState({
+      isImageViewModalOpen: false,
+      isImagesLoading: true,
+      isImageToggleUpdateSuccessful: false,
+      isImageDeleteSuccessful: false,
+      selectedImageInfoToView: {},
+    }, () => { toggleFeaturedImageService(successfulCall, failedCall, id); });
+  }
+
+  handleUploadNewButtonClick = () => {
+    this.setState({
+      isUploadModalOpen: true,
+    });
+  }
+
+  handleUploadModalGoBackClick = () => {
+    this.setState({
+      isUploadModalOpen: false,
+    });
   }
 
   render() {
@@ -403,6 +552,14 @@ class AdminContainer extends React.Component {
       isAppDeleteSuccessful,
       isAppDeleteFailed,
       appDeleteError,
+      isImagesLoading,
+      imageLoadingError,
+      imageInformation,
+      isImageViewModalOpen,
+      selectedImageInfoToView,
+      isImageDeleteSuccessful,
+      isImageToggleUpdateSuccessful,
+      isUploadModalOpen,
     } = this.state;
     return (
       <AdminView
@@ -441,6 +598,23 @@ class AdminContainer extends React.Component {
         isAppDeleteFailed={isAppDeleteFailed}
         appDeleteError={appDeleteError}
         handleAppDeleteButtonClick={this.handleAppDeleteButtonClick}
+        isImagesLoading={isImagesLoading}
+        imageLoadingError={imageLoadingError}
+        imageInformation={imageInformation}
+        handleLoadAllImagesClick={this.handleLoadAllImagesClick}
+        handleLoadFeaturedImagesClick={this.handleLoadFeaturedImagesClick}
+        handleViewImageClick={this.handleViewImageClick}
+        isImageViewModalOpen={isImageViewModalOpen}
+        selectedImageInfoToView={selectedImageInfoToView}
+        handleViewImageGoBackClick={this.handleViewImageGoBackClick}
+        handleViewImageDeleteButtonClick={this.handleViewImageDeleteButtonClick}
+        handleViewImageToggleFeaturedButtonClick={this.handleViewImageToggleFeaturedButtonClick}
+        isImageDeleteSuccessful={isImageDeleteSuccessful}
+        isImageToggleUpdateSuccessful={isImageToggleUpdateSuccessful}
+        isUploadModalOpen={isUploadModalOpen}
+        handleUploadNewButtonClick={this.handleUploadNewButtonClick}
+        handleUploadModalGoBackClick={this.handleUploadModalGoBackClick}
+        handleUploadModalUploadClick={this.handleUploadModalUploadClick}
       />
     );
   }

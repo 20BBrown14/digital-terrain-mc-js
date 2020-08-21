@@ -7,7 +7,9 @@ import {
   Typography,
   List,
   Space,
+  Upload,
 } from 'antd';
+import { UploadOutlined } from '@ant-design/icons';
 import { JsonEditor } from 'jsoneditor-react';
 import 'jsoneditor-react/es/editor.min.css';
 import './Admin.css';
@@ -88,7 +90,40 @@ const propTypes = {
   appDeleteError: PropTypes.object,
   /* Function to handle delete button click */
   handleAppDeleteButtonClick: PropTypes.func.isRequired,
-
+  /* Whether image information is loading */
+  isImagesLoading: PropTypes.bool.isRequired,
+  /* Image load failure information */
+  /* eslint-disable-next-line react/forbid-prop-types */
+  imageLoadingError: PropTypes.object,
+  /* imageInformation */
+  imageInformation: PropTypes.arrayOf(PropTypes.object).isRequired,
+  /* Function to handle load all images button click */
+  handleLoadAllImagesClick: PropTypes.func.isRequired,
+  /* Function to handle load featured images click */
+  handleLoadFeaturedImagesClick: PropTypes.func.isRequired,
+  /* Function to handle view gallery image click */
+  handleViewImageClick: PropTypes.func.isRequired,
+  /* Whether gallery view modal is open */
+  isImageViewModalOpen: PropTypes.bool.isRequired,
+  /* Image info to show in modal */
+  /* eslint-disable-next-line react/forbid-prop-types */
+  selectedImageInfoToView: PropTypes.object.isRequired,
+  /* Function to handle closing image modal */
+  handleViewImageGoBackClick: PropTypes.func.isRequired,
+  /* Function to handle view image modal delete button */
+  handleViewImageDeleteButtonClick: PropTypes.func.isRequired,
+  /* Whether image deletion was successful */
+  isImageDeleteSuccessful: PropTypes.bool.isRequired,
+  /* Whether image toggle feature update was successful */
+  isImageToggleUpdateSuccessful: PropTypes.bool.isRequired,
+  /* Whether upload modal is open */
+  isUploadModalOpen: PropTypes.bool.isRequired,
+  /* Function to open upload modal */
+  handleUploadNewButtonClick: PropTypes.func.isRequired,
+  /* Function to close upload modal */
+  handleUploadModalGoBackClick: PropTypes.func.isRequired,
+  /* Functio to handle toggle featured button click */
+  handleViewImageToggleFeaturedButtonClick: PropTypes.func.isRequired,
 };
 
 const defaultProps = {
@@ -97,6 +132,7 @@ const defaultProps = {
   appsLoadError: null,
   appUpdateStatusError: null,
   appDeleteError: null,
+  imageLoadingError: null,
 };
 
 // edit json
@@ -138,6 +174,22 @@ const AdminView = (props) => {
     isAppDeleteSuccessful,
     isAppDeleteFailed,
     appDeleteError,
+    isImagesLoading,
+    imageLoadingError,
+    imageInformation,
+    handleLoadAllImagesClick,
+    handleLoadFeaturedImagesClick,
+    handleViewImageClick,
+    isImageViewModalOpen,
+    selectedImageInfoToView,
+    handleViewImageGoBackClick,
+    handleViewImageDeleteButtonClick,
+    handleViewImageToggleFeaturedButtonClick,
+    isImageDeleteSuccessful,
+    isImageToggleUpdateSuccessful,
+    isUploadModalOpen,
+    handleUploadNewButtonClick,
+    handleUploadModalGoBackClick,
   } = props;
 
   const buildJSONEditor = () => (
@@ -380,10 +432,148 @@ const AdminView = (props) => {
     </>
   );
 
+  const buildGalleryModalContent = () => (
+    <img
+      className="admin-page-gallery-modal-image"
+      src={selectedImageInfoToView.address}
+      alt="oops"
+    />
+  );
+
+  const buildUploadModalContent = () => {
+    const beforeUpload = (file) => {
+      const acceptedTypes = ['png', 'jpg', 'jpeg'];
+      const splitFileName = file.name.split('.');
+      return acceptedTypes.includes(splitFileName[splitFileName.length - 1].toLowerCase());
+    };
+
+    return (
+      <Upload action="/imageUpload" accept=".png,.jpg,.jpeg" beforeUpload={beforeUpload}>
+        <Button>
+          <UploadOutlined />
+          {' '}
+          Click to Upload
+        </Button>
+      </Upload>
+    );
+  };
+
+  const buildGalleryEditor = () => (
+    <>
+      <Modal
+        visible={isImageViewModalOpen}
+        // eslint-disable-next-line max-len
+        title={`Image: ${selectedImageInfoToView.title} - ${selectedImageInfoToView.isFeatured ? 'Featured' : 'Not Featured'}`}
+        onCancel={handleViewImageGoBackClick}
+        footer={[
+          <Button key="go-back" onClick={handleViewImageGoBackClick}>Go Back</Button>,
+          <Button
+            key="delete"
+            onClick={() => { handleViewImageDeleteButtonClick(selectedImageInfoToView.id); }}
+          >
+            Delete
+          </Button>,
+          <Button
+            key="Toggle Featured"
+            onClick={() => { handleViewImageToggleFeaturedButtonClick(selectedImageInfoToView.id); }}
+          >
+            Toggle Featured
+          </Button>,
+        ]}
+      >
+        {!!Object.keys(selectedImageInfoToView).length && buildGalleryModalContent()}
+      </Modal>
+      <Modal
+        visible={isUploadModalOpen}
+        title="Upload new image"
+        onCancel={handleUploadModalGoBackClick}
+        footer={[
+          <Button key="go-back" onClick={handleUploadModalGoBackClick}>Go Back</Button>,
+        ]}
+      >
+        {buildUploadModalContent()}
+      </Modal>
+      <Typography.Title className="admin-page-applications-title">
+        Gallery
+      </Typography.Title>
+      {imageLoadingError
+        && <Alert className="admin-page-alert" message={imageLoadingError.message} type="error" showIcon closable />}
+      {isImageDeleteSuccessful
+        && (
+        <Alert
+          className="admin-page-alert"
+          message="Image deleted successfully"
+          type="success"
+          showIcon
+          closable
+        />
+        )}
+      {isImageToggleUpdateSuccessful
+        && (
+        <Alert
+          className="admin-page-alert"
+          message="Image featured update successful"
+          type="success"
+          showIcon
+          closable
+        />
+        )}
+      <Button
+        className="admin-page-app-type-select-button"
+        onClick={handleLoadFeaturedImagesClick}
+        loading={isImagesLoading}
+      >
+        Featured
+      </Button>
+      <Button
+        className="admin-page-app-type-select-button"
+        onClick={handleLoadAllImagesClick}
+        loading={isImagesLoading}
+      >
+        All
+      </Button>
+      <Button
+        className="admin-page-app-type-select-button"
+        loading={isImagesLoading}
+        onClick={handleUploadNewButtonClick}
+      >
+        Upload New
+      </Button>
+      <Button
+        className="admin-page-load-apps-button"
+        onClick={handleLoadAllImagesClick}
+        type="primary"
+        loading={isImagesLoading}
+      >
+        Load Image Info
+      </Button>
+      <List
+        className="admin-page-applications-list"
+        loading={isImagesLoading}
+        itemLayout="horizontal"
+        dataSource={imageInformation}
+        renderItem={(image) => (
+          <List.Item>
+            <Typography.Text>
+              {`${image.id}: ${image.title} - ${image.isFeatured ? 'Featured' : 'Not Featured'}`}
+            </Typography.Text>
+            <Button
+              disabled={isImagesLoading}
+              onClick={() => { handleViewImageClick(image.id); }}
+            >
+              View
+            </Button>
+          </List.Item>
+        )}
+      />
+    </>
+  );
+
   return (
     <>
       {buildJSONEditor()}
       {buildAppsList()}
+      {buildGalleryEditor()}
     </>
   );
 };

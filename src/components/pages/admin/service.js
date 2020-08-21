@@ -6,6 +6,8 @@ const SAVE_JSON_PATH = '/save';
 const LOAD_APPS_PATH = '/loadApps';
 const UPDATE_APP_STATUS_PATH = '/updateappstatus';
 const DELETE_APP_PATH = '/deleteapp';
+const DELETE_IMAGE_PATH = '/deleteImage';
+const TOGGLE_FEATURED_IMAGE_PATH = '/toggleFeaturedImage';
 
 export const saveJSONInformationService = (successCallback, failureCallback, JSONTypeToSave, JSONToSave) => {
   axios.post(
@@ -71,6 +73,40 @@ export const deleteAppService = (successCallback, failureCallback, appID) => {
     DELETE_APP_PATH,
     {
       appID,
+    },
+    {
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+    },
+  )
+    .then(successCallback)
+    .catch(failureCallback);
+};
+
+export const deleteImageService = (successCallback, failureCallback, imageID) => {
+  axios.post(
+    DELETE_IMAGE_PATH,
+    {
+      imageID,
+    },
+    {
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+    },
+  )
+    .then(successCallback)
+    .catch(failureCallback);
+};
+
+export const toggleFeaturedImageService = (successCallback, failureCallback, imageID) => {
+  axios.post(
+    TOGGLE_FEATURED_IMAGE_PATH,
+    {
+      imageID,
     },
     {
       headers: {
