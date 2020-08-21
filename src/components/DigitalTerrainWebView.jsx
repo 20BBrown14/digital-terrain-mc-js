@@ -30,6 +30,15 @@ const propTypes = {
   handleNavMenuClick: PropTypes.func.isRequired,
   /* Function for navigating to new page */
   navigateToNewPage: PropTypes.func.isRequired,
+  /* Cached home page Images */
+  homeCachedImages: PropTypes.arrayOf(PropTypes.object).isRequired,
+  /* Function to set home page image cache */
+  setCachedHomeImages: PropTypes.func.isRequired,
+  /* Cached gallery images */
+  galleryCachedImages: PropTypes.arrayOf(PropTypes.object).isRequired,
+  /* Function to set cached gallery images */
+  setCachedGalleryImages: PropTypes.func.isRequired,
+
 };
 
 /**
@@ -38,17 +47,30 @@ const propTypes = {
  * @returns {JSX.element}
  */
 const determineBodyContent = (propsObject) => {
-  const { selectedNavKey, navigateToNewPage } = propsObject;
+  const {
+    selectedNavKey,
+    navigateToNewPage,
+    homeCachedImages,
+    setCachedHomeImages,
+    galleryCachedImages,
+    setCachedGalleryImages,
+  } = propsObject;
   switch (selectedNavKey) {
+    default:
     case NK_HOME:
       return (
         <HomeContainer
           navigateToNewPage={navigateToNewPage}
+          homeCachedImages={homeCachedImages}
+          setCachedHomeImages={setCachedHomeImages}
         />
       );
     case NK_GALLERY:
       return (
-        <GalleryContainer />
+        <GalleryContainer
+          galleryCachedImages={galleryCachedImages}
+          setCachedGalleryImages={setCachedGalleryImages}
+        />
       );
     case NK_MAP:
       return (
@@ -74,10 +96,6 @@ const determineBodyContent = (propsObject) => {
       return (
         <AdminContainer />
       );
-    default:
-      return (
-        <HomeContainer />
-      );
   }
 };
 
@@ -89,6 +107,10 @@ const DigitalTerrainWebView = (props) => {
     selectedNavKey,
     handleNavMenuClick,
     navigateToNewPage,
+    homeCachedImages,
+    setCachedHomeImages,
+    galleryCachedImages,
+    setCachedGalleryImages,
   } = props;
   return (
     <Layout className="web-view-layout">
@@ -99,7 +121,14 @@ const DigitalTerrainWebView = (props) => {
         />
       </Layout.Header>
       <Layout.Content className="web-view-layout-content">
-        {determineBodyContent({ selectedNavKey, navigateToNewPage })}
+        {determineBodyContent({
+          selectedNavKey,
+          navigateToNewPage,
+          homeCachedImages,
+          setCachedHomeImages,
+          galleryCachedImages,
+          setCachedGalleryImages,
+        })}
       </Layout.Content>
       <Layout.Footer>
         © 2020 Copyright Digital Terrain

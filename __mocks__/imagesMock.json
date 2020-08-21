@@ -1,0 +1,44 @@
+[
+  {
+    "address": "https://i.imgur.com/wFuwfM2.jpg",
+    "title": "Community_Guardian_Farm",
+    "id": 0,
+    "isFeatured": true
+  },
+  {
+    "address": "https://i.imgur.com/EXNmVDo.jpg",
+    "title": "Intimidatings_Nether_Base",
+    "id": 1,
+    "isFeatured": false
+  },
+  {
+    "address": "https://i.imgur.com/pHrcfcB.jpg",
+    "title": "Shopping_Mall",
+    "id": 2,
+    "isFeatured": true
+  },
+  {
+    "address": "https://i.imgur.com/es4S0q2.jpg",
+    "title": "Shopping_District",
+    "id": 3,
+    "isFeatured": true
+  },
+  {
+    "address": "https://i.imgur.com/mtIIqhO.jpg",
+    "title": "Spawn",
+    "id": 4,
+    "isFeatured": false
+  },
+  {
+    "address": "https://i.imgur.com/Ss4IRGy.jpg",
+    "title": "Supermodel_Yellow",
+    "id": 5,
+    "isFeatured": false
+  },
+  {
+    "address": "https://digital-terrain-mc.s3.us-west-2.amazonaws.com/Community_Guardian_Farm.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIT3BSKW3NM6YN43A%2F20200820%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20200820T020014Z&X-Amz-Expires=900&X-Amz-SignedHeaders=host&X-Amz-Signature=6e3df8ff2e26dcac699435eb0d587a5d6550a37fe48f8ffcf4fa68ec6e0f682f",
+    "title": "WIP_Nether_Hub",
+    "id": 6,
+    "isFeatured": true
+  }
+]

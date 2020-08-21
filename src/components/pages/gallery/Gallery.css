@@ -2,3 +2,7 @@
   height: auto;
   width: 100%;
 }
+
+.loading-screen-spinner {
+  margin: 0 auto;
+}

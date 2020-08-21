@@ -2,11 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Typography, Carousel, Space } from 'antd';
 import './Home.css';
-import PandaDM from '../../../assets/PandaDM.png';
-import FossilShop from '../../../assets/FossilShop.png';
-import IslandTower from '../../../assets/IslandTower.png';
-import Spawn from '../../../assets/June06Spawn.png';
-import ShoppingDistrict from '../../../assets/May30ShoppingDistrict.png';
+import spawnFallbackImage from '../../../assets/Spawn_Fallback.png';
 import {
   NK_ABOUT_US,
   NK_GALLERY,
@@ -17,13 +13,21 @@ import {
 const propTypes = {
   /* Function to navigate to new page */
   navigateToNewPage: PropTypes.func.isRequired,
+  /* Images to display in featured carousel */
+  carouselImages: PropTypes.arrayOf(PropTypes.object).isRequired,
+  /* Whether carousel images load failed */
+  isCarouselLoadingFailed: PropTypes.bool.isRequired,
 };
 
 /**
  * Home page view.
  */
 const HomeView = (props) => {
-  const { navigateToNewPage } = props;
+  const {
+    navigateToNewPage,
+    carouselImages,
+    isCarouselLoadingFailed,
+  } = props;
 
   const pandaLink = (
     <button
@@ -111,18 +115,11 @@ const HomeView = (props) => {
         autoplay
         className="home-page-carousel"
       >
-        {
-          [
-            PandaDM,
-            FossilShop,
-            IslandTower,
-            Spawn,
-            ShoppingDistrict,
-          ].map((image, index) => (
-            /* eslint-disable-next-line react/no-array-index-key */
-            <img src={image} alt="" key={`image-${index}`} />
+        {!isCarouselLoadingFailed
+          ? carouselImages.map((image) => (
+            <img src={image.address} alt="loading..." key={`image-${image.id}`} />
           ))
-        }
+          : <img src={spawnFallbackImage} alt="loading..." key="home-page-image-fallback" />}
       </Carousel>
     </div>
   );

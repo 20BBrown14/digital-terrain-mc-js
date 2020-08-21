@@ -15,10 +15,16 @@ class DigitalTerrainWebContainer extends React.Component {
   constructor(props) {
     super(props);
     const { selectedNavKey } = props;
-    this.state = { selectedNavKey };
+    this.state = {
+      selectedNavKey,
+      homeCachedImages: [],
+      galleryCachedImages: [],
+    };
 
     this.handleNavMenuClick = this.handleNavMenuClick.bind(this);
     this.navigateToNewPage = this.navigateToNewPage.bind(this);
+    this.setCachedHomeImages = this.setCachedHomeImages.bind(this);
+    this.setCachedGalleryImages = this.setCachedGalleryImages.bind(this);
   }
 
   /**
@@ -33,13 +39,25 @@ class DigitalTerrainWebContainer extends React.Component {
     this.setState({ selectedNavKey: newNavKey === 'title' ? NK_HOME : newNavKey });
   }
 
+  setCachedHomeImages = (imagesToCache) => {
+    this.setState({ homeCachedImages: imagesToCache });
+  }
+
+  setCachedGalleryImages = (imagesToCache) => {
+    this.setState({ galleryCachedImages: imagesToCache });
+  }
+
   render() {
-    const { selectedNavKey } = this.state;
+    const { selectedNavKey, homeCachedImages, galleryCachedImages } = this.state;
     return (
       <DigitalTerrainWebView
         selectedNavKey={selectedNavKey}
         handleNavMenuClick={this.handleNavMenuClick}
         navigateToNewPage={this.navigateToNewPage}
+        homeCachedImages={homeCachedImages}
+        setCachedHomeImages={this.setCachedHomeImages}
+        galleryCachedImages={galleryCachedImages}
+        setCachedGalleryImages={this.setCachedGalleryImages}
       />
     );
   }
