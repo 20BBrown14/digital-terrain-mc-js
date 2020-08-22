@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Typography, Collapse, List } from 'antd';
+import {
+  Typography, Collapse, List, Table,
+} from 'antd';
 import LoadingScreen from '../LoadingScreen';
 import ErrorScreen from '../ErrorScreen';
 import './ServerInformation.css';
@@ -212,6 +214,27 @@ const buildHelpfulLinksPanel = (helpfulLinksInfo, panelKey) => {
   );
 };
 
+const buildPointsOfInterestPanel = (poiInfo, panelKey) => {
+  const columns = [
+    {
+      title: 'Name',
+      dataIndex: 'name',
+      key: 'name',
+      sortOrder: 'descend',
+      sorter: (a, b) => (a.name < b.name),
+      showSorterTooltip: false,
+    },
+    { title: 'Overworld Coordinates', dataIndex: 'overworld', key: 'overworld' },
+    { title: 'Nether Coordinates', dataIndex: 'nether', key: 'nether' },
+    { title: 'End Coordinates', dataIndex: 'end', key: 'end' },
+  ];
+  return (
+    <Collapse.Panel header={<h1>Points of Interest</h1>} key={panelKey}>
+      <Table dataSource={poiInfo} columns={columns} />
+    </Collapse.Panel>
+  );
+};
+
 /**
  * Server information page view.
  */
@@ -240,8 +263,9 @@ const ServerInformationView = (props) => {
           {buildDatapacksPluginsPanel(serverInformation.Datapacks, 'Datapacks', 2)}
           {buildDatapacksPluginsPanel(serverInformation.Plugins, 'Plugins', 3)}
           {buildHardwarePanel(serverInformation.Hardware, 4)}
-          {buildRolesPanel(serverInformation.Roles, 5)}
-          {buildHelpfulLinksPanel(serverInformation['Helpful Links'], 6)}
+          {buildPointsOfInterestPanel(serverInformation['Points of Interest'], 5)}
+          {buildRolesPanel(serverInformation.Roles, 6)}
+          {buildHelpfulLinksPanel(serverInformation['Helpful Links'], 7)}
         </Collapse>
         )}
     </div>
