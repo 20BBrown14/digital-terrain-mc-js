@@ -59,6 +59,18 @@ const testHarness = {
       }
       res.json(images);
     });
+
+    app.post('/deleteImage', (req, res) => {
+      res.sendStatus(204);
+    });
+
+    app.post('/toggleFeaturedImage', (req, res) => {
+      res.sendStatus(204);
+    });
+
+    app.post('/imageUpload', (req, res) => {
+      res.sendStatus(204);
+    });
   },
 };
 

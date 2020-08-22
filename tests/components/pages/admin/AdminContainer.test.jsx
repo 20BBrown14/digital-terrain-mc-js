@@ -5,15 +5,19 @@ import {
   loadAppsService,
   updateAppStatusService,
   deleteAppService,
+  deleteImageService,
+  toggleFeaturedImageService,
 } from '../../../../src/components/pages/admin/service';
 import rulesService from '../../../../src/components/pages/rules/service';
 import serverInformationService from '../../../../src/components/pages/server_information/service';
 import aboutUsInformationService from '../../../../src/components/pages/about_us/service';
+import retrieveGalleryImagesService from '../../../../src/components/pages/gallery/service';
 
 jest.mock('../../../../src/components/pages/admin/service');
 jest.mock('../../../../src/components/pages/rules/service');
 jest.mock('../../../../src/components/pages/server_information/service');
 jest.mock('../../../../src/components/pages/about_us/service');
+jest.mock('../../../../src/components/pages/gallery/service');
 
 describe('AdminContainer', () => {
   beforeEach(() => {
@@ -26,8 +30,11 @@ describe('AdminContainer', () => {
     loadAppsService.mockClear();
     updateAppStatusService.mockClear();
     deleteAppService.mockClear();
+    deleteImageService.mockClear();
+    toggleFeaturedImageService.mockClear();
     rulesService.mockClear();
     serverInformationService.mockClear();
+    retrieveGalleryImagesService.mockClear();
     aboutUsInformationService.retrieveAboutUsInformation.mockClear();
     aboutUsInformationService.retrieveVeteransInformation.mockClear();
   });
@@ -58,6 +65,14 @@ describe('AdminContainer', () => {
       isAppStatusUpdateFailed: false,
       isAppDeleteSuccessful: false,
       isAppDeleteFailed: false,
+      isImagesLoading: false,
+      imageLoadingError: undefined,
+      imageInformation: [],
+      isImageViewModalOpen: false,
+      selectedImageInfoToView: {},
+      isImageDeleteSuccessful: false,
+      isImageToggleUpdateSuccessful: false,
+      isUploadModalOpen: false,
     };
 
     const container = shallow(<AdminContainer />).instance();
@@ -992,12 +1007,9 @@ describe('AdminContainer', () => {
         container.state.isAppsLoading = true;
         container.state.appsLoadError = {};
         container.loadApps('submitted');
-        /* test isn't passing without this. Will investigate */
-        setTimeout(() => {
-          expect(container.state.isAppsLoading).toEqual(false);
-          expect(container.state.appData).toEqual({}, {}, {});
-          expect(container.state.appsLoadError).toBeUndefined();
-        }, 1);
+        expect(container.state.isAppsLoading).toEqual(false);
+        expect(container.state.appData).toEqual([{}, {}, {}]);
+        expect(container.state.appsLoadError).toBeUndefined();
       });
     });
 
@@ -1012,11 +1024,8 @@ describe('AdminContainer', () => {
       it('sets state as expected', () => {
         container.state.isAppsLoading = true;
         container.loadApps('submitted');
-        /* test isn't passing without this. Will investigate */
-        setTimeout(() => {
-          expect(container.state.isAppsLoading).toEqual(false);
-          expect(container.state.appsLoadError).toEqual(error);
-        }, 1);
+        expect(container.state.isAppsLoading).toEqual(false);
+        expect(container.state.appsLoadError).toEqual(error);
       });
     });
   });
@@ -1163,10 +1172,7 @@ describe('AdminContainer', () => {
           { appID: 0, name: 'aName', status: 'newStatus' },
           { appID: 1, name: 'bName', status: 'submitted' },
         ]);
-        /* TODO: WHy tests fail without this */
-        setTimeout(() => {
-          expect(container.state.isAppsLoading).toEqual(false);
-        }, 1);
+        expect(container.state.isAppsLoading).toEqual(false);
       });
     });
 
@@ -1185,10 +1191,7 @@ describe('AdminContainer', () => {
         expect(container.state.isAppStatusUpdateSuccessful).toEqual(false);
         expect(container.state.isAppStatusUpdateFailed).toEqual(true);
         expect(container.state.appUpdateStatusError).toEqual(error);
-        /* TODO: WHy tests fail without this */
-        setTimeout(() => {
-          expect(container.state.isAppsLoading).toEqual(false);
-        }, 1);
+        expect(container.state.isAppsLoading).toEqual(false);
       });
     });
   });
@@ -1265,10 +1268,7 @@ describe('AdminContainer', () => {
         container.state.selectedAppToView = { appID: 3, name: 'cName' };
         container.handleAppDeleteButtonClick(0);
 
-        /* TODO: Why timeout is needed */
-        setTimeout(() => {
-          expect(container.state.isAppsLoading).toEqual(false);
-        }, 1);
+        expect(container.state.isAppsLoading).toEqual(false);
         expect(container.state.isAppDeleteSuccessful).toEqual(true);
         expect(container.state.isAppDeleteFailed).toEqual(false);
         expect(container.state.selectedAppToView).toEqual({});
@@ -1290,14 +1290,300 @@ describe('AdminContainer', () => {
         container.state.isAppDeleteSuccessful = true;
         container.handleAppDeleteButtonClick(0);
 
-        /* TODO: WHy timeout is needed */
-        setTimeout(() => {
-          expect(container.state.isAppsLoading).toEqual(false);
-        }, 1);
+        expect(container.state.isAppsLoading).toEqual(false);
         expect(container.state.isAppDeleteSuccessful).toEqual(false);
         expect(container.state.isAppDeleteFailed).toEqual(true);
         expect(container.state.appDeleteError).toEqual(error);
       });
+    });
+  });
+
+  describe('loadImageInformation', () => {
+    let container;
+    beforeEach(() => {
+      container = shallow(<AdminContainer />).instance();
+    });
+
+    it('sets state as expected and calls service', () => {
+      container.state.isImagesLoading = false;
+      container.state.imageLoadingError = '';
+      container.loadImageInformation(false);
+      expect(container.state.isImagesLoading).toEqual(true);
+      expect(container.state.imageLoadingError).toBeUndefined();
+      expect(retrieveGalleryImagesService).toHaveBeenCalledTimes(1);
+      expect(retrieveGalleryImagesService).toHaveBeenCalledWith(
+        expect.any(Function),
+        expect.any(Function),
+        false,
+      );
+    });
+
+    describe('successful call', () => {
+      beforeEach(() => {
+        retrieveGalleryImagesService.mockImplementation((success, failure, isFeatured) => {
+          expect(isFeatured).toEqual(true);
+          success([{}, {}, {}, {}]);
+        });
+      });
+
+      it('sets state as expected', () => {
+        container.state.isImagesLoading = true;
+        container.state.imageINformation = '';
+        container.loadImageInformation(true);
+        expect(container.state.isImagesLoading).toEqual(false);
+        expect(container.state.imageInformation).toEqual([{}, {}, {}, {}]);
+      });
+    });
+
+    describe('failed call', () => {
+      let error;
+      beforeEach(() => {
+        error = new Error('error');
+        retrieveGalleryImagesService.mockImplementation((success, failure, isFeatured) => {
+          expect(isFeatured).toEqual(false);
+          failure(error);
+        });
+      });
+
+      it('sets state as expected', () => {
+        container.state.isImagesLoading = true;
+        container.state.imageLoadingError = undefined;
+        container.loadImageInformation(false);
+        expect(container.state.isImagesLoading).toEqual(false);
+        expect(container.state.imageLoadingError).toEqual(error);
+      });
+    });
+  });
+
+  describe('handleLoadAllImagesClick', () => {
+    let container;
+    beforeEach(() => {
+      container = shallow(<AdminContainer />).instance();
+    });
+
+    it('calls loadImageInformation', () => {
+      container.loadImageInformation = jest.fn();
+      container.handleLoadAllImagesClick();
+      expect(container.loadImageInformation).toHaveBeenCalledTimes(1);
+      expect(container.loadImageInformation).toHaveBeenCalledWith(false);
+    });
+  });
+
+  describe('handleLoadFeaturedImagesClick', () => {
+    let container;
+    beforeEach(() => {
+      container = shallow(<AdminContainer />).instance();
+    });
+
+    it('calls loadImageInformation', () => {
+      container.loadImageInformation = jest.fn();
+      container.handleLoadFeaturedImagesClick();
+      expect(container.loadImageInformation).toHaveBeenCalledTimes(1);
+      expect(container.loadImageInformation).toHaveBeenCalledWith(true);
+    });
+  });
+
+  describe('handleViewImageClick', () => {
+    let container;
+    beforeEach(() => {
+      container = shallow(<AdminContainer />).instance();
+    });
+
+    it('sets state as expected', () => {
+      container.state.imageInformation = [
+        { id: 0, title: 'some title' },
+        { id: 12, title: 'some other title' },
+      ];
+      container.state.isImageViewModalOpen = false;
+      container.state.selectedImageInfoToView = {};
+      container.handleViewImageClick(12);
+      expect(container.state.isImageViewModalOpen).toEqual(true);
+      expect(container.state.selectedImageInfoToView).toEqual({ id: 12, title: 'some other title' });
+    });
+  });
+
+  describe('handleViewImageGoBackClick', () => {
+    let container;
+    beforeEach(() => {
+      container = shallow(<AdminContainer />).instance();
+    });
+
+    it('sets state as expected', () => {
+      container.state.isImageViewModalOpen = true;
+      container.state.selectedImageInfoToView = { id: 12, title: 'something' };
+      container.handleViewImageGoBackClick();
+      expect(container.state.isImageViewModalOpen).toEqual(false);
+      expect(container.state.selectedImageInfoToView).toEqual({});
+    });
+  });
+
+  describe('handleViewImageDeleteButtonClick', () => {
+    let container;
+    beforeEach(() => {
+      container = shallow(<AdminContainer />).instance();
+    });
+
+    it('sets state as expected and calls service', () => {
+      container.state.isImageViewModalOpen = true;
+      container.state.isImagesLoading = false;
+      container.state.isImageToggleUpdateSuccessful = true;
+      container.state.isImageDeleteSuccessful = true;
+      container.state.selectedImageInfoToView = { id: 12 };
+      container.handleViewImageDeleteButtonClick(1);
+      expect(container.state.isImageViewModalOpen).toEqual(false);
+      expect(container.state.isImagesLoading).toEqual(true);
+      expect(container.state.isImageToggleUpdateSuccessful).toEqual(false);
+      expect(container.state.isImageDeleteSuccessful).toEqual(false);
+      expect(container.state.selectedImageInfoToView).toEqual({});
+      expect(deleteImageService).toHaveBeenCalledTimes(1);
+      expect(deleteImageService).toHaveBeenCalledWith(
+        expect.any(Function),
+        expect.any(Function),
+        1,
+      );
+    });
+
+    describe('successful call', () => {
+      beforeEach(() => {
+        deleteImageService.mockImplementation((success) => {
+          success();
+        });
+      });
+
+      it('sets state as expected', () => {
+        container.state.isImagesLoading = true;
+        container.state.isImageDeleteSuccessful = false;
+        container.state.imageLoadingError = {};
+        container.state.imageInformation = [
+          { id: 2, title: 'title2' },
+          { id: 3, title: 'title3' },
+          { id: 4, title: 'title4' },
+        ];
+
+        container.handleViewImageDeleteButtonClick(3);
+        expect(container.state.isImagesLoading).toEqual(false);
+        expect(container.state.isImageDeleteSuccessful).toEqual(true);
+        expect(container.state.imageLoadingError).toEqual(undefined);
+        expect(container.state.imageInformation).toEqual([
+          { id: 2, title: 'title2' },
+          { id: 4, title: 'title4' },
+        ]);
+      });
+    });
+
+    describe('failed call', () => {
+      let error;
+      beforeEach(() => {
+        error = new Error('error');
+        deleteImageService.mockImplementation((success, failure) => {
+          failure(error);
+        });
+      });
+
+      it('sets state as expected', () => {
+        container.state.isImagesLoading = true;
+        container.state.imageLoadingError = {};
+        container.handleViewImageDeleteButtonClick(3);
+        expect(container.state.isImagesLoading).toEqual(false);
+        expect(container.state.imageLoadingError).toEqual(error);
+      });
+    });
+  });
+
+  describe('handleViewImageToggleFeaturedButtonClick', () => {
+    let container;
+    beforeEach(() => {
+      container = shallow(<AdminContainer />).instance();
+    });
+
+    it('sets state as expected and calls service', () => {
+      container.state.isImageViewModalOpen = true;
+      container.state.isImagesLoading = false;
+      container.state.isImageToggleUpdateSuccessful = true;
+      container.state.isImageDeleteSuccessful = true;
+      container.state.selectedImageInfoToView = { id: 12 };
+      container.handleViewImageToggleFeaturedButtonClick(3);
+      expect(container.state.isImageViewModalOpen).toEqual(false);
+      expect(container.state.isImagesLoading).toEqual(true);
+      expect(container.state.isImageToggleUpdateSuccessful).toEqual(false);
+      expect(container.state.isImageDeleteSuccessful).toEqual(false);
+      expect(container.state.selectedImageInfoToView).toEqual({});
+      expect(toggleFeaturedImageService).toHaveBeenCalledTimes(1);
+      expect(toggleFeaturedImageService).toHaveBeenCalledWith(
+        expect.any(Function),
+        expect.any(Function),
+        3,
+      );
+    });
+
+    describe('successful call', () => {
+      beforeEach(() => {
+        toggleFeaturedImageService.mockImplementation((success) => {
+          success();
+        });
+      });
+
+      it('sets state as expected', () => {
+        container.state.isImagesLoading = true;
+        container.state.isImageToggleUpdateSuccessful = false;
+        container.state.imageInformation = [
+          { id: 3, isFeatured: false },
+          { id: 5, isFeatured: true },
+        ];
+        container.state.imageLoadingError = {};
+        container.handleViewImageToggleFeaturedButtonClick(3);
+        expect(container.state.isImagesLoading).toEqual(false);
+        expect(container.state.isImageToggleUpdateSuccessful).toEqual(true);
+        expect(container.state.imageInformation).toEqual([
+          { id: 3, isFeatured: true },
+          { id: 5, isFeatured: true },
+        ]);
+        expect(container.state.imageLoadingError).toBeUndefined();
+      });
+    });
+
+    describe('failed call', () => {
+      let error;
+      beforeEach(() => {
+        error = new Error('error');
+        toggleFeaturedImageService.mockImplementation((success, fail) => {
+          fail(error);
+        });
+      });
+
+      it('sets state as expected', () => {
+        container.state.isImagesLoading = true;
+        container.state.imageLoadingError = {};
+        container.handleViewImageToggleFeaturedButtonClick(3);
+        expect(container.state.isImagesLoading).toEqual(false);
+        expect(container.state.imageLoadingError).toEqual(error);
+      });
+    });
+  });
+
+  describe('handleUploadNewButtonClick', () => {
+    let container;
+    beforeEach(() => {
+      container = shallow(<AdminContainer />).instance();
+    });
+
+    it('sets state as expected', () => {
+      container.state.isUploadModalOpen = false;
+      container.handleUploadNewButtonClick();
+      expect(container.state.isUploadModalOpen).toEqual(true);
+    });
+  });
+
+  describe('handleUploadModalGoBackClick', () => {
+    let container;
+    beforeEach(() => {
+      container = shallow(<AdminContainer />).instance();
+    });
+
+    it('sets state as expected', () => {
+      container.state.isUploadModalOpen = true;
+      container.handleUploadModalGoBackClick();
+      expect(container.state.isUploadModalOpen).toEqual(false);
     });
   });
 });
