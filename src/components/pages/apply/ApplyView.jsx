@@ -59,7 +59,9 @@ const ApplyView = (props) => {
           properly evaluate if you will be a good fit for the server.\
           After we have had a chance to review your application we will\
           contact you through Discord @ your provided username. Please\
-          ensure it is accurate before submitting.'}
+          ensure it is accurate before submitting. Your Discord username\
+          should be in the format of AAAAA#0000 to ensure we can\
+          contact you.'}
         </Typography.Text>
         <div className="apply-page-application-form">
           {buildSubmitAlert()}
