@@ -40,7 +40,7 @@ describe('AdminContainer', () => {
   });
 
   it('renders a default view', () => {
-    const container = render(<AdminContainer />);
+    const container = render(<AdminContainer jwtToken="" />);
     expect(container).toMatchSnapshot();
   });
 
@@ -75,7 +75,7 @@ describe('AdminContainer', () => {
       isUploadModalOpen: false,
     };
 
-    const container = shallow(<AdminContainer />).instance();
+    const container = shallow(<AdminContainer jwtToken="" />).instance();
     expect(container.state).toEqual(expectedState);
   });
 
@@ -87,14 +87,14 @@ describe('AdminContainer', () => {
       veteransInformation: '',
     };
 
-    const container = shallow(<AdminContainer />).instance();
+    const container = shallow(<AdminContainer jwtToken="" />).instance();
     expect(container.cachedJSON).toEqual(expectedCachedJSON);
   });
 
   describe('getJSONEditorRef', () => {
     let container;
     beforeEach(() => {
-      container = shallow(<AdminContainer />).instance();
+      container = shallow(<AdminContainer jwtToken="" />).instance();
     });
 
     it('sets jsonEditor ref if instance provided', () => {
@@ -114,7 +114,7 @@ describe('AdminContainer', () => {
     let container;
 
     beforeEach(() => {
-      container = shallow(<AdminContainer />).instance();
+      container = shallow(<AdminContainer jwtToken="somejwttoken" />).instance();
       container.jsonEditor = {
         setMode: () => {},
         set: () => {},
@@ -146,6 +146,7 @@ describe('AdminContainer', () => {
             expect.any(Function),
             'rules',
             {},
+            'somejwttoken',
           );
         });
 
@@ -250,7 +251,7 @@ describe('AdminContainer', () => {
   describe('handleJSONEditorChange', () => {
     let container;
     beforeEach(() => {
-      container = shallow(<AdminContainer />).instance();
+      container = shallow(<AdminContainer jwtToken="" />).instance();
     });
 
     it('sets state as expected', () => {
@@ -265,7 +266,7 @@ describe('AdminContainer', () => {
     let container;
 
     beforeEach(() => {
-      container = shallow(<AdminContainer />).instance();
+      container = shallow(<AdminContainer jwtToken="" />).instance();
       container.jsonEditor = {
         setMode: () => {},
         set: () => {},
@@ -842,7 +843,7 @@ describe('AdminContainer', () => {
   describe('handleEditJSONButton', () => {
     let container;
     beforeEach(() => {
-      container = shallow(<AdminContainer />).instance();
+      container = shallow(<AdminContainer jwtToken="" />).instance();
       container.loadNewJSON = () => {};
     });
 
@@ -878,7 +879,7 @@ describe('AdminContainer', () => {
     let container;
 
     beforeEach(() => {
-      container = shallow(<AdminContainer />).instance();
+      container = shallow(<AdminContainer jwtToken="" />).instance();
       container.saveJSON = () => {};
     });
 
@@ -912,7 +913,7 @@ describe('AdminContainer', () => {
     let container;
 
     beforeEach(() => {
-      container = shallow(<AdminContainer />).instance();
+      container = shallow(<AdminContainer jwtToken="" />).instance();
       container.saveJSON = () => {};
       container.loadNewJSON = () => {};
     });
@@ -938,7 +939,7 @@ describe('AdminContainer', () => {
     let container;
 
     beforeEach(() => {
-      container = shallow(<AdminContainer />).instance();
+      container = shallow(<AdminContainer jwtToken="" />).instance();
       container.loadNewJSON = () => {};
     });
 
@@ -963,7 +964,7 @@ describe('AdminContainer', () => {
     let container;
 
     beforeEach(() => {
-      container = shallow(<AdminContainer />).instance();
+      container = shallow(<AdminContainer jwtToken="" />).instance();
     });
 
     it('sets state as expected', () => {
@@ -977,7 +978,7 @@ describe('AdminContainer', () => {
   describe('loadApps', () => {
     let container;
     beforeEach(() => {
-      container = shallow(<AdminContainer />).instance();
+      container = shallow(<AdminContainer jwtToken="sometokenhere" />).instance();
     });
 
     it('sets state as expected', () => {
@@ -993,6 +994,7 @@ describe('AdminContainer', () => {
         expect.any(Function),
         expect.any(Function),
         'submitted',
+        'sometokenhere',
       );
     });
 
@@ -1033,7 +1035,7 @@ describe('AdminContainer', () => {
   describe('handleUnreviewedAppsButtonClick', () => {
     let container;
     beforeEach(() => {
-      container = shallow(<AdminContainer />).instance();
+      container = shallow(<AdminContainer jwtToken="" />).instance();
       container.loadApps = jest.fn();
     });
 
@@ -1047,7 +1049,7 @@ describe('AdminContainer', () => {
   describe('handleApprovedAppsButtonClick', () => {
     let container;
     beforeEach(() => {
-      container = shallow(<AdminContainer />).instance();
+      container = shallow(<AdminContainer jwtToken="" />).instance();
       container.loadApps = jest.fn();
     });
 
@@ -1061,7 +1063,7 @@ describe('AdminContainer', () => {
   describe('handleDeniedAppsButtonClick', () => {
     let container;
     beforeEach(() => {
-      container = shallow(<AdminContainer />).instance();
+      container = shallow(<AdminContainer jwtToken="" />).instance();
       container.loadApps = jest.fn();
     });
 
@@ -1075,7 +1077,7 @@ describe('AdminContainer', () => {
   describe('handleAppsLoadClick', () => {
     let container;
     beforeEach(() => {
-      container = shallow(<AdminContainer />).instance();
+      container = shallow(<AdminContainer jwtToken="" />).instance();
       container.loadApps = jest.fn();
     });
 
@@ -1089,7 +1091,7 @@ describe('AdminContainer', () => {
   describe('handleAppViewClick', () => {
     let container;
     beforeEach(() => {
-      container = shallow(<AdminContainer />).instance();
+      container = shallow(<AdminContainer jwtToken="" />).instance();
       container.state.appData = [
         { appID: 0, name: 'name', whatever: 'whatever' },
         { appID: 1, name: 'whatevername', whatever: 'who knows' },
@@ -1110,7 +1112,7 @@ describe('AdminContainer', () => {
   describe('handleAppViewGoBackClick', () => {
     let container;
     beforeEach(() => {
-      container = shallow(<AdminContainer />).instance();
+      container = shallow(<AdminContainer jwtToken="" />).instance();
     });
     it('sets state as expected', () => {
       container.state.isViewModalOpen = true;
@@ -1122,7 +1124,7 @@ describe('AdminContainer', () => {
   describe('updateAppStatus', () => {
     let container;
     beforeEach(() => {
-      container = shallow(<AdminContainer />).instance();
+      container = shallow(<AdminContainer jwtToken="sometokenhere" />).instance();
     });
 
     it('calls updateAppStatusService', () => {
@@ -1133,6 +1135,7 @@ describe('AdminContainer', () => {
         expect.any(Function),
         0,
         'newStatus',
+        'sometokenhere',
       );
     });
 
@@ -1199,7 +1202,7 @@ describe('AdminContainer', () => {
   describe('handleAppViewApproveClick', () => {
     let container;
     beforeEach(() => {
-      container = shallow(<AdminContainer />).instance();
+      container = shallow(<AdminContainer jwtToken="" />).instance();
     });
 
     it('calls updateAppStatus', () => {
@@ -1213,7 +1216,7 @@ describe('AdminContainer', () => {
   describe('handleAppViewDenyClick', () => {
     let container;
     beforeEach(() => {
-      container = shallow(<AdminContainer />).instance();
+      container = shallow(<AdminContainer jwtToken="" />).instance();
     });
 
     it('calls updateAppStatus', () => {
@@ -1227,7 +1230,7 @@ describe('AdminContainer', () => {
   describe('handleAppDeleteButtonClick', () => {
     let container;
     beforeEach(() => {
-      container = shallow(<AdminContainer />).instance();
+      container = shallow(<AdminContainer jwtToken="sometokenhere" />).instance();
       container.state.appData = [
         { appID: 0, name: 'aName' },
         { appID: 1, name: 'bName' },
@@ -1253,6 +1256,7 @@ describe('AdminContainer', () => {
         expect.any(Function),
         expect.any(Function),
         0,
+        'sometokenhere',
       );
     });
 
@@ -1301,7 +1305,7 @@ describe('AdminContainer', () => {
   describe('loadImageInformation', () => {
     let container;
     beforeEach(() => {
-      container = shallow(<AdminContainer />).instance();
+      container = shallow(<AdminContainer jwtToken="" />).instance();
     });
 
     it('sets state as expected and calls service', () => {
@@ -1358,7 +1362,7 @@ describe('AdminContainer', () => {
   describe('handleLoadAllImagesClick', () => {
     let container;
     beforeEach(() => {
-      container = shallow(<AdminContainer />).instance();
+      container = shallow(<AdminContainer jwtToken="" />).instance();
     });
 
     it('calls loadImageInformation', () => {
@@ -1372,7 +1376,7 @@ describe('AdminContainer', () => {
   describe('handleLoadFeaturedImagesClick', () => {
     let container;
     beforeEach(() => {
-      container = shallow(<AdminContainer />).instance();
+      container = shallow(<AdminContainer jwtToken="" />).instance();
     });
 
     it('calls loadImageInformation', () => {
@@ -1386,7 +1390,7 @@ describe('AdminContainer', () => {
   describe('handleViewImageClick', () => {
     let container;
     beforeEach(() => {
-      container = shallow(<AdminContainer />).instance();
+      container = shallow(<AdminContainer jwtToken="" />).instance();
     });
 
     it('sets state as expected', () => {
@@ -1405,7 +1409,7 @@ describe('AdminContainer', () => {
   describe('handleViewImageGoBackClick', () => {
     let container;
     beforeEach(() => {
-      container = shallow(<AdminContainer />).instance();
+      container = shallow(<AdminContainer jwtToken="" />).instance();
     });
 
     it('sets state as expected', () => {
@@ -1420,7 +1424,7 @@ describe('AdminContainer', () => {
   describe('handleViewImageDeleteButtonClick', () => {
     let container;
     beforeEach(() => {
-      container = shallow(<AdminContainer />).instance();
+      container = shallow(<AdminContainer jwtToken="sometokenhere" />).instance();
     });
 
     it('sets state as expected and calls service', () => {
@@ -1440,6 +1444,7 @@ describe('AdminContainer', () => {
         expect.any(Function),
         expect.any(Function),
         1,
+        'sometokenhere',
       );
     });
 
@@ -1493,7 +1498,7 @@ describe('AdminContainer', () => {
   describe('handleViewImageToggleFeaturedButtonClick', () => {
     let container;
     beforeEach(() => {
-      container = shallow(<AdminContainer />).instance();
+      container = shallow(<AdminContainer jwtToken="sometokenhere" />).instance();
     });
 
     it('sets state as expected and calls service', () => {
@@ -1513,6 +1518,7 @@ describe('AdminContainer', () => {
         expect.any(Function),
         expect.any(Function),
         3,
+        'sometokenhere',
       );
     });
 
@@ -1564,7 +1570,7 @@ describe('AdminContainer', () => {
   describe('handleUploadNewButtonClick', () => {
     let container;
     beforeEach(() => {
-      container = shallow(<AdminContainer />).instance();
+      container = shallow(<AdminContainer jwtToken="" />).instance();
     });
 
     it('sets state as expected', () => {
@@ -1577,7 +1583,7 @@ describe('AdminContainer', () => {
   describe('handleUploadModalGoBackClick', () => {
     let container;
     beforeEach(() => {
-      container = shallow(<AdminContainer />).instance();
+      container = shallow(<AdminContainer jwtToken="" />).instance();
     });
 
     it('sets state as expected', () => {

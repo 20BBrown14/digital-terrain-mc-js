@@ -3,6 +3,8 @@
 const testHarness = {
   before(app) {
     const bodyParser = require('body-parser');
+    const axios = require('axios');
+    const formUrlEncode = require('form-urlencoded').default;
     app.use(bodyParser.json());
 
     app.get('/serverRules', (req, res) => {
@@ -70,6 +72,31 @@ const testHarness = {
 
     app.post('/imageUpload', (req, res) => {
       res.sendStatus(204);
+    });
+
+    app.get('/loggedin', (req, res) => {
+      const environment = require('../.env.json');
+      if (req.query.code) {
+        const data = {
+          client_id: '693123471210709072',
+          client_secret: environment.discord_client_secret,
+          grant_type: 'authorization_code',
+          code: req.query.code,
+          redirect_uri: 'http://localhost:3000/loggedin',
+          scope: 'identify guilds',
+        };
+        const headers = {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        };
+        const encodedData = formUrlEncode(data);
+        axios({
+          method: 'post',
+          url: 'https://discord.com/api/v6/oauth2/token',
+          data: encodedData,
+          headers,
+        })
+          .then(() => { res.redirect('/'); });
+      }
     });
   },
 };

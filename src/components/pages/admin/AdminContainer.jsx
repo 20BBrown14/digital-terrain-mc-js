@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import AdminView from './AdminView';
 import rulesService from '../rules/service';
 import serverInformationService from '../server_information/service';
@@ -12,6 +13,11 @@ import {
   toggleFeaturedImageService,
 } from './service';
 import retrieveGalleryImages from '../gallery/service';
+
+const propTypes = {
+  /* JWT Token */
+  jwtToken: PropTypes.string.isRequired,
+};
 
 class AdminContainer extends React.Component {
   constructor(props) {
@@ -92,6 +98,7 @@ class AdminContainer extends React.Component {
 
   saveJSON = () => {
     const { selectedJSON, EdittedJSON } = this.state;
+    const { jwtToken } = this.props;
 
     const successfulCall = (savedJSON) => {
       this.cachedJSON[selectedJSON] = savedJSON;
@@ -116,7 +123,7 @@ class AdminContainer extends React.Component {
     };
     if (selectedJSON) {
       this.jsonEditor.setMode('view');
-      saveJSONInformationService(successfulCall, failedCall, selectedJSON, EdittedJSON);
+      saveJSONInformationService(successfulCall, failedCall, selectedJSON, EdittedJSON, jwtToken);
     }
   }
 
@@ -271,6 +278,7 @@ class AdminContainer extends React.Component {
   }
 
   loadApps = (filter) => {
+    const { jwtToken } = this.props;
     const successfulCall = (data) => {
       this.setState({
         appData: data,
@@ -288,7 +296,7 @@ class AdminContainer extends React.Component {
 
     this.setState({
       isAppsLoading: true,
-    }, () => { loadAppsService(successfulCall, failedCall, filter); });
+    }, () => { loadAppsService(successfulCall, failedCall, filter, jwtToken); });
   }
 
   handleUnreviewedAppsButtonClick = () => {
@@ -326,6 +334,7 @@ class AdminContainer extends React.Component {
   }
 
   updateAppStatus = (appID, newStatus) => {
+    const { jwtToken } = this.props;
     const successfulCall = () => {
       this.setState((prevState) => {
         let newAppData = [...prevState.appData];
@@ -360,7 +369,7 @@ class AdminContainer extends React.Component {
       isViewModalOpen: false,
       isAppDeleteSuccessful: false,
       isAppDeleteFailed: false,
-    }, () => { updateAppStatusService(successfulCall, failedCall, appID, newStatus); });
+    }, () => { updateAppStatusService(successfulCall, failedCall, appID, newStatus, jwtToken); });
   }
 
   handleAppViewApproveClick = (appID) => {
@@ -372,6 +381,7 @@ class AdminContainer extends React.Component {
   }
 
   handleAppDeleteButtonClick = (appID) => {
+    const { jwtToken } = this.props;
     const successfulCall = () => {
       this.setState((prevState) => {
         const newAppData = prevState.appData.filter((app) => !(app.appID === appID));
@@ -399,7 +409,7 @@ class AdminContainer extends React.Component {
       isViewModalOpen: false,
       isAppStatusUpdateSuccessful: false,
       isAppStatusUpdateFailed: false,
-    }, () => { deleteAppService(successfulCall, failedCall, appID); });
+    }, () => { deleteAppService(successfulCall, failedCall, appID, jwtToken); });
   }
 
   loadImageInformation = (isFeatured) => {
@@ -451,6 +461,7 @@ class AdminContainer extends React.Component {
   }
 
   handleViewImageDeleteButtonClick = (id) => {
+    const { jwtToken } = this.props;
     const successfulCall = () => {
       this.setState((prevState) => {
         const newImageInformation = [...prevState.imageInformation];
@@ -480,10 +491,11 @@ class AdminContainer extends React.Component {
       isImageToggleUpdateSuccessful: false,
       isImageDeleteSuccessful: false,
       selectedImageInfoToView: {},
-    }, () => { deleteImageService(successfulCall, failedCall, id); });
+    }, () => { deleteImageService(successfulCall, failedCall, id, jwtToken); });
   }
 
   handleViewImageToggleFeaturedButtonClick = (id) => {
+    const { jwtToken } = this.props;
     const successfulCall = () => {
       this.setState((prevState) => {
         const newImageInformation = [...prevState.imageInformation];
@@ -516,7 +528,7 @@ class AdminContainer extends React.Component {
       isImageToggleUpdateSuccessful: false,
       isImageDeleteSuccessful: false,
       selectedImageInfoToView: {},
-    }, () => { toggleFeaturedImageService(successfulCall, failedCall, id); });
+    }, () => { toggleFeaturedImageService(successfulCall, failedCall, id, jwtToken); });
   }
 
   handleUploadNewButtonClick = () => {
@@ -561,6 +573,8 @@ class AdminContainer extends React.Component {
       isImageToggleUpdateSuccessful,
       isUploadModalOpen,
     } = this.state;
+
+    const { jwtToken } = this.props;
     return (
       <AdminView
         selectedJSON={selectedJSON}
@@ -615,9 +629,12 @@ class AdminContainer extends React.Component {
         handleUploadNewButtonClick={this.handleUploadNewButtonClick}
         handleUploadModalGoBackClick={this.handleUploadModalGoBackClick}
         handleUploadModalUploadClick={this.handleUploadModalUploadClick}
+        jwtToken={jwtToken}
       />
     );
   }
 }
+
+AdminContainer.propTypes = propTypes;
 
 export default AdminContainer;

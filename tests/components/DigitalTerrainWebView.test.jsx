@@ -13,6 +13,9 @@ describe('DigitalTerrainWebView', () => {
         setCachedHomeImages={() => {}}
         galleryCachedImages={[]}
         setCachedGalleryImages={() => {}}
+        discordNick=""
+        isAdmin={false}
+        jwtToken=""
       />,
     );
   });
@@ -27,6 +30,9 @@ describe('DigitalTerrainWebView', () => {
         setCachedHomeImages={() => {}}
         galleryCachedImages={[]}
         setCachedGalleryImages={() => {}}
+        discordNick=""
+        isAdmin={false}
+        jwtToken=""
       />,
     );
     expect(view).toMatchSnapshot();
@@ -60,6 +66,9 @@ describe('DigitalTerrainWebView', () => {
             setCachedHomeImages={() => {}}
             galleryCachedImages={[]}
             setCachedGalleryImages={() => {}}
+            discordNick=""
+            isAdmin={false}
+            jwtToken=""
           />,
         )
       );

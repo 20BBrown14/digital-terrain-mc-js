@@ -11,6 +11,7 @@ import {
   NK_APPLY,
   NK_ABOUT_US,
   NK_ADMIN,
+  NK_LOGIN,
 } from '../../constants/navKeys';
 import selectedNavKeyPropTypes from '../../proptypes/selectedNavKeyPropTypes';
 import animatedBee from '../../assets/animated_bee.gif';
@@ -22,6 +23,10 @@ const propTypes = {
   handleNavMenuClick: PropTypes.func.isRequired,
   /* Whether to show the title in the nav bar */
   showTitle: PropTypes.bool.isRequired,
+  /* Authenitcated user's discord name */
+  discordNick: PropTypes.string.isRequired,
+  /* Whether authenticated user is admin */
+  isAdmin: PropTypes.bool.isRequired,
 
 };
 
@@ -31,7 +36,13 @@ const beeIcon = <img src={animatedBee} alt="loading..." className="header-icon" 
  * Header view. Renders menu items.
  */
 const HeaderView = (props) => {
-  const { selectedNavKey, handleNavMenuClick, showTitle } = props;
+  const {
+    selectedNavKey,
+    handleNavMenuClick,
+    showTitle,
+    discordNick,
+    isAdmin,
+  } = props;
   return (
     <div>
       <Menu
@@ -90,11 +101,31 @@ const HeaderView = (props) => {
         >
           About us
         </Menu.Item>
-        <Menu.Item
-          key={NK_ADMIN}
-        >
-          Admin
-        </Menu.Item>
+        {!discordNick
+          && (
+          <Menu.Item
+            key={NK_LOGIN}
+          >
+            {/* eslint-disable-next-line max-len */}
+            <a href="https://discord.com/api/oauth2/authorize?client_id=693123471210709072&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Floggedin&response_type=code&scope=identify%20guilds">Login</a>
+          </Menu.Item>
+          )}
+        {discordNick
+          && (
+          <Menu.Item
+            key={NK_LOGIN}
+          >
+            {discordNick}
+          </Menu.Item>
+          )}
+        {isAdmin
+          && (
+          <Menu.Item
+            key={NK_ADMIN}
+          >
+            Admin
+          </Menu.Item>
+          )}
       </Menu>
     </div>
   );

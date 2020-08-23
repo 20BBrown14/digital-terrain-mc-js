@@ -9,6 +9,8 @@ describe('HeaderView', () => {
         selectedNavKey="home"
         handleNavMenuClick={() => {}}
         showTitle
+        discordNick=""
+        isAdmin={false}
       />,
     );
   });
@@ -19,6 +21,8 @@ describe('HeaderView', () => {
         selectedNavKey="home"
         handleNavMenuClick={() => {}}
         showTitle
+        discordNick=""
+        isAdmin={false}
       />,
     );
     expect(view).toMatchSnapshot();
@@ -38,6 +42,8 @@ describe('HeaderView', () => {
         selectedNavKey="home"
         handleNavMenuClick={mockHandleNavMenuClick}
         showTitle
+        discordNick=""
+        isAdmin={false}
       />,
     );
     view.find('Menu').at(0).simulate('click', { key: 'map' });

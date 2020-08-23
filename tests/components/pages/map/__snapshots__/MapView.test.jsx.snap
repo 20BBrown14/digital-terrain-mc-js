@@ -4,7 +4,7 @@ exports[`MapView renders a default view 1`] = `
 <div>
   <iframe
     class="map-iframe"
-    src="http://147.135.107.178:4492/index.html"
+    src="https://dynmap-reverse-proxy.herokuapp.com/"
     title="Digital Terrain Dynmap"
   >
     &lt;p&gt;Your browser does not support this type of content.&lt;/p&gt;
