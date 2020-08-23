@@ -92,7 +92,7 @@ const HomeView = (props) => {
       </Typography.Title>
       <Space direction="vertical">
         <Typography.Text className="home-page-subtitle">
-          {'Digital Terrain is a SMP server inspired by Hermitcraft. The server is based on a great community, trust,\
+          {'Digital Terrain is an SMP server inspired by Hermitcraft. The server is based on a great community, trust,\
           and fun. We aspire to have a playerbase of all play styles that work together in harmony to build great\
           things and have an awesome time. The server is owned by '}
           {pandaLink}

@@ -316,7 +316,7 @@ exports[`DigitalTerrainWebApp should render a default view 1`] = `
             <span
               class="ant-typography home-page-subtitle"
             >
-              Digital Terrain is a SMP server inspired by Hermitcraft. The server is based on a great community, trust,          and fun. We aspire to have a playerbase of all play styles that work together in harmony to build great          things and have an awesome time. The server is owned by 
+              Digital Terrain is an SMP server inspired by Hermitcraft. The server is based on a great community, trust,          and fun. We aspire to have a playerbase of all play styles that work together in harmony to build great          things and have an awesome time. The server is owned by 
               <button
                 class="home-page-link-button"
                 id="pandaLink"
