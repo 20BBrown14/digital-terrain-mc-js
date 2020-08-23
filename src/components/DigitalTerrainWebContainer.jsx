@@ -13,6 +13,8 @@ const propTypes = {
   isAdmin: PropTypes.bool.isRequired,
   /* JWT Token */
   jwtToken: PropTypes.string.isRequired,
+  /* Dynamic discord auth call back doman */
+  authCallbackDomain: PropTypes.string.isRequired,
 };
 
 /**
@@ -56,7 +58,9 @@ class DigitalTerrainWebContainer extends React.Component {
 
   render() {
     const { selectedNavKey, homeCachedImages, galleryCachedImages } = this.state;
-    const { discordNick, isAdmin, jwtToken } = this.props;
+    const {
+      discordNick, isAdmin, jwtToken, authCallbackDomain,
+    } = this.props;
     return (
       <DigitalTerrainWebView
         selectedNavKey={selectedNavKey}
@@ -69,6 +73,7 @@ class DigitalTerrainWebContainer extends React.Component {
         discordNick={discordNick}
         isAdmin={isAdmin}
         jwtToken={jwtToken}
+        authCallbackDomain={authCallbackDomain}
       />
     );
   }

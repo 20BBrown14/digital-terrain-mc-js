@@ -12,6 +12,8 @@ const propTypes = {
   discordNick: PropTypes.string.isRequired,
   /* Whether authenticated user is admin */
   isAdmin: PropTypes.bool.isRequired,
+  /* Dynamic discord auth call back doman */
+  authCallbackDomain: PropTypes.string.isRequired,
 };
 
 /**
@@ -45,6 +47,7 @@ class HeaderContainer extends React.Component {
       handleNavMenuClick,
       discordNick,
       isAdmin,
+      authCallbackDomain,
     } = this.props;
     const { showTitle } = this.state;
     return (
@@ -54,6 +57,7 @@ class HeaderContainer extends React.Component {
         showTitle={showTitle}
         discordNick={discordNick}
         isAdmin={isAdmin}
+        authCallbackDomain={authCallbackDomain}
       />
     );
   }

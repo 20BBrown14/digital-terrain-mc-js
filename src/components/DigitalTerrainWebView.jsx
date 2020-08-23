@@ -45,6 +45,8 @@ const propTypes = {
   isAdmin: PropTypes.bool.isRequired,
   /* JWT Token */
   jwtToken: PropTypes.string.isRequired,
+  /* Dynamic discord auth call back doman */
+  authCallbackDomain: PropTypes.string.isRequired,
 };
 
 /**
@@ -122,6 +124,7 @@ const DigitalTerrainWebView = (props) => {
     discordNick,
     isAdmin,
     jwtToken,
+    authCallbackDomain,
   } = props;
   return (
     <Layout className="web-view-layout">
@@ -131,6 +134,7 @@ const DigitalTerrainWebView = (props) => {
           handleNavMenuClick={handleNavMenuClick}
           discordNick={discordNick}
           isAdmin={isAdmin}
+          authCallbackDomain={authCallbackDomain}
         />
       </Layout.Header>
       <Layout.Content className="web-view-layout-content">

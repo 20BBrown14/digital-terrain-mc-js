@@ -27,6 +27,8 @@ const propTypes = {
   discordNick: PropTypes.string.isRequired,
   /* Whether authenticated user is admin */
   isAdmin: PropTypes.bool.isRequired,
+  /* Dynamic discord auth call back doman */
+  authCallbackDomain: PropTypes.string.isRequired,
 
 };
 
@@ -42,7 +44,9 @@ const HeaderView = (props) => {
     showTitle,
     discordNick,
     isAdmin,
+    authCallbackDomain,
   } = props;
+
   return (
     <div>
       <Menu
@@ -107,7 +111,7 @@ const HeaderView = (props) => {
             key={NK_LOGIN}
           >
             {/* eslint-disable-next-line max-len */}
-            <a href="https://discord.com/api/oauth2/authorize?client_id=693123471210709072&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Floggedin&response_type=code&scope=identify%20guilds">Login</a>
+            <a href={`https://discord.com/api/oauth2/authorize?client_id=693123471210709072&redirect_uri=${encodeURIComponent(authCallbackDomain || 'http://localhost:3000')}%2Floggedin&response_type=code&scope=identify%20guilds`}>Login</a>
           </Menu.Item>
           )}
         {discordNick
