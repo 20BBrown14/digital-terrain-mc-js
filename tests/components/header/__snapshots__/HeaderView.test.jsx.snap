@@ -1,0 +1,290 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeaderView renders a default view 1`] = `
+<div>
+  <ul
+    class="ant-menu header-menu ant-menu-light ant-menu-root ant-menu-horizontal"
+    role="menu"
+  >
+    <li
+      class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+      role="menuitem"
+      style="display:none"
+    >
+      <div
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-menu-submenu-title"
+        role="button"
+      >
+        <span>
+          ···
+        </span>
+        <i
+          class="ant-menu-submenu-arrow"
+        />
+      </div>
+    </li>
+    <li
+      aria-disabled="true"
+      class="ant-menu-item header-icon-menu-item ant-menu-item-only-child ant-menu-item-disabled"
+      role="menuitem"
+    >
+      <img
+        alt="loading..."
+        class="header-icon"
+        src="test-file-stub"
+      />
+      <span />
+    </li>
+    <li
+      class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+      role="menuitem"
+      style="display:none"
+    >
+      <div
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-menu-submenu-title"
+        role="button"
+      >
+        <span>
+          ···
+        </span>
+        <i
+          class="ant-menu-submenu-arrow"
+        />
+      </div>
+    </li>
+    <li
+      class="ant-menu-item header-title header-non-highlighted-menu-item ant-menu-item-only-child"
+      role="menuitem"
+    >
+      Digital Terrain
+    </li>
+    <li
+      class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+      role="menuitem"
+      style="display:none"
+    >
+      <div
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-menu-submenu-title"
+        role="button"
+      >
+        <span>
+          ···
+        </span>
+        <i
+          class="ant-menu-submenu-arrow"
+        />
+      </div>
+    </li>
+    <li
+      class="ant-menu-item ant-menu-item-only-child ant-menu-item-selected"
+      role="menuitem"
+    >
+      Home
+    </li>
+    <li
+      class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+      role="menuitem"
+      style="display:none"
+    >
+      <div
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-menu-submenu-title"
+        role="button"
+      >
+        <span>
+          ···
+        </span>
+        <i
+          class="ant-menu-submenu-arrow"
+        />
+      </div>
+    </li>
+    <li
+      class="ant-menu-item ant-menu-item-only-child"
+      role="menuitem"
+    >
+      Gallery
+    </li>
+    <li
+      class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+      role="menuitem"
+      style="display:none"
+    >
+      <div
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-menu-submenu-title"
+        role="button"
+      >
+        <span>
+          ···
+        </span>
+        <i
+          class="ant-menu-submenu-arrow"
+        />
+      </div>
+    </li>
+    <li
+      class="ant-menu-item ant-menu-item-only-child"
+      role="menuitem"
+    >
+      Map
+    </li>
+    <li
+      class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+      role="menuitem"
+      style="display:none"
+    >
+      <div
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-menu-submenu-title"
+        role="button"
+      >
+        <span>
+          ···
+        </span>
+        <i
+          class="ant-menu-submenu-arrow"
+        />
+      </div>
+    </li>
+    <li
+      class="ant-menu-item ant-menu-item-only-child"
+      role="menuitem"
+    >
+      Rules
+    </li>
+    <li
+      class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+      role="menuitem"
+      style="display:none"
+    >
+      <div
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-menu-submenu-title"
+        role="button"
+      >
+        <span>
+          ···
+        </span>
+        <i
+          class="ant-menu-submenu-arrow"
+        />
+      </div>
+    </li>
+    <li
+      class="ant-menu-item ant-menu-item-only-child"
+      role="menuitem"
+    >
+      Server Information
+    </li>
+    <li
+      class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+      role="menuitem"
+      style="display:none"
+    >
+      <div
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-menu-submenu-title"
+        role="button"
+      >
+        <span>
+          ···
+        </span>
+        <i
+          class="ant-menu-submenu-arrow"
+        />
+      </div>
+    </li>
+    <li
+      class="ant-menu-item ant-menu-item-only-child"
+      role="menuitem"
+    >
+      Apply
+    </li>
+    <li
+      class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+      role="menuitem"
+      style="display:none"
+    >
+      <div
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-menu-submenu-title"
+        role="button"
+      >
+        <span>
+          ···
+        </span>
+        <i
+          class="ant-menu-submenu-arrow"
+        />
+      </div>
+    </li>
+    <li
+      class="ant-menu-item ant-menu-item-only-child"
+      role="menuitem"
+    >
+      About us
+    </li>
+    <li
+      class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+      role="menuitem"
+      style="display:none"
+    >
+      <div
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-menu-submenu-title"
+        role="button"
+      >
+        <span>
+          ···
+        </span>
+        <i
+          class="ant-menu-submenu-arrow"
+        />
+      </div>
+    </li>
+    <li
+      class="ant-menu-item ant-menu-item-only-child"
+      role="menuitem"
+    >
+      <a
+        href="https://discord.com/api/oauth2/authorize?client_id=693123471210709072&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Floggedin&response_type=code&scope=identify%20guilds"
+      >
+        Login
+      </a>
+    </li>
+    <li
+      class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+      role="menuitem"
+      style="visibility:hidden;position:absolute"
+    >
+      <div
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-menu-submenu-title"
+        role="button"
+      >
+        <span>
+          ···
+        </span>
+        <i
+          class="ant-menu-submenu-arrow"
+        />
+      </div>
+    </li>
+  </ul>
+</div>
+`;

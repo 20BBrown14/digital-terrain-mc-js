@@ -1,0 +1,21 @@
+.server-information-page-text {
+  font-size: 120%;
+}
+
+.server-information-page-title {
+  text-align: center;
+}
+
+@media (max-width: 525px) {
+  .server-information-page-content {
+    max-width: 95%;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 526px) {
+  .server-information-page-content {
+    max-width: 80%;
+    margin: 0 auto;
+  }
+}

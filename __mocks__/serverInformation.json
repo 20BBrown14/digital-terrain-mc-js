@@ -1,0 +1,127 @@
+{
+  "General Information": [
+    "This server is running Paper 1.16.1",
+    "The seed will never be available for general use. If you'd like help locating a slime chunk or something similar contact a mod or admin.",
+    "24/7 Uptime excluding 1 daily restart",
+    "4,000 Overworld world border",
+    "2,000 Nether world border",
+    "15,000 End world border"
+  ],
+  "Server URLs": {
+    "Server IP": "DigitalTerrain.mcpro.io",
+    "Dynmap URL": "http://digitalterrain.mcpro.io:4492/index.html" 
+  },
+  "Datapacks": [
+    "Anti-creeper grief",
+    "Anti-enderman grief",
+    "Armour Statues",
+    "Coordinates Hud",
+    "Durability Ping",
+    "Double Shulker Shells",
+    "More Mob Heads",
+    "Multiplayer Sleep",
+    "Nether Portal Coords",
+    "Player Head Drops",
+    "Silence Mobs",
+    "Track Statistics",
+    "Wandering Trades"
+  ],
+  "Plugins": [
+    "Eternal Light",
+    "Coreprotect",
+    "Dynmap",
+    "World Border",
+    "AKF+"
+  ],
+  "Hardware": {
+    "CPU": "Intel i7-7700K OC - 4.7 GHz / 5 GHz",
+    "Memory": "6GB DDR4",
+    "Storage": "40GB NVMe SSD"
+  },
+  "Points of Interest": [
+    {
+      "name": "Spawn",
+      "overworld": "176x 64y -144z"
+    },
+    {
+      "name": "Shopping District",
+      "overworld": "256x -342z",
+      "nether": "31x 128y -44z"
+    },
+    {
+      "name": "Industrial District",
+      "overworld": "453x -414z",
+      "nether": "56x 128y -52z"
+    },
+    {
+      "name": "Event District",
+      "overworld": "1228x -389z",
+      "nether": "153x 128y -49z"
+    },
+    {
+      "name": "Gaming District",
+      "overworld": "3656x -2032z"
+    },
+    {
+      "name": "End Portal",
+      "overworld": "-66x 27y 1712z",
+      "nether": "-7x 128y 213z"
+    },
+    {
+      "name": "Enderman xp farm",
+      "end": "283x 48y 0z"
+    },
+    {
+      "name": "Community Guardian Farm",
+      "overworld": "-676x 143z",
+      "nether": "-86x 18z"
+    },
+    {
+      "name": "Community Skeleton Farm",
+      "overworld": "710x 343z"
+    }
+  ],
+  "Roles": {
+    "Gigabytes": {
+      "description": "Server owners and admins both in Discord and in-game.",
+      "commands": "Gigabytes are ops on the server and are able to solve all issues if needed. We have a strict no abuse policy."
+    },
+    "Megabytes": {
+      "description": "Moderators in-game and in Discord to help players as needed.",
+      "commands": {
+        "/co *": "Everything within the coreprotect plugin. See helpful links below for more information about the commands this plugin provides",
+        "/dynmap *": "Everything within the dynmap plugin. See helpful links below for more information about the commands this plugin provides",
+        "/ban": "Ban a member only if necessary which will later be reviewed by admins",
+        "/kick": "Kick a member only if necessary",
+        "/pardon": "Unban a member that was previously banned",
+        "/tp": "Teleport to a player to help them figure something out. Once the issue is resolved teleport back to where you started. This is provided to make it easier to help a player without spending time travelling and wasting time."
+      }
+    },
+    "Kilobytes": {
+      "description": "Outstanding members of our community who are always happy to help and a good resource for new players to ask questions.",
+      "commands": {
+        "/co i": "Coreprotect inspect blocks and entities for information it regarding placements and removals. See helpful links below for more information about how to use this command.",
+        "/co l": "Coreprotect lookup information about an entity, area, or player. See helpful links below for more information about how to use this command."
+      }
+    },
+    "Bytes": {
+      "description": "Regular active members"
+    },
+    "Bits": {
+      "description": "New players to our server. Default role.",
+      "commands": {
+        "/tps": "Displays the last 1m, 5m, and 15m tps average of the server.",
+        "/dmarker add": "Adds a dynmap marker at your location. See helpful links below for more information about how to use this command.",
+        "/dmarker delete": "Deletes a dynmap marker. See helpful links below for more information about how to use this command.",
+        "/ll": "Shows spawnable blocks. Use to help spawnproof your builds",
+        "/trigger": "Show coords hud and portal linking coords",
+        "/afk": "Set your status as afk"
+      }
+    }
+  },
+  "Helpful Links": {
+    "Eternal Light": "https://www.spigotmc.org/resources/eternal-light.50961/",
+    "Dynmap": "https://github.com/webbukkit/dynmap/wiki/",
+    "Coreprotect": "https://gamedb.gg/games/minecraft/coreprotect-commands/" 
+  }
+}

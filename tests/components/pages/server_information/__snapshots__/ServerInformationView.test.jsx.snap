@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ServerInformationView renders a default view 1`] = `
+<div
+  class="server-information-page-content"
+>
+  <h1
+    class="ant-typography server-information-page-title"
+  >
+    Digital Terrain Server Information
+  </h1>
+</div>
+`;

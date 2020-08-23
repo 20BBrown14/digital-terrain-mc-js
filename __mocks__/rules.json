@@ -1,0 +1,47 @@
+{
+  "General Guidelines": [
+    "Be considerate of everybody on the server by being conscious of how you interact with others.",
+    "AFKing is allowed for automated farms however automated character movement or entity detection is disallowed.",
+    "You may be kicked while AFK if tps takes a dip.",
+    "Do not build within ~200 blocks of another player's claimed space without permission.",
+    "Don't build in spawn chunks without permission.",
+    "No use of mods that give you an unfair advantage (x-ray, vanilla x-ray bugs).",
+    "The Discord server should be used when you're wanting to claim a limited world structure (witch hut, fortress, bastion, etc).",
+    "You should not alter community builds or spaces without permission.",
+    "Do not spam chat in-game or Discord. This includes using all caps for more than a few messages.",
+    "Do not grief or steal as you will be found out and is able to be fixed in 10 seconds.",
+    "PVP is allowed but don't be aggressive or abusive",
+    "Your Discord nickname should match your in-game name exactly.",
+    "Do not advertise other Minecraft servers in-game or in Discord.",
+    "Being in the Discord is a requirement for being whitelisted. If you leave you will automatically be un-whitelisted."
+  ],
+  "Redstone Guidelines": [
+    "No lag machines.",
+    "Cover hoppers with composters.",
+    "Light redstone wires.",
+    "All machines need an off switch.",
+    "All machines need overflow protection that turns off production of entities or shoots excess into lava.",
+    "TNT duping is allowed with permission."
+  ],
+  "Shop Guidelines": [
+    "The shopping district is only for shops.",
+    "Spawn proof your shops and community areas. /ll can help you.",
+    "Abandoned shops will be dismantled and all materials and stock donated to the community.",
+    "Claiming shopping district space costs is 1 diamond block for 100 blocks of x/z space rounded up.",
+    "Prosperity Plaza Mall space is free to claim if you don't want a standalone shop. See mall specific guidelines."
+  ],
+  "Prosperity Plaza Mall Guidelines": [
+    "Space is free to claim for anybody. Claim a space by renaming the paper in the directory with the space you want with your shop name.",
+    "Completely spawn proof your claimed space",
+    "You can customize two blocks in on the side walls, ceiling, and floor. You are allowed to customize the backwall as you please as many blocks as you please.",
+    "You are not allowed to customize the mall facing wall EXCEPT to add/adjust a door or window.",
+    "Any default blocks removed must be returned to mall office.",
+    "Abandoned shops will be removed and space put back up for claim"
+  ],
+  "Community Farm Guidelines": [
+    "Community farm locations can be found on the Server Information tab.",
+    "Community farms have a strict 'no extended afk' policy. If you are afk another player may come and use the farm.",
+    "Only take resources that you farm. Don't just always take any backstock.",
+    "You are allowed to sell any materials you get from a community farm."
+  ]
+}

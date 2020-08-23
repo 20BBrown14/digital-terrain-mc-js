@@ -1,0 +1,30 @@
+.header-menu {
+  text-align: right;
+  font-size: 125%;
+}
+
+.header-icon-menu-item {
+  float: left;
+  cursor: auto;
+  
+}
+
+.header-icon {
+  width: 50px;
+  height: auto;
+}
+
+.header-title {
+  font-size: 150%;
+  float: left;
+}
+
+.header-non-highlighted-menu-item.ant-menu-item {
+  border-bottom: 2px solid transparent;
+  color: inherit;
+}
+
+.header-non-highlighted-menu-item.ant-menu-item:hover {
+  border-bottom: 2px solid transparent;
+  color: inherit;
+}

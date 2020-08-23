@@ -1,0 +1,21 @@
+.web-view-layout-header.ant-layout-header {
+  background: white;
+  border-bottom: 1px solid #f0f0f0;
+  height: 66px;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+
+.web-view-layout-content.ant-layout-content {
+  background: white;
+  background-color: white;
+  padding: 96px 30px 66px;
+  flex: 1;
+}
+
+.web-view-layout.ant-layout {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}

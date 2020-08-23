@@ -1,0 +1,42 @@
+.about-us-card-subtitle {
+  text-align: center;
+}
+
+.about-us-card-cover {
+  width: 35%;
+  height: auto;
+  margin: 0 auto;
+  padding-top: 10px
+}
+
+.about-us-card {
+  background: whitesmoke;
+}
+
+@media (max-width: 525px) {
+  .about-us-content {
+    width: 95%;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 526px) {
+  .about-us-content {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+
+.about-us-title {
+  text-align: center;
+}
+
+.about-us-veterans-list {
+  max-width: 65%;
+  margin: 0 auto;
+  text-align: center
+}
+
+.about-us-crafatar {
+  float: right;
+}

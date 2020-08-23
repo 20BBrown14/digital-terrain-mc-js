@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MapView renders a default view 1`] = `
+<div>
+  <iframe
+    class="map-iframe"
+    src="https://dynmap-reverse-proxy.herokuapp.com/"
+    title="Digital Terrain Dynmap"
+  >
+    &lt;p&gt;Your browser does not support this type of content.&lt;/p&gt;
+  </iframe>
+</div>
+`;

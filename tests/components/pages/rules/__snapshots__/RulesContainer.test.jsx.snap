@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RulesContainer renders a default view 1`] = `
+<RulesView
+  hasServiceFailure={false}
+  isLoading={true}
+  rulesInformation={Object {}}
+/>
+`;

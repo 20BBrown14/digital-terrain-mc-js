@@ -1,0 +1,37 @@
+.home-page-title {
+  text-align: center;
+}
+
+.home-page-subtitle {
+  text-align: center;
+  font-size: 120%;
+}
+
+.home-page-carousel {
+  padding-top: 20px; 
+}
+
+.home-page-link-button {
+  color: #1890ff;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 525px) {
+  .home-page-content {
+    max-width: 95%;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 526px) {
+  .home-page-content {
+    max-width: 80%;
+    margin: 0 auto;
+  }
+}
