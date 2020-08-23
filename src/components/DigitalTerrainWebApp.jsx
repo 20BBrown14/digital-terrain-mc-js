@@ -15,6 +15,8 @@ const propTypes = {
   isAdmin: PropTypes.bool,
   /* JWT Token */
   jwtToken: PropTypes.string,
+  /* Dynamic discord auth call back doman */
+  authCallbackDomain: PropTypes.string.isRequired,
 };
 
 const defaultProps = {
@@ -33,6 +35,7 @@ const DigitalTerrainWebApp = (props) => {
     discordNick,
     isAdmin,
     jwtToken,
+    authCallbackDomain,
   } = props;
   return (
     <div>
@@ -41,6 +44,7 @@ const DigitalTerrainWebApp = (props) => {
         discordNick={discordNick}
         isAdmin={isAdmin}
         jwtToken={jwtToken}
+        authCallbackDomain={authCallbackDomain}
       />
     </div>
   );
