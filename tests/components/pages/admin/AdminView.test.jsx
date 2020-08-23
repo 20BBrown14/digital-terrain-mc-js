@@ -55,6 +55,7 @@ describe('AdminView', () => {
         handleUploadModalGoBackClick={() => {}}
         handleUploadModalUploadClick={() => {}}
         handleViewImageToggleFeaturedButtonClick={() => {}}
+        jwtToken=""
       />,
     );
 
@@ -114,6 +115,7 @@ describe('AdminView', () => {
         handleUploadModalGoBackClick={() => {}}
         handleUploadModalUploadClick={() => {}}
         handleViewImageToggleFeaturedButtonClick={() => {}}
+        jwtToken=""
       />,
     );
 
@@ -173,6 +175,7 @@ describe('AdminView', () => {
         handleUploadModalGoBackClick={() => {}}
         handleUploadModalUploadClick={() => {}}
         handleViewImageToggleFeaturedButtonClick={() => {}}
+        jwtToken=""
       />,
     );
 
@@ -232,6 +235,7 @@ describe('AdminView', () => {
         handleUploadModalGoBackClick={() => {}}
         handleUploadModalUploadClick={() => {}}
         handleViewImageToggleFeaturedButtonClick={() => {}}
+        jwtToken=""
       />,
     );
 
@@ -292,6 +296,7 @@ describe('AdminView', () => {
         handleUploadModalGoBackClick={() => {}}
         handleUploadModalUploadClick={() => {}}
         handleViewImageToggleFeaturedButtonClick={() => {}}
+        jwtToken=""
       />,
     );
 
@@ -358,6 +363,7 @@ describe('AdminView', () => {
           handleUploadModalGoBackClick={() => {}}
           handleUploadModalUploadClick={() => {}}
           handleViewImageToggleFeaturedButtonClick={() => {}}
+          jwtToken=""
         />,
       );
 

@@ -27,6 +27,7 @@ describe('Admin services', () => {
               headers: {
                 'Content-Type': 'application/json',
                 Accept: 'application/json',
+                Authorization: 'sometokenhere',
               },
             },
           );
@@ -37,7 +38,7 @@ describe('Admin services', () => {
 
       it('calls success handler', async () => {
         const successHandler = jest.fn();
-        saveJSONInformationService(successHandler, () => {}, 'rules', { json: 'json' });
+        saveJSONInformationService(successHandler, () => {}, 'rules', { json: 'json' }, 'sometokenhere');
         await flushPromises();
         expect(successHandler).toHaveBeenCalledTimes(1);
         expect(successHandler).toHaveBeenCalledWith({ json: 'json' });
@@ -45,7 +46,9 @@ describe('Admin services', () => {
     });
 
     describe('failed call', () => {
+      let expectedError;
       beforeEach(() => {
+        expectedError = new Error('error');
         axios.post.mockImplementation((path, body, headers) => new Promise((resolve, reject) => {
           expect(path).toEqual('/save?JSONTypeToSave=rules');
           expect(body).toEqual({ JSON: { json: 'json' } });
@@ -54,6 +57,7 @@ describe('Admin services', () => {
               headers: {
                 'Content-Type': 'application/json',
                 Accept: 'application/json',
+                Authorization: 'sometokenhere',
               },
             },
           );
@@ -64,9 +68,10 @@ describe('Admin services', () => {
 
       it('calls failure callback', async () => {
         const failureCallback = jest.fn();
-        saveJSONInformationService(() => {}, failureCallback, 'rules', { json: 'json' });
+        saveJSONInformationService(() => {}, failureCallback, 'rules', { json: 'json' }, 'sometokenhere');
         await flushPromises();
         expect(failureCallback).toHaveBeenCalledTimes(1);
+        expect(failureCallback).toHaveBeenCalledWith(expectedError);
       });
     });
   });
@@ -74,8 +79,13 @@ describe('Admin services', () => {
   describe('loadAppsService', () => {
     describe('successful call', () => {
       beforeEach(() => {
-        axios.get.mockImplementation((path) => new Promise((resolve) => {
+        axios.get.mockImplementation((path, headers) => new Promise((resolve) => {
           expect(path).toEqual('/loadApps?applicationFilter=newStatus');
+          expect(headers).toEqual({
+            headers: {
+              Authorization: 'sometokenhere',
+            },
+          });
           resolve({
             data: [
               { appID: 0, name: 'aName' },
@@ -87,7 +97,7 @@ describe('Admin services', () => {
 
       it('calls success callback', async () => {
         const success = jest.fn();
-        loadAppsService(success, () => {}, 'newStatus');
+        loadAppsService(success, () => {}, 'newStatus', 'sometokenhere');
         await flushPromises();
         expect(success).toHaveBeenCalledTimes(1);
         expect(success).toHaveBeenCalledWith([
@@ -98,22 +108,26 @@ describe('Admin services', () => {
     });
 
     describe('failed call', () => {
+      let expectedError;
       beforeEach(() => {
-        axios.get.mockImplementation((path, body) => new Promise((resolve, reject) => {
+        expectedError = new Error('error');
+        axios.get.mockImplementation((path, headers) => new Promise((resolve, reject) => {
           expect(path).toEqual('/loadApps?applicationFilter=newStatus');
-          expect(body).toEqual([
-            { appID: 0, name: 'aName' },
-            { appID: 1, name: 'bName' },
-          ]);
+          expect(headers).toEqual({
+            headers: {
+              Authorization: 'sometoken',
+            },
+          });
           reject(new Error('error'));
         }));
       });
 
       it('calls failure callback', async () => {
         const failure = jest.fn();
-        loadAppsService(() => {}, failure, 'newStatus');
+        loadAppsService(() => {}, failure, 'newStatus', 'sometoken');
         await flushPromises();
         expect(failure).toHaveBeenCalledTimes(1);
+        expect(failure).toHaveBeenCalledWith(expectedError);
       });
     });
   });
@@ -121,35 +135,52 @@ describe('Admin services', () => {
   describe('updateAppStatusService', () => {
     describe('successful call', () => {
       beforeEach(() => {
-        axios.post.mockImplementation((path, body) => new Promise((resolve) => {
+        axios.post.mockImplementation((path, body, headers) => new Promise((resolve) => {
           expect(path).toEqual('/updateappstatus');
           expect(body).toEqual({ appID: 0, newStatus: 'newStatus' });
+          expect(headers).toEqual({
+            headers: {
+              'Content-Type': 'application/json',
+              Accept: 'application/json',
+              Authorization: 'somejwtToken',
+            },
+          });
           resolve();
         }));
       });
 
       it('calls success callback', async () => {
         const success = jest.fn();
-        updateAppStatusService(success, () => {}, 0, 'newStatus');
+        updateAppStatusService(success, () => {}, 0, 'newStatus', 'somejwtToken');
         await flushPromises();
         expect(success).toHaveBeenCalledTimes(1);
       });
     });
 
     describe('failed call', () => {
+      let expectedError;
       beforeEach(() => {
-        axios.post.mockImplementation((path, body) => new Promise((resolve, reject) => {
+        expectedError = new Error('error');
+        axios.post.mockImplementation((path, body, headers) => new Promise((resolve, reject) => {
           expect(path).toEqual('/updateappstatus');
           expect(body).toEqual({ appID: 0, newStatus: 'newStatus' });
+          expect(headers).toEqual({
+            headers: {
+              'Content-Type': 'application/json',
+              Accept: 'application/json',
+              Authorization: 'somejwtToken',
+            },
+          });
           reject(new Error('error'));
         }));
       });
 
       it('calls failure callback', async () => {
         const failure = jest.fn();
-        updateAppStatusService(() => {}, failure, 0, 'newStatus');
+        updateAppStatusService(() => {}, failure, 0, 'newStatus', 'somejwtToken');
         await flushPromises();
         expect(failure).toHaveBeenCalledTimes(1);
+        expect(failure).toHaveBeenCalledWith(expectedError);
       });
     });
   });
@@ -157,35 +188,52 @@ describe('Admin services', () => {
   describe('deleteAppService', () => {
     describe('successful call', () => {
       beforeEach(() => {
-        axios.post.mockImplementation((path, body) => new Promise((resolve) => {
+        axios.post.mockImplementation((path, body, headers) => new Promise((resolve) => {
           expect(path).toEqual('/deleteapp');
           expect(body).toEqual({ appID: 0 });
+          expect(headers).toEqual({
+            headers: {
+              'Content-Type': 'application/json',
+              Accept: 'application/json',
+              Authorization: 'somejwtToken',
+            },
+          });
           resolve();
         }));
       });
 
       it('calls success callback', async () => {
         const success = jest.fn();
-        deleteAppService(success, () => {}, 0);
+        deleteAppService(success, () => {}, 0, 'somejwtToken');
         await flushPromises();
         expect(success).toHaveBeenCalledTimes(1);
       });
     });
 
     describe('failed call', () => {
+      let expectedError;
       beforeEach(() => {
-        axios.post.mockImplementation((path, body) => new Promise((resolve, reject) => {
+        expectedError = new Error('error');
+        axios.post.mockImplementation((path, body, headers) => new Promise((resolve, reject) => {
           expect(path).toEqual('/deleteapp');
           expect(body).toEqual({ appID: 0 });
-          reject();
+          expect(headers).toEqual({
+            headers: {
+              'Content-Type': 'application/json',
+              Accept: 'application/json',
+              Authorization: 'somejwtToken',
+            },
+          });
+          reject(expectedError);
         }));
       });
 
       it('calls failure callback', async () => {
         const failure = jest.fn();
-        deleteAppService(() => {}, failure, 0);
+        deleteAppService(() => {}, failure, 0, 'somejwtToken');
         await flushPromises();
         expect(failure).toHaveBeenCalledTimes(1);
+        expect(failure).toHaveBeenCalledWith(expectedError);
       });
     });
   });
@@ -193,35 +241,52 @@ describe('Admin services', () => {
   describe('deleteImageService', () => {
     describe('successful call', () => {
       beforeEach(() => {
-        axios.post.mockImplementation((path, body) => new Promise((resolve) => {
+        axios.post.mockImplementation((path, body, headers) => new Promise((resolve) => {
           expect(path).toEqual('/deleteImage');
           expect(body).toEqual({ imageID: 5 });
+          expect(headers).toEqual({
+            headers: {
+              'Content-Type': 'application/json',
+              Accept: 'application/json',
+              Authorization: 'somejwtToken',
+            },
+          });
           resolve();
         }));
       });
 
       it('calls success callback', async () => {
         const success = jest.fn();
-        deleteImageService(success, () => {}, 5);
+        deleteImageService(success, () => {}, 5, 'somejwtToken');
         await flushPromises();
         expect(success).toHaveBeenCalledTimes(1);
       });
     });
 
     describe('failed call', () => {
+      let expectedError;
       beforeEach(() => {
-        axios.post.mockImplementation((path, body) => new Promise((resolve, reject) => {
+        expectedError = new Error('error');
+        axios.post.mockImplementation((path, body, headers) => new Promise((resolve, reject) => {
           expect(path).toEqual('/deleteImage');
-          expect(body).toEqual({ imageId: 5 });
+          expect(body).toEqual({ imageID: 5 });
+          expect(headers).toEqual({
+            headers: {
+              'Content-Type': 'application/json',
+              Accept: 'application/json',
+              Authorization: 'somejwtToken',
+            },
+          });
           reject(new Error('error'));
         }));
       });
 
       it('calls failure callback', async () => {
         const failure = jest.fn();
-        deleteImageService(() => {}, failure, 5);
+        deleteImageService(() => {}, failure, 5, 'somejwtToken');
         await flushPromises();
         expect(failure).toHaveBeenCalledTimes(1);
+        expect(failure).toHaveBeenCalledWith(expectedError);
       });
     });
   });
@@ -229,35 +294,52 @@ describe('Admin services', () => {
   describe('toggleFeaturedImageService ', () => {
     describe('successful call', () => {
       beforeEach(() => {
-        axios.post.mockImplementation((path, body) => new Promise((resolve) => {
+        axios.post.mockImplementation((path, body, headers) => new Promise((resolve) => {
           expect(path).toEqual('/toggleFeaturedImage');
           expect(body).toEqual({ imageID: 5 });
+          expect(headers).toEqual({
+            headers: {
+              'Content-Type': 'application/json',
+              Accept: 'application/json',
+              Authorization: 'somejwtToken',
+            },
+          });
           resolve();
         }));
       });
 
       it('calls success callback', async () => {
         const success = jest.fn();
-        toggleFeaturedImageService(success, () => {}, 5);
+        toggleFeaturedImageService(success, () => {}, 5, 'somejwtToken');
         await flushPromises();
         expect(success).toHaveBeenCalledTimes(1);
       });
     });
 
     describe('failed call', () => {
+      let expectedError;
       beforeEach(() => {
-        axios.post.mockImplementation((path, body) => new Promise((resolve, reject) => {
+        expectedError = new Error('error');
+        axios.post.mockImplementation((path, body, headers) => new Promise((resolve, reject) => {
           expect(path).toEqual('/toggleFeaturedImage');
-          expect(body).toEqual({ imageId: 5 });
-          reject(new Error('error'));
+          expect(body).toEqual({ imageID: 5 });
+          expect(headers).toEqual({
+            headers: {
+              'Content-Type': 'application/json',
+              Accept: 'application/json',
+              Authorization: 'somejwtToken',
+            },
+          });
+          reject(expectedError);
         }));
       });
 
       it('calls failure callback', async () => {
         const failure = jest.fn();
-        toggleFeaturedImageService(() => {}, failure, 5);
+        toggleFeaturedImageService(() => {}, failure, 5, 'somejwtToken');
         await flushPromises();
         expect(failure).toHaveBeenCalledTimes(1);
+        expect(failure).toHaveBeenCalledWith(expectedError);
       });
     });
   });

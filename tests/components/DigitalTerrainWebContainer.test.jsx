@@ -8,11 +8,25 @@ import DigitalTerrainWebContainer from '../../src/components/DigitalTerrainWebCo
 describe('DigitalTerrainWebContainer', () => {
   let container;
   beforeEach(() => {
-    container = shallow(<DigitalTerrainWebContainer selectedNavKey={NK_HOME} />);
+    container = shallow(
+      <DigitalTerrainWebContainer
+        selectedNavKey={NK_HOME}
+        discordNick=""
+        isAdmin={false}
+        jwtToken=""
+      />,
+    );
   });
 
   it('renders a default component', () => {
-    container = render(<DigitalTerrainWebContainer selectedNavKey={NK_HOME} />);
+    container = render(
+      <DigitalTerrainWebContainer
+        selectedNavKey={NK_HOME}
+        discordNick=""
+        isAdmin={false}
+        jwtToken=""
+      />,
+    );
     expect(container).toMatchSnapshot();
   });
 

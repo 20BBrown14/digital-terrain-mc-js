@@ -8,6 +8,10 @@ const propTypes = {
   selectedNavKey: selectedNavKeyPropTypes.isRequired,
   /* Function for handling menu item click */
   handleNavMenuClick: PropTypes.func.isRequired,
+  /* Authenitcated user's discord name */
+  discordNick: PropTypes.string.isRequired,
+  /* Whether authenticated user is admin */
+  isAdmin: PropTypes.bool.isRequired,
 };
 
 /**
@@ -32,17 +36,24 @@ class HeaderContainer extends React.Component {
   }
 
   updateShowTitle() {
-    this.setState({ showTitle: (window.innerWidth > 442 || window.innerWidth < 388) });
+    this.setState({ showTitle: window.innerWidth > 442 });
   }
 
   render() {
-    const { selectedNavKey, handleNavMenuClick } = this.props;
+    const {
+      selectedNavKey,
+      handleNavMenuClick,
+      discordNick,
+      isAdmin,
+    } = this.props;
     const { showTitle } = this.state;
     return (
       <HeaderView
         selectedNavKey={selectedNavKey}
         handleNavMenuClick={handleNavMenuClick}
         showTitle={showTitle}
+        discordNick={discordNick}
+        isAdmin={isAdmin}
       />
     );
   }

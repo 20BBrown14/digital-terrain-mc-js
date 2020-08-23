@@ -6,7 +6,7 @@ import './Map.css';
  */
 const MapView = () => (
   <div>
-    <iframe src="http://147.135.107.178:4492/index.html" className="map-iframe" title="Digital Terrain Dynmap">
+    <iframe src="https://dynmap-reverse-proxy.herokuapp.com/" className="map-iframe" title="Digital Terrain Dynmap">
       <p>Your browser does not support this type of content.</p>
     </iframe>
   </div>

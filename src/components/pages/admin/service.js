@@ -9,7 +9,7 @@ const DELETE_APP_PATH = '/deleteapp';
 const DELETE_IMAGE_PATH = '/deleteImage';
 const TOGGLE_FEATURED_IMAGE_PATH = '/toggleFeaturedImage';
 
-export const saveJSONInformationService = (successCallback, failureCallback, JSONTypeToSave, JSONToSave) => {
+export const saveJSONInformationService = (successCallback, failureCallback, JSONTypeToSave, JSONToSave, jwtToken) => {
   axios.post(
     `${SAVE_JSON_PATH}?JSONTypeToSave=${JSONTypeToSave}`,
     {
@@ -19,6 +19,7 @@ export const saveJSONInformationService = (successCallback, failureCallback, JSO
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
+        Authorization: jwtToken,
       },
     },
   )
@@ -37,9 +38,14 @@ export const saveJSONInformationService = (successCallback, failureCallback, JSO
     .catch(failureCallback);
 };
 
-export const loadAppsService = (successCallback, failureCallback, applicationFilter) => {
+export const loadAppsService = (successCallback, failureCallback, applicationFilter, jwtToken) => {
   axios.get(
     `${LOAD_APPS_PATH}?applicationFilter=${applicationFilter}`,
+    {
+      headers: {
+        Authorization: jwtToken,
+      },
+    },
   )
     .then((response) => {
       const responseData = response.data;
@@ -50,7 +56,7 @@ export const loadAppsService = (successCallback, failureCallback, applicationFil
     .catch(failureCallback);
 };
 
-export const updateAppStatusService = (successCallback, failureCallback, appID, newStatus) => {
+export const updateAppStatusService = (successCallback, failureCallback, appID, newStatus, jwtToken) => {
   axios.post(
     UPDATE_APP_STATUS_PATH,
     {
@@ -61,6 +67,7 @@ export const updateAppStatusService = (successCallback, failureCallback, appID, 
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
+        Authorization: jwtToken,
       },
     },
   )
@@ -68,7 +75,7 @@ export const updateAppStatusService = (successCallback, failureCallback, appID, 
     .catch(failureCallback);
 };
 
-export const deleteAppService = (successCallback, failureCallback, appID) => {
+export const deleteAppService = (successCallback, failureCallback, appID, jwtToken) => {
   axios.post(
     DELETE_APP_PATH,
     {
@@ -78,6 +85,7 @@ export const deleteAppService = (successCallback, failureCallback, appID) => {
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
+        Authorization: jwtToken,
       },
     },
   )
@@ -85,7 +93,7 @@ export const deleteAppService = (successCallback, failureCallback, appID) => {
     .catch(failureCallback);
 };
 
-export const deleteImageService = (successCallback, failureCallback, imageID) => {
+export const deleteImageService = (successCallback, failureCallback, imageID, jwtToken) => {
   axios.post(
     DELETE_IMAGE_PATH,
     {
@@ -95,6 +103,7 @@ export const deleteImageService = (successCallback, failureCallback, imageID) =>
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
+        Authorization: jwtToken,
       },
     },
   )
@@ -102,7 +111,7 @@ export const deleteImageService = (successCallback, failureCallback, imageID) =>
     .catch(failureCallback);
 };
 
-export const toggleFeaturedImageService = (successCallback, failureCallback, imageID) => {
+export const toggleFeaturedImageService = (successCallback, failureCallback, imageID, jwtToken) => {
   axios.post(
     TOGGLE_FEATURED_IMAGE_PATH,
     {
@@ -112,6 +121,7 @@ export const toggleFeaturedImageService = (successCallback, failureCallback, ima
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
+        Authorization: jwtToken,
       },
     },
   )

@@ -266,7 +266,11 @@ exports[`DigitalTerrainWebView renders a default view 1`] = `
           class="ant-menu-item ant-menu-item-only-child"
           role="menuitem"
         >
-          Admin
+          <a
+            href="https://discord.com/api/oauth2/authorize?client_id=693123471210709072&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Floggedin&response_type=code&scope=identify%20guilds"
+          >
+            Login
+          </a>
         </li>
         <li
           class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"

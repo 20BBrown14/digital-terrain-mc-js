@@ -124,6 +124,8 @@ const propTypes = {
   handleUploadModalGoBackClick: PropTypes.func.isRequired,
   /* Functio to handle toggle featured button click */
   handleViewImageToggleFeaturedButtonClick: PropTypes.func.isRequired,
+  /* JWT Token */
+  jwtToken: PropTypes.string.isRequired,
 };
 
 const defaultProps = {
@@ -190,6 +192,7 @@ const AdminView = (props) => {
     isUploadModalOpen,
     handleUploadNewButtonClick,
     handleUploadModalGoBackClick,
+    jwtToken,
   } = props;
 
   const buildJSONEditor = () => (
@@ -448,7 +451,12 @@ const AdminView = (props) => {
     };
 
     return (
-      <Upload action="/imageUpload" accept=".png,.jpg,.jpeg" beforeUpload={beforeUpload}>
+      <Upload
+        action="/imageUpload"
+        accept=".png,.jpg,.jpeg"
+        beforeUpload={beforeUpload}
+        headers={{ Authorization: jwtToken }}
+      >
         <Button>
           <UploadOutlined />
           {' '}

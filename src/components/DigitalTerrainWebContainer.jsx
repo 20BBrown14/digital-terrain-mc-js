@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import selectedNavKeyPropTypes from '../proptypes/selectedNavKeyPropTypes';
 import { NK_HOME } from '../constants/navKeys';
 import DigitalTerrainWebView from './DigitalTerrainWebView';
@@ -6,6 +7,12 @@ import DigitalTerrainWebView from './DigitalTerrainWebView';
 const propTypes = {
   /* The page to load base on the requested url from server */
   selectedNavKey: selectedNavKeyPropTypes.isRequired,
+  /* Authenitcated user's discord name */
+  discordNick: PropTypes.string.isRequired,
+  /* Whether authenticated user is admin */
+  isAdmin: PropTypes.bool.isRequired,
+  /* JWT Token */
+  jwtToken: PropTypes.string.isRequired,
 };
 
 /**
@@ -49,6 +56,7 @@ class DigitalTerrainWebContainer extends React.Component {
 
   render() {
     const { selectedNavKey, homeCachedImages, galleryCachedImages } = this.state;
+    const { discordNick, isAdmin, jwtToken } = this.props;
     return (
       <DigitalTerrainWebView
         selectedNavKey={selectedNavKey}
@@ -58,6 +66,9 @@ class DigitalTerrainWebContainer extends React.Component {
         setCachedHomeImages={this.setCachedHomeImages}
         galleryCachedImages={galleryCachedImages}
         setCachedGalleryImages={this.setCachedGalleryImages}
+        discordNick={discordNick}
+        isAdmin={isAdmin}
+        jwtToken={jwtToken}
       />
     );
   }

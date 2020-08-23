@@ -243,6 +243,11 @@ exports[`AdminView renders a default view 1`] = `
       className=""
       data={Object {}}
       disabled={false}
+      headers={
+        Object {
+          "Authorization": "",
+        }
+      }
       listType="text"
       multiple={false}
       showUploadList={true}
@@ -566,6 +571,11 @@ exports[`AdminView renders a failed view 1`] = `
       className=""
       data={Object {}}
       disabled={false}
+      headers={
+        Object {
+          "Authorization": "",
+        }
+      }
       listType="text"
       multiple={false}
       showUploadList={true}
@@ -883,6 +893,11 @@ exports[`AdminView renders a json loading view 1`] = `
       className=""
       data={Object {}}
       disabled={false}
+      headers={
+        Object {
+          "Authorization": "",
+        }
+      }
       listType="text"
       multiple={false}
       showUploadList={true}
@@ -1200,6 +1215,11 @@ exports[`AdminView renders a save loading view 1`] = `
       className=""
       data={Object {}}
       disabled={false}
+      headers={
+        Object {
+          "Authorization": "",
+        }
+      }
       listType="text"
       multiple={false}
       showUploadList={true}
@@ -1524,6 +1544,11 @@ exports[`AdminView renders a save successful view 1`] = `
       className=""
       data={Object {}}
       disabled={false}
+      headers={
+        Object {
+          "Authorization": "",
+        }
+      }
       listType="text"
       multiple={false}
       showUploadList={true}

@@ -12,6 +12,7 @@ import {
   NK_APPLY,
   NK_ABOUT_US,
   NK_ADMIN,
+  NK_LOGIN,
 } from '../constants/navKeys';
 import HomeContainer from './pages/home/HomeContainer';
 import GalleryContainer from './pages/gallery/GalleryContainer';
@@ -38,7 +39,12 @@ const propTypes = {
   galleryCachedImages: PropTypes.arrayOf(PropTypes.object).isRequired,
   /* Function to set cached gallery images */
   setCachedGalleryImages: PropTypes.func.isRequired,
-
+  /* Authenitcated user's discord name */
+  discordNick: PropTypes.string.isRequired,
+  /* Whether authenticated user is admin */
+  isAdmin: PropTypes.bool.isRequired,
+  /* JWT Token */
+  jwtToken: PropTypes.string.isRequired,
 };
 
 /**
@@ -54,10 +60,12 @@ const determineBodyContent = (propsObject) => {
     setCachedHomeImages,
     galleryCachedImages,
     setCachedGalleryImages,
+    jwtToken,
   } = propsObject;
   switch (selectedNavKey) {
     default:
     case NK_HOME:
+    case NK_LOGIN:
       return (
         <HomeContainer
           navigateToNewPage={navigateToNewPage}
@@ -94,7 +102,7 @@ const determineBodyContent = (propsObject) => {
       );
     case NK_ADMIN:
       return (
-        <AdminContainer />
+        <AdminContainer jwtToken={jwtToken} />
       );
   }
 };
@@ -111,6 +119,9 @@ const DigitalTerrainWebView = (props) => {
     setCachedHomeImages,
     galleryCachedImages,
     setCachedGalleryImages,
+    discordNick,
+    isAdmin,
+    jwtToken,
   } = props;
   return (
     <Layout className="web-view-layout">
@@ -118,6 +129,8 @@ const DigitalTerrainWebView = (props) => {
         <HeaderContainer
           selectedNavKey={selectedNavKey}
           handleNavMenuClick={handleNavMenuClick}
+          discordNick={discordNick}
+          isAdmin={isAdmin}
         />
       </Layout.Header>
       <Layout.Content className="web-view-layout-content">
@@ -128,6 +141,7 @@ const DigitalTerrainWebView = (props) => {
           setCachedHomeImages,
           galleryCachedImages,
           setCachedGalleryImages,
+          jwtToken,
         })}
       </Layout.Content>
       <Layout.Footer>
