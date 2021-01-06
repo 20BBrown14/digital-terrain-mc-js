@@ -42,7 +42,7 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "antd": "4.4.3",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "form-urlencoded": "^4.2.1",
     "jsoneditor-react": "^3.0.0",
     "prop-types": "^15.7.2",
